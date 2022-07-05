@@ -22,34 +22,34 @@ class RootScreen extends StatelessWidget {
                   children: [
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'HOME',
                           style: TextStyle(color: Colors.black),
                         )),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'PAPPS',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'TEAM',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'MEDIA',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'FAQ',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -62,6 +62,28 @@ class RootScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: false,
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {},
+            child: Image.asset(
+              'img/main/icon_naver_blog-300x300.png',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          FloatingActionButton(
+              onPressed: () {},
+              child: Container(
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage('img/main/Facebook-icon-1.png'))),
+              )),
+        ],
       ),
       body: const HomeScreen(),
     );
