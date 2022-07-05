@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/home/components/gallery_widget.dart';
 import 'package:insta_coin/ui/constant.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -16,53 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-
-  late final OverlayEntry overlayEntry =
-  OverlayEntry(builder: _overlayEntryBuilder);
-
-  @override
-  void dispose() {
-    overlayEntry.dispose();
-    super.dispose();
-  }
-
-  void insertOverlay() {
-    if (!overlayEntry.mounted) {
-      OverlayState overlayState = Overlay.of(context)!;
-      overlayState.insert(overlayEntry);
-    }
-  }
-
-  void removeOverlay() {
-    if (overlayEntry.mounted) {
-      overlayEntry.remove();
-    }
-  }
-
-  Widget _overlayEntryBuilder(BuildContext context) {
-    Offset position = _getOverlayEntryPosition();
-    Size size = _getOverlayEntrySize();
-
-    return Positioned(
-      left: position.dx,
-      top: position.dy,
-      width: Get.size.width - MyConstants.SCREEN_HORIZONTAL_MARGIN.horizontal,
-      child: AutoCompleteKeywordList(),
-    );
-  }
-
-  Offset _getOverlayEntryPosition() {
-    RenderBox renderBox =
-    _searchBarKey.currentContext!.findRenderObject()! as RenderBox;
-    return Offset(renderBox.localToGlobal(Offset.zero).dx,
-        renderBox.localToGlobal(Offset.zero).dy + renderBox.size.height);
-  }
-
-  Size _getOverlayEntrySize() {
-    RenderBox renderBox =
-    _searchBarKey.currentContext!.findRenderObject()! as RenderBox;
-    return renderBox.size;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -265,7 +217,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: InkWell(
                                   onTap: () {
                                     _controller.previousPage(
-                                        duration: const Duration(milliseconds: 300));
+                                        duration:
+                                            const Duration(milliseconds: 300));
                                   },
                                   child: const Icon(
                                     Icons.arrow_back_ios,
@@ -274,10 +227,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               InkWell(
-                                onTap: (){
+                                onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const GalleryWidget()),
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const GalleryWidget()),
                                   );
                                 },
                                 child: SizedBox(
@@ -294,7 +249,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               _current = index;
                                             });
                                           }),
-                                      items: imgList.map((item) => item).toList(),
+                                      items:
+                                          imgList.map((item) => item).toList(),
                                     )),
                               ),
                               Padding(
@@ -342,6 +298,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(const Size(
+                800,
+                700,
+              )),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    'OUR VISION',
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    'In 2008, Satoshi’s bitcoin provided the technological solution to bringing virtual currency payment to reality. Its intention to be used as payment instrument itself, however, has rather dimmed in the light of many other intriguing aspects of Blockchain. The issue of using payment method and currency cannot be simply resolved by the technological solutions, but is also very closely related to the nation’s regulatory framework. Our founder has the most extensive knowledge of the post-internet payment methods and their potential for change.',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(height: 35,),
+                  Text(
+                    'We envision to create an O2O Commerce ecosystem that enables transactions without barriers of time and location in daily life. The credit card system that has penetrated into people’s life today is expensive in costs and complicated in system processing. InstaPay’s patented QR code payment system will provide a competitive alternative to credit card and open the doorway to the new O2O Commerce era. InstaCoin takes on the mission that Satoshi’s bitcoin has begun but not yet completed to become the future payment platform, by expanding its Blockchain ecosystem through various platform applications.',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(height: 30,),
+                  Text(
+                    'We envision to create the first cryptocurrency to be actually used as a payment method:  boarder-less and time-less.',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
               ),
             ),
           ],
