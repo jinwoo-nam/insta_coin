@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_coin/presentation/home/components/gallery_widget.dart';
+import 'package:insta_coin/presentation/home/components/gallery_loader.dart';
 import 'package:insta_coin/ui/constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +16,15 @@ class _HomeScreenState extends State<HomeScreen> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final length = max(
@@ -228,30 +237,28 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               InkWell(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const GalleryWidget()),
-                                  );
+                                  GalleryLoader.appLoader.showLoader();
                                 },
                                 child: SizedBox(
-                                    width: 800,
-                                    height: 700,
-                                    child: CarouselSlider(
-                                      carouselController: _controller,
-                                      options: CarouselOptions(
-                                          height: 700,
-                                          viewportFraction: 1.0,
-                                          enlargeCenterPage: false,
-                                          onPageChanged: (index, reason) {
-                                            setState(() {
-                                              _current = index;
-                                            });
-                                          }),
-                                      items:
-                                          imgList.map((item) => item).toList(),
-                                    )),
+                                  width: 800,
+                                  height: 700,
+                                  child: CarouselSlider(
+                                    carouselController: _controller,
+                                    options: CarouselOptions(
+                                      height: 700,
+                                      viewportFraction: 1.0,
+                                      enlargeCenterPage: false,
+                                      onPageChanged: (index, reason) {
+                                        setState(() {
+                                          _current = index;
+                                        });
+                                      },
+                                    ),
+                                    items: imgList
+                                        .map((item) => Image.asset(item.imgSource))
+                                        .toList(),
+                                  ),
+                                ),
                               ),
                               Padding(
                                 padding:
@@ -322,12 +329,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     'In 2008, Satoshi’s bitcoin provided the technological solution to bringing virtual currency payment to reality. Its intention to be used as payment instrument itself, however, has rather dimmed in the light of many other intriguing aspects of Blockchain. The issue of using payment method and currency cannot be simply resolved by the technological solutions, but is also very closely related to the nation’s regulatory framework. Our founder has the most extensive knowledge of the post-internet payment methods and their potential for change.',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 35,),
+                  SizedBox(
+                    height: 35,
+                  ),
                   Text(
                     'We envision to create an O2O Commerce ecosystem that enables transactions without barriers of time and location in daily life. The credit card system that has penetrated into people’s life today is expensive in costs and complicated in system processing. InstaPay’s patented QR code payment system will provide a competitive alternative to credit card and open the doorway to the new O2O Commerce era. InstaCoin takes on the mission that Satoshi’s bitcoin has begun but not yet completed to become the future payment platform, by expanding its Blockchain ecosystem through various platform applications.',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Text(
                     'We envision to create the first cryptocurrency to be actually used as a payment method:  boarder-less and time-less.',
                     style: TextStyle(fontSize: 20),

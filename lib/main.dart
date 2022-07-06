@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/home/components/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/root/root_screen.dart';
 
 void main() {
@@ -15,7 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RootScreen(),
+      home: Stack(
+        children: const [
+          RootScreen(),
+          GalleryOverlayWidget(),
+        ],
+      ),
     );
   }
 }
