@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'InstaCoin',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'source_sans_pro'
       ),
       home: Stack(
         children: const [

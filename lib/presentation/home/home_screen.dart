@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void dispose() {
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     final length = max(
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 48,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w700,
                                     height: 1.4,
                                   ),
                                 ),
@@ -209,8 +210,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         'GALLERY',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 50,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -255,7 +256,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       },
                                     ),
                                     items: imgList
-                                        .map((item) => Image.asset(item.imgSource))
+                                        .map((item) =>
+                                            Image.asset(item.imgSource))
                                         .toList(),
                                   ),
                                 ),
@@ -318,8 +320,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     'OUR VISION',
                     style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   SizedBox(
@@ -327,23 +329,85 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Text(
                     'In 2008, Satoshi’s bitcoin provided the technological solution to bringing virtual currency payment to reality. Its intention to be used as payment instrument itself, however, has rather dimmed in the light of many other intriguing aspects of Blockchain. The issue of using payment method and currency cannot be simply resolved by the technological solutions, but is also very closely related to the nation’s regulatory framework. Our founder has the most extensive knowledge of the post-internet payment methods and their potential for change.',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                   SizedBox(
                     height: 35,
                   ),
                   Text(
                     'We envision to create an O2O Commerce ecosystem that enables transactions without barriers of time and location in daily life. The credit card system that has penetrated into people’s life today is expensive in costs and complicated in system processing. InstaPay’s patented QR code payment system will provide a competitive alternative to credit card and open the doorway to the new O2O Commerce era. InstaCoin takes on the mission that Satoshi’s bitcoin has begun but not yet completed to become the future payment platform, by expanding its Blockchain ecosystem through various platform applications.',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
                   Text(
                     'We envision to create the first cryptocurrency to be actually used as a payment method:  boarder-less and time-less.',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ],
+              ),
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(Size(
+                length,
+                1300,
+              )),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                decoration: const BoxDecoration(
+                  color: Color(0xff2d3943),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        'WHY INSTACOIN?',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 1100,
+                      height: 310,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    Container(
+                      width: 1100,
+                      height: 310,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    Container(
+                      width: 1100,
+                      height: 310,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

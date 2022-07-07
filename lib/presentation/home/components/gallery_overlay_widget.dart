@@ -30,19 +30,6 @@ class _GalleryOverlayWidgetState extends State<GalleryOverlayWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Align(
-                  //   alignment: Alignment.center,
-                  //   child: IconButton(
-                  //     onPressed: () {
-                  //       GalleryLoader.appLoader.hideLoader();
-                  //     },
-                  //     icon: const Icon(
-                  //       Icons.close,
-                  //       size: 50,
-                  //       color: Colors.grey,
-                  //     ),
-                  //   ),
-                  // ),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +54,7 @@ class _GalleryOverlayWidgetState extends State<GalleryOverlayWidget> {
                             carouselController: _controller,
                             options: CarouselOptions(
                                 height:
-                                    MediaQuery.of(context).size.height - 50,
+                                    MediaQuery.of(context).size.height - 100,
                                 // > 400 ? MediaQuery.of(context).size.height-300 : 400,
                                 viewportFraction: 1.0,
                                 enlargeCenterPage: false,
@@ -77,9 +64,60 @@ class _GalleryOverlayWidgetState extends State<GalleryOverlayWidget> {
                                   });
                                 }),
                             items: imgList
-                                .map((item) => Image.asset(
-                                  item.imgSource,
-                                ))
+                                .map((item) => Stack(
+                                      children: [
+                                        Center(
+                                          child: Stack(
+                                            children: [
+                                              Image.asset(
+                                                item.imgSource,
+                                              ),
+                                              Positioned(
+                                                right: 0,
+                                                child: Container(
+                                                  width: 50,
+                                                  height: 50,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.black
+                                                        .withOpacity(0.8),
+                                                  ),
+                                                  child: Center(
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        GalleryLoader.appLoader
+                                                            .hideLoader();
+                                                      },
+                                                      child: const Icon(
+                                                        Icons.close,
+                                                        size: 50,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Positioned.fill(
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.bottomCenter,
+                                                  child: Text(
+                                                    item.description,
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        backgroundColor: Colors
+                                                            .black
+                                                            .withOpacity(0.7),
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w300),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ))
                                 .toList(),
                           ),
                         ),
