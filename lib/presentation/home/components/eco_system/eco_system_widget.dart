@@ -14,9 +14,12 @@ class EcoSystemWidget extends StatelessWidget {
       alignment: Alignment.center,
       child: SizedBox(
         width: 1200,
-        height: 1000,
+        //height: 1000,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 60.0,
+            vertical: 70,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -27,6 +30,7 @@ class EcoSystemWidget extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              const SizedBox(height: 40,),
               Image.asset('img/main/Instapay_Ecosystem.jpeg'),
             ],
           ),
