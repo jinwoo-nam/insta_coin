@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/presentation/home/components/gallery_overlay_widget.dart';
+import 'package:insta_coin/presentation/home/components/gallery/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/root/root_screen.dart';
 
 void main() {

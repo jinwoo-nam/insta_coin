@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_coin/presentation/home/components/gallery_loader.dart';
+import 'package:insta_coin/presentation/home/components/gallery/gallery_loader.dart';
 import 'package:insta_coin/ui/constant.dart';
 
 class GalleryOverlayWidget extends StatefulWidget {

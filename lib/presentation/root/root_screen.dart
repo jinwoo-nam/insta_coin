@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -8,8 +9,9 @@ class RootScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          toolbarHeight:75,
         flexibleSpace: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 150.0),
+          padding: const EdgeInsets.symmetric(horizontal: 50.0),
           child: Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -18,44 +20,53 @@ class RootScreen extends StatelessWidget {
                   'img/main/logo_cs-1.png',
                   height: 35,
                 ),
-                Row(
-                  children: [
-                    TextButton(
+                if (!Responsive.isMobile(context))
+                  Row(
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'HOME',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                      TextButton(
                         onPressed: () {},
                         child: const Text(
-                          'HOME',
+                          'PAPPS',
                           style: TextStyle(color: Colors.black),
-                        )),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'PAPPS',
-                        style: TextStyle(color: Colors.black),
+                        ),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'TEAM',
-                        style: TextStyle(color: Colors.black),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'TEAM',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'MEDIA',
-                        style: TextStyle(color: Colors.black),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'MEDIA',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'FAQ',
-                        style: TextStyle(color: Colors.black),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'FAQ',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
+                    ],
+                  )
+                else
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Color(0xff4ac1c2),
                     ),
-                  ],
-                )
+                  ),
               ],
             ),
           ),
