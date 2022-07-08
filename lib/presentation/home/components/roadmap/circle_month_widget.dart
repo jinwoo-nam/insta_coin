@@ -120,7 +120,7 @@ class CircleMonthWidget extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -134,10 +134,10 @@ class CircleMonthWidget extends StatelessWidget {
                   child: RichText(
                     text: TextSpan(
                       style: const TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 14.0,
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
-                        height: 1.4,
+                        height: 1.3,
                       ),
                       children: [
                         TextSpan(
@@ -145,7 +145,7 @@ class CircleMonthWidget extends StatelessWidget {
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,
                             color: Color(0xff4ac1c2),
-                            fontSize: 19,
+                            fontSize: 16,
                           ),
                         ),
                         TextSpan(text: '\n\n${data.description}'),

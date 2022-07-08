@@ -24,7 +24,7 @@ class RoadmapWidget extends StatelessWidget {
       child: SizedBox(
         width: 1200,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0),
+          padding: Responsive.isDesktop(context) ? const EdgeInsets.symmetric(horizontal: 60.0) : const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
