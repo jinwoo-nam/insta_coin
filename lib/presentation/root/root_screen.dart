@@ -3,6 +3,7 @@ import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
 import 'package:insta_coin/presentation/root/components/footer_widget.dart';
 import 'package:insta_coin/presentation/root/components/overlay_menu.dart';
+import 'package:insta_coin/presentation/team/team_screen.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 
 class RootScreen extends StatefulWidget {
@@ -143,7 +144,7 @@ class _RootScreenState extends State<RootScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: const [
-              PappsScreen(),
+              TeamScreen(),
               FooterWidget(),
             ],
           ),
