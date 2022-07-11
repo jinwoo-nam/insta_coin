@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/home/components/coin_economic/coin_economic_widget.dart';
 import 'package:insta_coin/presentation/home/components/company/company_widget.dart';
 import 'package:insta_coin/presentation/home/components/eco_system/eco_system_widget.dart';
-import 'package:insta_coin/presentation/home/components/footer/footer_widget.dart';
 import 'package:insta_coin/presentation/home/components/gallery/gallery_widget.dart';
 import 'package:insta_coin/presentation/home/components/main/main_image_widget.dart';
 import 'package:insta_coin/presentation/home/components/our_vision/our_vision_widget.dart';
@@ -28,7 +27,6 @@ class HomeScreen extends StatelessWidget {
             CoinEconomicWidget(),
             RoadmapWidget(),
             EcoSystemWidget(),
-            FooterWidget(),
           ],
         ),
       ),
