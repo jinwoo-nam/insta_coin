@@ -3,8 +3,11 @@ import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
 import 'package:insta_coin/presentation/root/components/footer_widget.dart';
 import 'package:insta_coin/presentation/root/components/overlay_menu.dart';
+import 'package:insta_coin/presentation/root/root_state.dart';
+import 'package:insta_coin/presentation/root/root_view_model.dart';
 import 'package:insta_coin/presentation/team/team_screen.dart';
 import 'package:insta_coin/responsive/responsive.dart';
+import 'package:provider/provider.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -18,6 +21,8 @@ class _RootScreenState extends State<RootScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<RootViewModel>();
+
     if (!Responsive.isMobile(context)) {
       if (menu.isActive) {
         menu.removeMenu();
@@ -48,7 +53,9 @@ class _RootScreenState extends State<RootScreen> {
                     Row(
                       children: [
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              viewModel.selectPage(PageSelectType.home);
+                            },
                             child: const Text(
                               'HOME',
                               style: TextStyle(
@@ -57,7 +64,9 @@ class _RootScreenState extends State<RootScreen> {
                               ),
                             )),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            viewModel.selectPage(PageSelectType.papps);
+                          },
                           child: const Text(
                             'PAPPS',
                             style: TextStyle(
@@ -67,7 +76,9 @@ class _RootScreenState extends State<RootScreen> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            viewModel.selectPage(PageSelectType.team);
+                          },
                           child: const Text(
                             'TEAM',
                             style: TextStyle(
@@ -77,7 +88,9 @@ class _RootScreenState extends State<RootScreen> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            viewModel.selectPage(PageSelectType.media);
+                          },
                           child: const Text(
                             'MEDIA',
                             style: TextStyle(
@@ -87,7 +100,9 @@ class _RootScreenState extends State<RootScreen> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            viewModel.selectPage(PageSelectType.faq);
+                          },
                           child: const Text(
                             'FAQ',
                             style: TextStyle(
@@ -143,13 +158,30 @@ class _RootScreenState extends State<RootScreen> {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: const [
-              TeamScreen(),
-              FooterWidget(),
+            children: [
+              getSelectWidget(viewModel),
+              const FooterWidget(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget getSelectWidget(RootViewModel viewModel) {
+    switch (viewModel.state.curPage) {
+      case PageSelectType.home:
+        return const HomeScreen();
+      case PageSelectType.papps:
+        return const PappsScreen();
+      case PageSelectType.team:
+        return const TeamScreen();
+      case PageSelectType.media:
+        return const HomeScreen();
+      case PageSelectType.faq:
+        return const HomeScreen();
+      default:
+        return const HomeScreen();
+    }
   }
 }
