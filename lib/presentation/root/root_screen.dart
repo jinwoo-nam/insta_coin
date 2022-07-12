@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
+import 'package:insta_coin/presentation/media/media_screen.dart';
 import 'package:insta_coin/presentation/root/components/footer_widget.dart';
 import 'package:insta_coin/presentation/root/components/overlay_menu.dart';
 import 'package:insta_coin/presentation/root/root_state.dart';
@@ -18,6 +21,29 @@ class RootScreen extends StatefulWidget {
 
 class _RootScreenState extends State<RootScreen> {
   final OverlayMenu menu = OverlayMenu();
+  StreamSubscription? _streamSubscription;
+
+  @override
+  void initState() {
+    final viewModel = context.read<RootViewModel>();
+
+    _streamSubscription = viewModel.eventStream.listen((event) {
+      event.when(
+        menuTab: () {
+          if (menu.isActive) {
+            menu.removeMenu();
+          }
+        },
+      );
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _streamSubscription?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +71,14 @@ class _RootScreenState extends State<RootScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'img/main/logo_cs-1.png',
-                    height: 35,
+                  InkWell(
+                    onTap: () {
+                      viewModel.selectPage(PageSelectType.home);
+                    },
+                    child: Image.asset(
+                      'img/main/logo_cs-1.png',
+                      height: 35,
+                    ),
                   ),
                   if (!Responsive.isMobile(context))
                     Row(
@@ -160,7 +191,8 @@ class _RootScreenState extends State<RootScreen> {
           child: Column(
             children: [
               getSelectWidget(viewModel),
-              const FooterWidget(),
+              //HomeScreen(),
+              FooterWidget(),
             ],
           ),
         ),
@@ -177,7 +209,7 @@ class _RootScreenState extends State<RootScreen> {
       case PageSelectType.team:
         return const TeamScreen();
       case PageSelectType.media:
-        return const HomeScreen();
+        return const MediaScreen();
       case PageSelectType.faq:
         return const HomeScreen();
       default:

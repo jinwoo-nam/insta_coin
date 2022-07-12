@@ -41,6 +41,7 @@ dependencies:
   json_annotation: ^4.5.0
   intl: ^0.17.0
   carousel_slider: ^4.1.1
+  pod_player: ^0.0.8
 
 
 dev_dependencies:
