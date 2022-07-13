@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/road_map/month_data.dart';
+import 'package:insta_coin/domain/model/road_map/month_data.dart';
 
 class CircleMonthWidget extends StatelessWidget {
   final MonthData data;

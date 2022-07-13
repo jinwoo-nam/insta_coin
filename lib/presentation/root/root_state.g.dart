@@ -13,7 +13,7 @@ _$_RootState _$$_RootStateFromJson(Map<String, dynamic> json) => _$_RootState(
 
 Map<String, dynamic> _$$_RootStateToJson(_$_RootState instance) =>
     <String, dynamic>{
-      'curPage': _$PageSelectTypeEnumMap[instance.curPage],
+      'curPage': _$PageSelectTypeEnumMap[instance.curPage]!,
     };
 
 const _$PageSelectTypeEnumMap = {

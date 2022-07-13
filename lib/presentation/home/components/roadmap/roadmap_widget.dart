@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/road_map/month_data.dart';
+import 'package:insta_coin/domain/model/road_map/month_data.dart';
 import 'package:insta_coin/presentation/home/components/roadmap/components/cicle_year_widget.dart';
 import 'package:insta_coin/presentation/home/components/roadmap/components/circle_month_widget.dart';
 import 'package:insta_coin/presentation/home/components/roadmap/components/rect_year_widget.dart';
