@@ -25,6 +25,7 @@ mixin _$EventsData {
   String get articleUrl => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   List<String> get logos => throw _privateConstructorUsedError;
+  String? get sponsor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $EventsDataCopyWith<$Res> {
       String imageUrl,
       String articleUrl,
       String date,
-      List<String> logos});
+      List<String> logos,
+      String? sponsor});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$EventsDataCopyWithImpl<$Res> implements $EventsDataCopyWith<$Res> {
     Object? articleUrl = freezed,
     Object? date = freezed,
     Object? logos = freezed,
+    Object? sponsor = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -82,6 +85,10 @@ class _$EventsDataCopyWithImpl<$Res> implements $EventsDataCopyWith<$Res> {
           ? _value.logos
           : logos // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      sponsor: sponsor == freezed
+          ? _value.sponsor
+          : sponsor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -98,7 +105,8 @@ abstract class _$$_EventsDataCopyWith<$Res>
       String imageUrl,
       String articleUrl,
       String date,
-      List<String> logos});
+      List<String> logos,
+      String? sponsor});
 }
 
 /// @nodoc
@@ -118,6 +126,7 @@ class __$$_EventsDataCopyWithImpl<$Res> extends _$EventsDataCopyWithImpl<$Res>
     Object? articleUrl = freezed,
     Object? date = freezed,
     Object? logos = freezed,
+    Object? sponsor = freezed,
   }) {
     return _then(_$_EventsData(
       title: title == freezed
@@ -140,6 +149,10 @@ class __$$_EventsDataCopyWithImpl<$Res> extends _$EventsDataCopyWithImpl<$Res>
           ? _value._logos
           : logos // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      sponsor: sponsor == freezed
+          ? _value.sponsor
+          : sponsor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -152,7 +165,8 @@ class _$_EventsData implements _EventsData {
       required this.imageUrl,
       required this.articleUrl,
       required this.date,
-      required final List<String> logos})
+      required final List<String> logos,
+      this.sponsor})
       : _logos = logos;
 
   factory _$_EventsData.fromJson(Map<String, dynamic> json) =>
@@ -174,8 +188,11 @@ class _$_EventsData implements _EventsData {
   }
 
   @override
+  final String? sponsor;
+
+  @override
   String toString() {
-    return 'EventsData(title: $title, imageUrl: $imageUrl, articleUrl: $articleUrl, date: $date, logos: $logos)';
+    return 'EventsData(title: $title, imageUrl: $imageUrl, articleUrl: $articleUrl, date: $date, logos: $logos, sponsor: $sponsor)';
   }
 
   @override
@@ -188,7 +205,8 @@ class _$_EventsData implements _EventsData {
             const DeepCollectionEquality()
                 .equals(other.articleUrl, articleUrl) &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other._logos, _logos));
+            const DeepCollectionEquality().equals(other._logos, _logos) &&
+            const DeepCollectionEquality().equals(other.sponsor, sponsor));
   }
 
   @JsonKey(ignore: true)
@@ -199,7 +217,8 @@ class _$_EventsData implements _EventsData {
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(articleUrl),
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(_logos));
+      const DeepCollectionEquality().hash(_logos),
+      const DeepCollectionEquality().hash(sponsor));
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +237,8 @@ abstract class _EventsData implements EventsData {
       required final String imageUrl,
       required final String articleUrl,
       required final String date,
-      required final List<String> logos}) = _$_EventsData;
+      required final List<String> logos,
+      final String? sponsor}) = _$_EventsData;
 
   factory _EventsData.fromJson(Map<String, dynamic> json) =
       _$_EventsData.fromJson;
@@ -233,6 +253,8 @@ abstract class _EventsData implements EventsData {
   String get date;
   @override
   List<String> get logos;
+  @override
+  String? get sponsor;
   @override
   @JsonKey(ignore: true)
   _$$_EventsDataCopyWith<_$_EventsData> get copyWith =>

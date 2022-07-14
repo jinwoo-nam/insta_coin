@@ -22,6 +22,7 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   final OverlayMenu menu = OverlayMenu();
   StreamSubscription? _streamSubscription;
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
@@ -42,6 +43,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   void dispose() {
     _streamSubscription?.cancel();
+    scrollController.dispose();
     super.dispose();
   }
 
@@ -188,11 +190,12 @@ class _RootScreenState extends State<RootScreen> {
           ],
         ),
         body: SingleChildScrollView(
+          controller: scrollController,
           child: Column(
             children: [
               getSelectWidget(viewModel),
               //HomeScreen(),
-              FooterWidget(),
+              const FooterWidget(),
             ],
           ),
         ),
@@ -201,6 +204,9 @@ class _RootScreenState extends State<RootScreen> {
   }
 
   Widget getSelectWidget(RootViewModel viewModel) {
+    if (scrollController.hasClients) {
+      scrollController.jumpTo(0);
+    }
     switch (viewModel.state.curPage) {
       case PageSelectType.home:
         return const HomeScreen();

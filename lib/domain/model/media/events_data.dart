@@ -11,6 +11,7 @@ class EventsData with _$EventsData {
     required String articleUrl,
     required String date,
     required List<String> logos,
+    String? sponsor,
   }) = _EventsData;
   factory EventsData.fromJson(Map<String, dynamic> json) => _$EventsDataFromJson(json);
 }

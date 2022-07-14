@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
+import 'package:insta_coin/util/linked_list.dart';
 import 'package:pod_player/pod_player.dart';
 import 'package:provider/provider.dart';
 import '../../util/util.dart';
+
+List<String> channels = [
+  'https://www.youtube.com/watch?time_continue=9&v=L6JuZHluSRc&feature=emb_logo',
+  'https://www.youtube.com/watch?v=xSyhU4HTG40&feature=emb_logo',
+  'https://www.youtube.com/watch?v=7qnnLJkwWFk&feature=emb_logo',
+  'https://www.youtube.com/watch?v=nqsrnlUH1YQ&feature=emb_logo',
+  'https://www.youtube.com/watch?v=u5u9XmBwvJo&feature=emb_logo',
+  'https://www.youtube.com/watch?v=62KtTxoJAQo&feature=emb_logo',
+  'https://www.youtube.com/watch?v=e3_mid9dD1g&feature=emb_logo',
+];
+
+List<String> basic = [
+  'https://www.youtube.com/watch?time_continue=2&v=0bwjoYQCFmo&feature=emb_logo',
+  'https://www.youtube.com/watch?time_continue=1&v=KdeZ1aUMrAQ&feature=emb_logo',
+  'https://www.youtube.com/watch?v=OiscvdFKIig&feature=emb_logo',
+  'https://www.youtube.com/watch?v=4eoNcXv7HQY&feature=emb_logo',
+];
 
 class MediaScreen extends StatefulWidget {
   const MediaScreen({Key? key}) : super(key: key);
@@ -17,12 +35,20 @@ class _MediaScreenState extends State<MediaScreen> {
   late final PodPlayerController controller2;
   late final PodPlayerController controller3;
   late final PodPlayerController controller4;
+  late final PodPlayerController chController1;
+  late final PodPlayerController chController2;
+  late final PodPlayerController chController3;
+  late final PodPlayerController chController4;
+  late final PodPlayerController chController5;
+  late final PodPlayerController chController6;
+  late final PodPlayerController chController7;
+  late Node<PodPlayerController> curChController;
+  final controllerList = LinkedList<PodPlayerController>();
 
   @override
   void initState() {
     controller1 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(
-          'https://www.youtube.com/watch?time_continue=2&v=0bwjoYQCFmo&feature=emb_logo'),
+      playVideoFrom: PlayVideoFrom.youtube(basic[0]),
       podPlayerConfig: const PodPlayerConfig(
         initialVideoQuality: 360,
         autoPlay: false,
@@ -30,8 +56,7 @@ class _MediaScreenState extends State<MediaScreen> {
     )..initialise();
 
     controller2 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(
-          'https://www.youtube.com/watch?time_continue=1&v=KdeZ1aUMrAQ&feature=emb_logo'),
+      playVideoFrom: PlayVideoFrom.youtube(basic[1]),
       podPlayerConfig: const PodPlayerConfig(
         initialVideoQuality: 360,
         autoPlay: false,
@@ -39,8 +64,7 @@ class _MediaScreenState extends State<MediaScreen> {
     )..initialise();
 
     controller3 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(
-          'https://www.youtube.com/watch?v=OiscvdFKIig&feature=emb_logo'),
+      playVideoFrom: PlayVideoFrom.youtube(basic[2]),
       podPlayerConfig: const PodPlayerConfig(
         initialVideoQuality: 360,
         autoPlay: false,
@@ -48,15 +72,90 @@ class _MediaScreenState extends State<MediaScreen> {
     )..initialise();
 
     controller4 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(
-          'https://www.youtube.com/watch?v=4eoNcXv7HQY&feature=emb_logo'),
+      playVideoFrom: PlayVideoFrom.youtube(basic[3]),
       podPlayerConfig: const PodPlayerConfig(
         initialVideoQuality: 360,
         autoPlay: false,
       ),
     )..initialise();
 
+    chController1 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[0]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController2 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[1]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController3 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[2]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController4 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[3]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController5 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[4]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController6 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[5]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+    chController7 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(channels[6]),
+      podPlayerConfig: const PodPlayerConfig(
+        initialVideoQuality: 360,
+        autoPlay: false,
+      ),
+    )..initialise();
+
+    controllerList.append(chController1);
+    controllerList.append(chController2);
+    controllerList.append(chController3);
+    controllerList.append(chController4);
+    controllerList.append(chController5);
+    controllerList.append(chController6);
+    controllerList.append(chController7);
+
+    curChController = controllerList.head!;
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller1.dispose();
+    controller2.dispose();
+    controller3.dispose();
+    controller4.dispose();
+    chController1.dispose();
+    chController2.dispose();
+    chController3.dispose();
+    chController4.dispose();
+    chController5.dispose();
+    chController6.dispose();
+    chController7.dispose();
+    super.dispose();
   }
 
   @override
@@ -114,8 +213,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        launchURL(
-                                            'https://www.youtube.com/watch?time_continue=2&v=0bwjoYQCFmo&feature=emb_logo');
+                                        launchURL(basic[0]);
                                       },
                                       child: Text(
                                         '[BLOCKCHAIN FOCUS] TVCC\n2018.11.08',
@@ -144,8 +242,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        launchURL(
-                                            'https://www.youtube.com/watch?time_continue=1&v=KdeZ1aUMrAQ&feature=emb_logo');
+                                        launchURL(basic[1]);
                                       },
                                       child: Text(
                                         'MTN(MONEY TODAY) TV\n2018.07.20',
@@ -174,8 +271,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        launchURL(
-                                            'https://www.youtube.com/watch?v=OiscvdFKIig&feature=emb_logo');
+                                        launchURL(basic[2]);
                                       },
                                       child: Text(
                                         'NATIONAL ASSEMBLY TV\n2016.09',
@@ -205,8 +301,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        launchURL(
-                                            'https://www.youtube.com/watch?v=4eoNcXv7HQY&feature=emb_logo');
+                                        launchURL(basic[3]);
                                       },
                                       child: Text(
                                         'MBC TV\n2016.09',
@@ -245,8 +340,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                         ),
                                         InkWell(
                                           onTap: () {
-                                            launchURL(
-                                                'https://www.youtube.com/watch?time_continue=2&v=0bwjoYQCFmo&feature=emb_logo');
+                                            launchURL(basic[0]);
                                           },
                                           child: Text(
                                             '[BLOCKCHAIN FOCUS] TVCC\n2018.11.08',
@@ -277,8 +371,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                         ),
                                         InkWell(
                                           onTap: () {
-                                            launchURL(
-                                                'https://www.youtube.com/watch?time_continue=1&v=KdeZ1aUMrAQ&feature=emb_logo');
+                                            launchURL(basic[1]);
                                           },
                                           child: Text(
                                             'MTN(MONEY TODAY) TV\n2018.07.20',
@@ -314,8 +407,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                         ),
                                         InkWell(
                                           onTap: () {
-                                            launchURL(
-                                                'https://www.youtube.com/watch?v=OiscvdFKIig&feature=emb_logo');
+                                            launchURL(basic[2]);
                                           },
                                           child: Text(
                                             'NATIONAL ASSEMBLY TV\n2016.09',
@@ -347,8 +439,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                         ),
                                         InkWell(
                                           onTap: () {
-                                            launchURL(
-                                                'https://www.youtube.com/watch?v=4eoNcXv7HQY&feature=emb_logo');
+                                            launchURL(basic[3]);
                                           },
                                           child: Text(
                                             'MBC TV\n2016.09',
@@ -978,103 +1069,272 @@ class _MediaScreenState extends State<MediaScreen> {
                       const SizedBox(
                         height: 50,
                       ),
-                      ...state.events.map((e) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Image.asset(
-                                      e.imageUrl,
-                                      fit: BoxFit.fitHeight,
-                                      width: 200,
-                                      height: 160,
+                      if (Responsive.isDesktop(context))
+                        ...state.events.map((e) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Image.asset(
+                                        e.imageUrl,
+                                        fit: BoxFit.fitHeight,
+                                        width: 200,
+                                        height: 160,
+                                      ),
                                     ),
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 30.0),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 30.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              e.title,
+                                              textAlign: TextAlign.start,
+                                              style: const TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 30,
+                                            ),
+                                            Text(
+                                              e.date,
+                                              textAlign: TextAlign.start,
+                                              style: const TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w300,
+                                                  height: 1.6),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            e.title,
-                                            textAlign: TextAlign.start,
-                                            style: const TextStyle(
-                                              fontSize: 25,
-                                              fontWeight: FontWeight.w600,
+                                          InkWell(
+                                            onTap: () {
+                                              launchURL(e.articleUrl);
+                                            },
+                                            child: Visibility(
+                                              visible: e.articleUrl.isNotEmpty,
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                  horizontal: 10,
+                                                  vertical: 5,
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  border: Border.all(),
+                                                ),
+                                                child: const Text(
+                                                  'See More',
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           const SizedBox(
-                                            height: 30,
+                                            height: 10,
                                           ),
-                                          Text(
-                                            e.date,
-                                            textAlign: TextAlign.start,
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w300,
-                                            ),
+                                          ...e.logos.map(
+                                            (logo) {
+                                              return Image.asset(
+                                                logo,
+                                                width: 80,
+                                                height: 50,
+                                              );
+                                            },
                                           ),
+                                          Text(e.sponsor ?? ''),
                                         ],
                                       ),
                                     ),
+                                  ],
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                                  child: Divider(
+                                    height: 2,
+                                    thickness: 1,
                                   ),
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 10,
-                                            vertical: 5,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            border: Border.all(),
-                                          ),
-                                          child: const Text(
-                                            'See More',
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        ...e.logos.map(
-                                          (logo) {
-                                            return Image.asset(
-                                              logo,
-                                              width: 60,
-                                              height: 40,
-                                            );
-                                          },
-                                        ),
-                                      ],
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                      if (!Responsive.isDesktop(context))
+                        ...state.events.map((e) {
+                          return SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: Image.asset(
+                                    e.imageUrl,
+                                    fit: BoxFit.contain,
+                                    width: 250,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 30.0),
+                                  child: Text(
+                                    e.title,
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                ],
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(vertical: 20.0),
-                                child: Divider(
-                                  height: 2,
-                                  thickness: 1,
                                 ),
-                              ),
-                            ],
-                          ),
-                        );
-                      })
+                                Text(
+                                  e.date,
+                                  textAlign: TextAlign.start,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
+                                      height: 1.6),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 15.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      launchURL(e.articleUrl);
+                                    },
+                                    child: Visibility(
+                                      visible: e.articleUrl.isNotEmpty,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 10,
+                                          vertical: 5,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(),
+                                        ),
+                                        child: const Text(
+                                          'See More',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                GridView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: e.logos.length,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      childAspectRatio: 2,
+                                      crossAxisSpacing: 30,
+                                    ),
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Image.asset(
+                                        e.logos[index],
+                                        fit: BoxFit.contain,
+                                        width: 70,
+                                      );
+                                    }),
+                                Text(
+                                  e.sponsor ?? '',
+                                  style: const TextStyle(
+                                    height: 1.5,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(bottom: 15.0),
+                                  child: Divider(
+                                    height: 2,
+                                    thickness: 1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
                     ],
                   ),
                 ),
+              ),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 50,
+            ),
+            decoration: const BoxDecoration(
+              color: Color(0xff2d3943),
+              gradient: RadialGradient(
+                colors: [
+                  Color(0xff4ac1c2),
+                  Color(0xff159db5),
+                ],
+              ),
+            ),
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 1200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 50.0),
+                    child: Text(
+                      'CHANNEL',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          curChController = curChController.next!;
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        child: PodVideoPlayer(
+                          controller: curChController.value,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

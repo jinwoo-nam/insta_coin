@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 
-class PappsScreen extends StatelessWidget {
+class PappsScreen extends StatefulWidget {
   const PappsScreen({Key? key}) : super(key: key);
 
+  @override
+  State<PappsScreen> createState() => _PappsScreenState();
+}
+
+class _PappsScreenState extends State<PappsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

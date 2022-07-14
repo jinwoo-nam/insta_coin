@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 import 'package:insta_coin/ui/on_hover_detect.dart';
 
-class TeamScreen extends StatelessWidget {
+class TeamScreen extends StatefulWidget {
   const TeamScreen({Key? key}) : super(key: key);
 
+  @override
+  State<TeamScreen> createState() => _TeamScreenState();
+}
+
+class _TeamScreenState extends State<TeamScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

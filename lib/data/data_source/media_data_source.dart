@@ -452,6 +452,7 @@ List<EventsData> eventsData = [
     logos: [
       'img/media/event_instacoin.jpg',
     ],
+    sponsor: 'Sponsored by Innovation Support Team, Democratic Party of Korea',
     articleUrl: 'http://kin.kr/news/view.php?no=13184&venti51=thebchain',
   ),
   EventsData(

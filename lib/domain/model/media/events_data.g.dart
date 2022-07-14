@@ -13,6 +13,7 @@ _$_EventsData _$$_EventsDataFromJson(Map<String, dynamic> json) =>
       articleUrl: json['articleUrl'] as String,
       date: json['date'] as String,
       logos: (json['logos'] as List<dynamic>).map((e) => e as String).toList(),
+      sponsor: json['sponsor'] as String?,
     );
 
 Map<String, dynamic> _$$_EventsDataToJson(_$_EventsData instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_EventsDataToJson(_$_EventsData instance) =>
       'articleUrl': instance.articleUrl,
       'date': instance.date,
       'logos': instance.logos,
+      'sponsor': instance.sponsor,
     };
