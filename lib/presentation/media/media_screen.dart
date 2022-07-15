@@ -1,7 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
-import 'package:insta_coin/util/linked_list.dart';
 import 'package:pod_player/pod_player.dart';
 import 'package:provider/provider.dart';
 import '../../util/util.dart';
@@ -31,130 +31,51 @@ class MediaScreen extends StatefulWidget {
 }
 
 class _MediaScreenState extends State<MediaScreen> {
-  late final PodPlayerController controller1;
-  late final PodPlayerController controller2;
-  late final PodPlayerController controller3;
-  late final PodPlayerController controller4;
-  late final PodPlayerController chController1;
-  late final PodPlayerController chController2;
-  late final PodPlayerController chController3;
-  late final PodPlayerController chController4;
-  late final PodPlayerController chController5;
-  late final PodPlayerController chController6;
-  late final PodPlayerController chController7;
-  late Node<PodPlayerController> curChController;
-  final controllerList = LinkedList<PodPlayerController>();
+  final CarouselController _controller = CarouselController();
+
+  final List<PodPlayerController> controllerList = [];
+  final List<PodPlayerController> chControllerList = [];
+
+  int curIndex = 0;
 
   @override
   void initState() {
-    controller1 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(basic[0]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
+    for (int i = 0; i < 4; i++) {
+      PodPlayerController controller = PodPlayerController(
+        playVideoFrom: PlayVideoFrom.youtube(basic[i]),
+        podPlayerConfig: const PodPlayerConfig(
+          initialVideoQuality: 360,
+          autoPlay: false,
+        ),
+      )..initialise();
 
-    controller2 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(basic[1]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
+      controllerList.add(controller);
+    }
+    for (int i = 0; i < 7; i++) {
+      PodPlayerController controller = PodPlayerController(
+        playVideoFrom: PlayVideoFrom.youtube(channels[i]),
+        podPlayerConfig: const PodPlayerConfig(
+          initialVideoQuality: 360,
+          autoPlay: false,
+        ),
+      )..initialise();
 
-    controller3 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(basic[2]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-
-    controller4 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(basic[3]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-
-    chController1 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[0]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController2 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[1]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController3 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[2]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController4 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[3]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController5 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[4]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController6 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[5]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-    chController7 = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(channels[6]),
-      podPlayerConfig: const PodPlayerConfig(
-        initialVideoQuality: 360,
-        autoPlay: false,
-      ),
-    )..initialise();
-
-    controllerList.append(chController1);
-    controllerList.append(chController2);
-    controllerList.append(chController3);
-    controllerList.append(chController4);
-    controllerList.append(chController5);
-    controllerList.append(chController6);
-    controllerList.append(chController7);
-
-    curChController = controllerList.head!;
+      chControllerList.add(controller);
+    }
 
     super.initState();
   }
 
   @override
   void dispose() {
-    controller1.dispose();
-    controller2.dispose();
-    controller3.dispose();
-    controller4.dispose();
-    chController1.dispose();
-    chController2.dispose();
-    chController3.dispose();
-    chController4.dispose();
-    chController5.dispose();
-    chController6.dispose();
-    chController7.dispose();
+    for (int i = 0; i < 4; i++) {
+      controllerList[i].dispose();
+    }
+
+    for (int i = 0; i < 7; i++) {
+      chControllerList[i].dispose();
+    }
+
     super.dispose();
   }
 
@@ -206,7 +127,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     PodVideoPlayer(
-                                      controller: controller1,
+                                      controller: controllerList[0],
                                     ),
                                     const SizedBox(
                                       height: 20,
@@ -235,7 +156,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     PodVideoPlayer(
-                                      controller: controller2,
+                                      controller: controllerList[1],
                                     ),
                                     const SizedBox(
                                       height: 20,
@@ -264,7 +185,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     PodVideoPlayer(
-                                      controller: controller3,
+                                      controller: controllerList[2],
                                     ),
                                     const SizedBox(
                                       height: 20,
@@ -294,7 +215,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     PodVideoPlayer(
-                                      controller: controller4,
+                                      controller: controllerList[3],
                                     ),
                                     const SizedBox(
                                       height: 20,
@@ -333,7 +254,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         PodVideoPlayer(
-                                          controller: controller1,
+                                          controller: controllerList[0],
                                         ),
                                         const SizedBox(
                                           height: 20,
@@ -364,7 +285,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         PodVideoPlayer(
-                                          controller: controller2,
+                                          controller: controllerList[1],
                                         ),
                                         const SizedBox(
                                           height: 20,
@@ -400,7 +321,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         PodVideoPlayer(
-                                          controller: controller3,
+                                          controller: controllerList[2],
                                         ),
                                         const SizedBox(
                                           height: 20,
@@ -432,7 +353,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         PodVideoPlayer(
-                                          controller: controller4,
+                                          controller: controllerList[3],
                                         ),
                                         const SizedBox(
                                           height: 20,
@@ -1311,25 +1232,57 @@ class _MediaScreenState extends State<MediaScreen> {
                   ),
                   Row(
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          curChController = curChController.next!;
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.white,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: IconButton(
+                          onPressed: () {
+                            for (int i = 0; i < chControllerList.length; i++) {
+                              if (chControllerList[i].isVideoPlaying) {
+                                chControllerList[i].pause();
+                              }
+                            }
+                            _controller.previousPage(
+                                duration: const Duration(milliseconds: 300));
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                         ),
                       ),
                       Expanded(
-                        child: PodVideoPlayer(
-                          controller: curChController.value,
+                        child: CarouselSlider(
+                          carouselController: _controller,
+                          options: CarouselOptions(
+                            height: 500,
+                            viewportFraction: 1.0,
+                            enlargeCenterPage: false,
+                            onPageChanged: (index, reason) {
+                              setState(() {});
+                            },
+                          ),
+                          items: chControllerList.map((e) {
+                            return PodVideoPlayer(
+                              controller: e,
+                            );
+                          }).toList(),
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          for (int i = 0; i < chControllerList.length; i++) {
+                            if (chControllerList[i].isVideoPlaying) {
+                              chControllerList[i].pause();
+                            }
+                          }
+                          _controller.nextPage(
+                              duration: const Duration(milliseconds: 300));
+                        },
                         icon: const Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.white,
+                          size: 40,
                         ),
                       ),
                     ],
