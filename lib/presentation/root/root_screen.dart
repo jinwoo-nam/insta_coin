@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/Papps/papps_screen.dart';
+import 'package:insta_coin/presentation/faq/faq_screen.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
 import 'package:insta_coin/presentation/media/media_screen.dart';
 import 'package:insta_coin/presentation/root/components/footer_widget.dart';
@@ -75,7 +76,7 @@ class _RootScreenState extends State<RootScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      viewModel.selectPage(PageSelectType.home);
+                      selectScreen(viewModel, PageSelectType.home);
                     },
                     child: Image.asset(
                       'img/main/logo_cs-1.png',
@@ -87,7 +88,7 @@ class _RootScreenState extends State<RootScreen> {
                       children: [
                         TextButton(
                             onPressed: () {
-                              viewModel.selectPage(PageSelectType.home);
+                              selectScreen(viewModel, PageSelectType.home);
                             },
                             child: const Text(
                               'HOME',
@@ -98,7 +99,7 @@ class _RootScreenState extends State<RootScreen> {
                             )),
                         TextButton(
                           onPressed: () {
-                            viewModel.selectPage(PageSelectType.papps);
+                            selectScreen(viewModel, PageSelectType.papps);
                           },
                           child: const Text(
                             'PAPPS',
@@ -110,7 +111,7 @@ class _RootScreenState extends State<RootScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            viewModel.selectPage(PageSelectType.team);
+                            selectScreen(viewModel, PageSelectType.team);
                           },
                           child: const Text(
                             'TEAM',
@@ -122,7 +123,7 @@ class _RootScreenState extends State<RootScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            viewModel.selectPage(PageSelectType.media);
+                            selectScreen(viewModel, PageSelectType.media);
                           },
                           child: const Text(
                             'MEDIA',
@@ -134,7 +135,7 @@ class _RootScreenState extends State<RootScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            viewModel.selectPage(PageSelectType.faq);
+                            selectScreen(viewModel, PageSelectType.faq);
                           },
                           child: const Text(
                             'FAQ',
@@ -173,6 +174,15 @@ class _RootScreenState extends State<RootScreen> {
             FloatingActionButton(
               onPressed: () {},
               child: Image.asset(
+                'img/main/telegram_icon.png',
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: Image.asset(
                 'img/main/icon_naver_blog-300x300.png',
               ),
             ),
@@ -203,10 +213,14 @@ class _RootScreenState extends State<RootScreen> {
     );
   }
 
-  Widget getSelectWidget(RootViewModel viewModel) {
+  void selectScreen(RootViewModel viewModel, PageSelectType type) {
     if (scrollController.hasClients) {
       scrollController.jumpTo(0);
     }
+    viewModel.selectPage(type);
+  }
+
+  Widget getSelectWidget(RootViewModel viewModel) {
     switch (viewModel.state.curPage) {
       case PageSelectType.home:
         return const HomeScreen();
@@ -217,7 +231,7 @@ class _RootScreenState extends State<RootScreen> {
       case PageSelectType.media:
         return const MediaScreen();
       case PageSelectType.faq:
-        return const HomeScreen();
+        return const FaqScreen();
       default:
         return const HomeScreen();
     }

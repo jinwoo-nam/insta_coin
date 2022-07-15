@@ -81,6 +81,11 @@ class _MediaScreenState extends State<MediaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double chHeight = Responsive.isDesktop(context)
+        ? 750
+        : Responsive.isTablet(context)
+        ? 600
+        : 450;
     final viewModel = context.watch<MediaViewModel>();
     final state = viewModel.state;
     final double fontSize = Responsive.isMobile(context)
@@ -1255,7 +1260,7 @@ class _MediaScreenState extends State<MediaScreen> {
                         child: CarouselSlider(
                           carouselController: _controller,
                           options: CarouselOptions(
-                            height: 500,
+                            height: chHeight,
                             viewportFraction: 1.0,
                             enlargeCenterPage: false,
                             onPageChanged: (index, reason) {
@@ -1263,8 +1268,34 @@ class _MediaScreenState extends State<MediaScreen> {
                             },
                           ),
                           items: chControllerList.map((e) {
-                            return PodVideoPlayer(
-                              controller: e,
+                            return Stack(
+                              children: [
+                                PodVideoPlayer(
+                                  controller: e,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    launchURL(e.playVideoFrom.dataSource!);
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.topRight,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 10,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all()),
+                                      child: const Text(
+                                        '유튜브 ⇨',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             );
                           }).toList(),
                         ),
