@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:insta_coin/responsive/responsive.dart';
+import 'package:insta_coin/util/util.dart';
 
 class MainImageWidget extends StatelessWidget {
   const MainImageWidget({Key? key}) : super(key: key);
@@ -125,7 +126,9 @@ class MainImageWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  launchURL('https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
+                                },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 15),
@@ -146,7 +149,9 @@ class MainImageWidget extends StatelessWidget {
                                 width: 20,
                               ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  launchURL('https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                                },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 15),

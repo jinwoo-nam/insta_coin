@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:provider/provider.dart';
 
 class FaqWidget extends StatefulWidget {
   final FaqData faqData;
+  final int index;
 
   const FaqWidget({
     Key? key,
     required this.faqData,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -13,18 +17,15 @@ class FaqWidget extends StatefulWidget {
 }
 
 class _FaqWidgetState extends State<FaqWidget> {
-  bool isOpen = false;
-
   @override
   void initState() {
-    if (widget.faqData.isFirst) {
-      isOpen = true;
-    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<FaqViewModel>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -32,9 +33,7 @@ class _FaqWidgetState extends State<FaqWidget> {
           padding: const EdgeInsets.all(10.0),
           child: InkWell(
             onTap: () {
-              setState(() {
-                isOpen = !isOpen;
-              });
+                viewModel.selectedFaq(widget.index);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +48,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                   ),
                 ),
                 Visibility(
-                  visible: !isOpen,
+                  visible: !viewModel.faqIsOpen[widget.index],
                   child: const Icon(
                     Icons.add_circle,
                     color: Color(0xff4ac1c2),
@@ -61,10 +60,10 @@ class _FaqWidgetState extends State<FaqWidget> {
           ),
         ),
         AnimatedOpacity(
-          opacity: isOpen ? 1.0 : 0.0,
+          opacity: viewModel.faqIsOpen[widget.index] ? 1.0 : 0.0,
           duration: const Duration(milliseconds: 400),
           child: Visibility(
-            visible: isOpen,
+            visible: viewModel.faqIsOpen[widget.index],
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Text(

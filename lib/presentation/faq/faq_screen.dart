@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/faq/components/faq_widget.dart';
+import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:provider/provider.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({Key? key}) : super(key: key);
@@ -11,6 +13,8 @@ class FaqScreen extends StatefulWidget {
 class _FaqScreenState extends State<FaqScreen> {
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<FaqViewModel>();
+    int index = -1;
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -39,13 +43,15 @@ class _FaqScreenState extends State<FaqScreen> {
                     const SizedBox(
                       height: 50,
                     ),
-                    ...faqData
-                        .map(
-                          (e) => FaqWidget(
-                            faqData: e,
-                          ),
-                        )
-                        .toList(),
+                    ...faqData.map(
+                      (e) {
+                        index += 1;
+                        return FaqWidget(
+                          faqData: e,
+                          index: index,
+                        );
+                      },
+                    ).toList(),
                   ],
                 ),
               ),
@@ -56,6 +62,8 @@ class _FaqScreenState extends State<FaqScreen> {
     );
   }
 }
+
+
 
 List<FaqData> faqData = [
   FaqData(
