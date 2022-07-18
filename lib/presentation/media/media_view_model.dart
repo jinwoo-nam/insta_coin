@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/use_case/get_article_use_case.dart';
-import 'package:insta_coin/domain/use_case/get_column_use_case.dart';
-import 'package:insta_coin/domain/use_case/get_events_use_case.dart';
+import 'package:insta_coin/domain/use_case/media/get_article_use_case.dart';
+import 'package:insta_coin/domain/use_case/media/get_column_use_case.dart';
+import 'package:insta_coin/domain/use_case/media/get_events_use_case.dart';
 import 'package:insta_coin/presentation/media/media_state.dart';
 
 class MediaViewModel with ChangeNotifier {
