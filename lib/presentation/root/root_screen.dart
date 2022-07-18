@@ -11,6 +11,7 @@ import 'package:insta_coin/presentation/root/root_state.dart';
 import 'package:insta_coin/presentation/root/root_view_model.dart';
 import 'package:insta_coin/presentation/team/team_screen.dart';
 import 'package:insta_coin/responsive/responsive.dart';
+import 'package:insta_coin/util/util.dart';
 import 'package:provider/provider.dart';
 
 class RootScreen extends StatefulWidget {
@@ -172,7 +173,9 @@ class _RootScreenState extends State<RootScreen> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                launchURL('https://t.me/instapaycoin1');
+              },
               child: Image.asset(
                 'img/main/telegram_icon.png',
               ),
@@ -181,7 +184,9 @@ class _RootScreenState extends State<RootScreen> {
               height: 10,
             ),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                launchURL('https://blog.naver.com/instacoin');
+              },
               child: Image.asset(
                 'img/main/icon_naver_blog-300x300.png',
               ),
@@ -190,7 +195,9 @@ class _RootScreenState extends State<RootScreen> {
               height: 10,
             ),
             FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchURL('https://www.facebook.com/groups/174734989840209/');
+                },
                 child: Container(
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle,

@@ -78,52 +78,51 @@ class CoinEconomicWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300,
-                          height: 1.6,
-                        ),
-                        children: [
-                          TextSpan(text: '1. '),
-                          TextSpan(
-                            text: 'Reserve Fund & Conversion Compensation: ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextSpan(text: '1,000,000,000 INC'),
-                        ],
-                      ),
-                    ),
-                    RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300,
-                          height: 1.6,
-                        ),
-                        children: [
-                          TextSpan(text: '2. '),
-                          TextSpan(
-                            text: 'Distribution: ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextSpan(text: '1,000,000,000 INC'),
-                        ],
-                      ),
-                    ),
+                    // RichText(
+                    //   text: const TextSpan(
+                    //     style: TextStyle(
+                    //       fontSize: 18.0,
+                    //       color: Colors.black,
+                    //       fontWeight: FontWeight.w300,
+                    //       height: 1.6,
+                    //     ),
+                    //     children: [
+                    //       TextSpan(text: '1. '),
+                    //       TextSpan(
+                    //         text: 'Reserve Fund & Conversion Compensation: ',
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.w700,
+                    //         ),
+                    //       ),
+                    //       TextSpan(text: '1,000,000,000 INC'),
+                    //     ],
+                    //   ),
+                    // ),
+                    // RichText(
+                    //   text: const TextSpan(
+                    //     style: TextStyle(
+                    //       fontSize: 18.0,
+                    //       color: Colors.black,
+                    //       fontWeight: FontWeight.w300,
+                    //       height: 1.6,
+                    //     ),
+                    //     children: [
+                    //       TextSpan(text: '2. '),
+                    //       TextSpan(
+                    //         text: 'Distribution: ',
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.w700,
+                    //         ),
+                    //       ),
+                    //       TextSpan(text: '1,000,000,000 INC'),
+                    //     ],
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 100,
                     ),
                     Center(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           RichText(
                             text: const TextSpan(
@@ -135,7 +134,26 @@ class CoinEconomicWidget extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
-                                  text: 'Symbol: ',
+                                  text: 'Coin Name: ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                TextSpan(text: 'Insta Coin'),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: const TextSpan(
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300,
+                                height: 2.2,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: 'Coin Symbol: ',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -144,84 +162,113 @@ class CoinEconomicWidget extends StatelessWidget {
                               ],
                             ),
                           ),
-                          RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w300,
-                                height: 2.2,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'Total issuance: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                TextSpan(text: '2,000,000,000 INC'),
-                              ],
-                            ),
-                          ),
-                          RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w300,
-                                height: 2.2,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'Minimum purchase: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                TextSpan(text: '0.1 ETH'),
-                              ],
-                            ),
-                          ),
-                          RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w300,
-                                height: 2.2,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'KYC required: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                TextSpan(text: 'YES(Instapay App required)'),
-                              ],
-                            ),
-                          ),
-                          RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w300,
-                                height: 2.2,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'Accepted payment: ',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                TextSpan(text: 'FIAT(KRW) and Ethereum ONLY'),
-                              ],
-                            ),
+                          Image.asset(
+                            'img/main/coininfotable.jpg',
+                            fit: BoxFit.cover,
+                            width: 400,
                           ),
                         ],
                       ),
+                      // child: Column(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   children: [
+                      //     RichText(
+                      //       text: const TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: 20.0,
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.w300,
+                      //           height: 2.2,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'Symbol: ',
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w700,
+                      //             ),
+                      //           ),
+                      //           TextSpan(text: 'INC'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     RichText(
+                      //       text: const TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: 20.0,
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.w300,
+                      //           height: 2.2,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'Total issuance: ',
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w700,
+                      //             ),
+                      //           ),
+                      //           TextSpan(text: '2,000,000,000 INC'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     RichText(
+                      //       text: const TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: 20.0,
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.w300,
+                      //           height: 2.2,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'Minimum purchase: ',
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w700,
+                      //             ),
+                      //           ),
+                      //           TextSpan(text: '0.1 ETH'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     RichText(
+                      //       text: const TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: 20.0,
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.w300,
+                      //           height: 2.2,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'KYC required: ',
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w700,
+                      //             ),
+                      //           ),
+                      //           TextSpan(text: 'YES(Instapay App required)'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     RichText(
+                      //       text: const TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: 20.0,
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.w300,
+                      //           height: 2.2,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'Accepted payment: ',
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w700,
+                      //             ),
+                      //           ),
+                      //           TextSpan(text: 'FIAT(KRW) and Ethereum ONLY'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     )
                   ],
                 ),
@@ -277,53 +324,52 @@ class CoinEconomicWidget extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RichText(
-                          text: const TextSpan(
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              height: 1.6,
-                            ),
-                            children: [
-                              TextSpan(text: '1. '),
-                              TextSpan(
-                                text:
-                                    'Reserve Fund & Conversion Compensation: ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              TextSpan(text: '1,000,000,000 INC'),
-                            ],
-                          ),
-                        ),
-                        RichText(
-                          text: const TextSpan(
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              height: 1.6,
-                            ),
-                            children: [
-                              TextSpan(text: '2. '),
-                              TextSpan(
-                                text: 'Distribution: ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              TextSpan(text: '1,000,000,000 INC'),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 100,
-                        ),
+                        // RichText(
+                        //   text: const TextSpan(
+                        //     style: TextStyle(
+                        //       fontSize: 18.0,
+                        //       color: Colors.black,
+                        //       fontWeight: FontWeight.w300,
+                        //       height: 1.6,
+                        //     ),
+                        //     children: [
+                        //       TextSpan(text: '1. '),
+                        //       TextSpan(
+                        //         text:
+                        //             'Reserve Fund & Conversion Compensation: ',
+                        //         style: TextStyle(
+                        //           fontWeight: FontWeight.w700,
+                        //         ),
+                        //       ),
+                        //       TextSpan(text: '1,000,000,000 INC'),
+                        //     ],
+                        //   ),
+                        // ),
+                        // RichText(
+                        //   text: const TextSpan(
+                        //     style: TextStyle(
+                        //       fontSize: 18.0,
+                        //       color: Colors.black,
+                        //       fontWeight: FontWeight.w300,
+                        //       height: 1.6,
+                        //     ),
+                        //     children: [
+                        //       TextSpan(text: '2. '),
+                        //       TextSpan(
+                        //         text: 'Distribution: ',
+                        //         style: TextStyle(
+                        //           fontWeight: FontWeight.w700,
+                        //         ),
+                        //       ),
+                        //       TextSpan(text: '1,000,000,000 INC'),
+                        //     ],
+                        //   ),
+                        // ),
+                        // const SizedBox(
+                        //   height: 100,
+                        // ),
                         Center(
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               RichText(
                                 text: const TextSpan(
@@ -335,7 +381,26 @@ class CoinEconomicWidget extends StatelessWidget {
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: 'Symbol: ',
+                                      text: 'Coin Name: ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    TextSpan(text: 'Insta Coin'),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300,
+                                    height: 2.2,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: 'Coin Symbol: ',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -344,86 +409,116 @@ class CoinEconomicWidget extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              RichText(
-                                text: const TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    height: 2.2,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Total issuance: ',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    TextSpan(text: '2,000,000,000 INC'),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: const TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    height: 2.2,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Minimum purchase: ',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    TextSpan(text: '0.1 ETH'),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: const TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    height: 2.2,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: 'KYC required: ',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                        text: 'YES(Instapay App required)'),
-                                  ],
-                                ),
-                              ),
-                              RichText(
-                                text: const TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    height: 2.2,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Accepted payment: ',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                        text: 'FIAT(KRW) and Ethereum ONLY'),
-                                  ],
-                                ),
+                              Image.asset(
+                                'img/main/coininfotable.jpg',
+                                fit: BoxFit.cover,
+                                width: 400,
                               ),
                             ],
                           ),
+
+                          // child: Column(
+                          //   crossAxisAlignment: CrossAxisAlignment.start,
+                          //   children: [
+                          //     RichText(
+                          //       text: const TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: 20.0,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w300,
+                          //           height: 2.2,
+                          //         ),
+                          //         children: [
+                          //           TextSpan(
+                          //             text: 'Symbol: ',
+                          //             style: TextStyle(
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //           ),
+                          //           TextSpan(text: 'INC'),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //     RichText(
+                          //       text: const TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: 20.0,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w300,
+                          //           height: 2.2,
+                          //         ),
+                          //         children: [
+                          //           TextSpan(
+                          //             text: 'Total issuance: ',
+                          //             style: TextStyle(
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //           ),
+                          //           TextSpan(text: '2,000,000,000 INC'),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //     RichText(
+                          //       text: const TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: 20.0,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w300,
+                          //           height: 2.2,
+                          //         ),
+                          //         children: [
+                          //           TextSpan(
+                          //             text: 'Minimum purchase: ',
+                          //             style: TextStyle(
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //           ),
+                          //           TextSpan(text: '0.1 ETH'),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //     RichText(
+                          //       text: const TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: 20.0,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w300,
+                          //           height: 2.2,
+                          //         ),
+                          //         children: [
+                          //           TextSpan(
+                          //             text: 'KYC required: ',
+                          //             style: TextStyle(
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //           ),
+                          //           TextSpan(
+                          //               text: 'YES(Instapay App required)'),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //     RichText(
+                          //       text: const TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: 20.0,
+                          //           color: Colors.black,
+                          //           fontWeight: FontWeight.w300,
+                          //           height: 2.2,
+                          //         ),
+                          //         children: [
+                          //           TextSpan(
+                          //             text: 'Accepted payment: ',
+                          //             style: TextStyle(
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //           ),
+                          //           TextSpan(
+                          //               text: 'FIAT(KRW) and Ethereum ONLY'),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
                         )
                       ],
                     ),

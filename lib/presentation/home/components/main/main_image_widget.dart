@@ -59,8 +59,7 @@ class MainImageWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                        child: Image.asset('img/main/main_phone.png')),
+                    Expanded(child: Image.asset('img/main/main_phone.png')),
                     Expanded(
                       flex: 2,
                       child: Column(
@@ -104,7 +103,9 @@ class MainImageWidget extends StatelessWidget {
                             height: 60,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              launchURL('http://get.instacoins.io/basicInfo');
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 15, horizontal: 70),
@@ -127,21 +128,20 @@ class MainImageWidget extends StatelessWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  launchURL('https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
+                                  launchURL(
+                                      'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 15),
                                   decoration: BoxDecoration(
                                     color: const Color(0xff4ac1c2),
-                                    borderRadius:
-                                    BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: const Text(
                                     'White Paper(KOR)',
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 17),
+                                        color: Colors.white, fontSize: 17),
                                   ),
                                 ),
                               ),
@@ -150,21 +150,20 @@ class MainImageWidget extends StatelessWidget {
                               ),
                               InkWell(
                                 onTap: () {
-                                  launchURL('https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                                  launchURL(
+                                      'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 15),
                                   decoration: BoxDecoration(
                                     color: const Color(0xffedb057),
-                                    borderRadius:
-                                    BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: const Text(
                                     'White Paper(ENG)',
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 17),
+                                        color: Colors.white, fontSize: 17),
                                   ),
                                 ),
                               ),
@@ -234,8 +233,7 @@ class MainImageWidget extends StatelessWidget {
                           ),
                           child: const Text(
                             'BUY INC',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 25),
+                            style: TextStyle(color: Colors.white, fontSize: 25),
                           ),
                         ),
                       ),

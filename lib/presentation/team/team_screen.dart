@@ -17,6 +17,8 @@ class TeamScreen extends StatefulWidget {
 class _TeamScreenState extends State<TeamScreen> {
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
+    print((1920/MediaQuery.of(context).size.width) * 1.35);
     final viewModel = context.watch<TeamViewModel>();
     final state = viewModel.state;
 
@@ -27,7 +29,10 @@ class _TeamScreenState extends State<TeamScreen> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xff253444), Color.fromRGBO(24, 61, 96, 0.65)],
+              colors: [
+                Color(0xff253444),
+                Color.fromRGBO(24, 61, 96, 0.65),
+              ],
             ),
           ),
           alignment: Alignment.center,
@@ -178,7 +183,7 @@ class _TeamScreenState extends State<TeamScreen> {
           TeamGridWidget(
             teamDataList: state.teams,
             crossAxisCount: 4,
-            childAspectRatio: 1 / 2,
+           childAspectRatio: 1 / (((1920/MediaQuery.of(context).size.width) * 1.35) + 0.2),
             sizedWidth: null,
           ),
         if (Responsive.isTablet(context))
