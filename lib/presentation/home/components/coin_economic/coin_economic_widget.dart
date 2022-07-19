@@ -13,16 +13,20 @@ class CoinEconomicWidget extends StatelessWidget {
       child: SizedBox(
         width: 1200,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 70),
+          padding: EdgeInsets.symmetric(
+            horizontal: Responsive.isMobile(context) ? 20 : 60,
+            vertical: 70,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+              Center(
                 child: Text(
                   'COIN ECONOMICS',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 50,
+                    fontSize: Responsive.isMobile(context) ? 40 : 50,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -39,10 +43,11 @@ class CoinEconomicWidget extends StatelessWidget {
                         Expanded(
                           child: Column(
                             children: [
-                              const Text(
+                              Text(
                                 'Coin distribution',
                                 style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize:
+                                      Responsive.isMobile(context) ? 20 : 30,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
@@ -59,10 +64,11 @@ class CoinEconomicWidget extends StatelessWidget {
                         Expanded(
                           child: Column(
                             children: [
-                              const Text(
+                              Text(
                                 'Fund distribution',
                                 style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize:
+                                      Responsive.isMobile(context) ? 20 : 30,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
@@ -278,18 +284,15 @@ class CoinEconomicWidget extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        const Text(
+                        Text(
                           'Coin distribution',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: Responsive.isMobile(context) ? 20 : 30,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 60.0,
-                            vertical: 30,
-                          ),
+                          padding: const EdgeInsets.all(10),
                           child: Image.asset(
                             'img/main/coindistribution.png',
                             fit: BoxFit.cover,
@@ -302,18 +305,15 @@ class CoinEconomicWidget extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        const Text(
+                        Text(
                           'Fund distribution',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: Responsive.isMobile(context) ? 20 : 30,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 60.0,
-                            vertical: 30,
-                          ),
+                          padding: const EdgeInsets.all(10),
                           child: Image.asset(
                             'img/main/funddistribution.png',
                             fit: BoxFit.cover,

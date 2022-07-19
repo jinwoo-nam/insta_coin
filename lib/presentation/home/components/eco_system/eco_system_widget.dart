@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 
 class EcoSystemWidget extends StatelessWidget {
   const EcoSystemWidget({Key? key}) : super(key: key);
@@ -16,17 +17,18 @@ class EcoSystemWidget extends StatelessWidget {
         width: 1200,
         //height: 1000,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 60.0,
+          padding: EdgeInsets.symmetric(
+            horizontal: Responsive.isMobile(context) ? 10 : 60,
             vertical: 70,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text(
+              Text(
                 'ECOSYSTEM',
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: Responsive.isMobile(context) ? 35 : 60,
                   fontWeight: FontWeight.w700,
                 ),
               ),

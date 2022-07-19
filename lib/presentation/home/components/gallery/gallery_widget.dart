@@ -23,7 +23,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
         MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
 
     final double galleryImageHeight =
-        (Responsive.isMobile(context)) ? 600 : 750;
+        (Responsive.isMobile(context)) ? 400 : 750;
 
     return SizedBox(
       width: length,
@@ -37,15 +37,15 @@ class _GalleryWidgetState extends State<GalleryWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(
-                vertical: 30,
+                vertical: (Responsive.isMobile(context)) ? 15 : 30,
               ),
               child: Text(
                 'GALLERY',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 50,
+                  fontSize: Responsive.isMobile(context) ? 40 : 50,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -67,9 +67,9 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                               _controller.previousPage(
                                   duration: const Duration(milliseconds: 300));
                             },
-                            child: const Icon(
+                            child: Icon(
                               Icons.arrow_back_ios,
-                              size: 50,
+                              size: (Responsive.isMobile(context)) ? 30 : 50,
                             ),
                           ),
                         ),
@@ -105,9 +105,9 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                 milliseconds: 300,
                               ));
                             },
-                            child: const Icon(
+                            child: Icon(
                               Icons.arrow_forward_ios,
-                              size: 50,
+                              size: (Responsive.isMobile(context)) ? 30 : 50,
                             ),
                           ),
                         ),
@@ -126,12 +126,12 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                               vertical: 8.0, horizontal: 4.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color:
-                                  (Theme.of(context).brightness == Brightness.dark
-                                          ? Colors.white
-                                          : Colors.black)
-                                      .withOpacity(
-                                          _current == entry.key ? 0.9 : 0.4)),
+                              color: (Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black)
+                                  .withOpacity(
+                                      _current == entry.key ? 0.9 : 0.4)),
                         ),
                       );
                     }).toList(),

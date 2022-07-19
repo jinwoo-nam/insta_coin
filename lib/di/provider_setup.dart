@@ -1,10 +1,14 @@
 import 'package:insta_coin/data/repository/article_repository_impl.dart';
+import 'package:insta_coin/data/repository/hoem_repository_impl.dart';
 import 'package:insta_coin/data/repository/team_repository_impl.dart';
+import 'package:insta_coin/domain/use_case/home/get_papps_data_use_case.dart';
+import 'package:insta_coin/domain/use_case/home/get_why_insta_data_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_article_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_column_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_events_use_case.dart';
 import 'package:insta_coin/domain/use_case/team/get_team_data_use_case.dart';
 import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:insta_coin/presentation/home/home_view_model.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/presentation/root/root_view_model.dart';
 import 'package:insta_coin/presentation/team/team_view_model.dart';
@@ -13,10 +17,17 @@ import 'package:provider/single_child_widget.dart';
 
 List<SingleChildWidget> getProviders() {
   final mediaRepository = ArticleRepositoryImpl();
+  final homeRepository = HomeRepositoryImpl();
 
   List<SingleChildWidget> viewModels = [
     ChangeNotifierProvider<RootViewModel>(
       create: (context) => RootViewModel(),
+    ),
+    ChangeNotifierProvider<HomeViewModel>(
+      create: (context) => HomeViewModel(
+        getWhyInstaData: GetWhyInstaDataUseCase(homeRepository),
+        getPappsData: GetPappsDataUseCase(homeRepository),
+      ),
     ),
     ChangeNotifierProvider<TeamViewModel>(
       create: (context) => TeamViewModel(

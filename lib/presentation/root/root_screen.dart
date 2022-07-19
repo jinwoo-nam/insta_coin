@@ -70,7 +70,9 @@ class _RootScreenState extends State<RootScreen> {
         appBar: AppBar(
           toolbarHeight: 75,
           flexibleSpace: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: Responsive.isMobile(context) ? 20 : 50.0,
+            ),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

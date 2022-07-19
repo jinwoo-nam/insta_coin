@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 
 class RectYearWidget extends StatelessWidget {
   final String year;
@@ -32,10 +33,10 @@ class RectYearWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 year,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
-                  fontSize: 28,
+                  fontSize:(Responsive.isMobile(context)) ? 20: 28,
                 ),
               ),
             ),

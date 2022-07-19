@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 
 class CompanyWidget extends StatelessWidget {
   const CompanyWidget({Key? key}) : super(key: key);
@@ -6,7 +7,10 @@ class CompanyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 60),
+      padding: EdgeInsets.symmetric(
+        vertical: 70,
+        horizontal: Responsive.isMobile(context) ? 20 : 60,
+      ),
       width: double.infinity,
       color: Colors.white,
       alignment: Alignment.center,
@@ -15,10 +19,11 @@ class CompanyWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'THE COMPANY',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 50,
+                fontSize: Responsive.isMobile(context) ? 40 : 50,
                 fontWeight: FontWeight.w700,
               ),
             ),

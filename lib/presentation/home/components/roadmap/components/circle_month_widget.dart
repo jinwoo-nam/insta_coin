@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/domain/model/road_map/month_data.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 
 class CircleMonthWidget extends StatelessWidget {
   final MonthData data;
@@ -7,11 +8,11 @@ class CircleMonthWidget extends StatelessWidget {
   final bool isDesktop;
 
   const CircleMonthWidget(
-      this.data, {
-        required this.downPadding,
-        this.isDesktop = true,
-        Key? key,
-      }) : super(key: key);
+    this.data, {
+    required this.downPadding,
+    this.isDesktop = true,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +58,13 @@ class CircleMonthWidget extends StatelessWidget {
           Padding(
             padding: (data.direction == MonthMessageDirection.right)
                 ? EdgeInsets.only(
-              left: 500.0,
-              top: downPadding,
-            )
+                    left: 500.0,
+                    top: downPadding,
+                  )
                 : EdgeInsets.only(
-              right: 500.0,
-              top: downPadding,
-            ),
+                    right: 500.0,
+                    top: downPadding,
+                  ),
             child: Container(
               width: 400,
               padding: const EdgeInsets.all(10),
@@ -74,7 +75,7 @@ class CircleMonthWidget extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 18,
                     color: Colors.black,
                     fontWeight: FontWeight.w300,
                     height: 1.4,
@@ -98,17 +99,17 @@ class CircleMonthWidget extends StatelessWidget {
           Padding(
             padding: (!isDesktop)
                 ? const EdgeInsets.only(
-              left: 80,
-            )
+                    left: 80,
+                  )
                 : (data.direction == MonthMessageDirection.right)
-                ? EdgeInsets.only(
-              left: 500.0,
-              top: downPadding,
-            )
-                : EdgeInsets.only(
-              right: 500.0,
-              top: downPadding,
-            ),
+                    ? EdgeInsets.only(
+                        left: 500.0,
+                        top: downPadding,
+                      )
+                    : EdgeInsets.only(
+                        right: 500.0,
+                        top: downPadding,
+                      ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -117,10 +118,10 @@ class CircleMonthWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10.0),
                   child: Text(
                     data.month,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: (Responsive.isMobile(context)) ? 13 : 18,
                     ),
                   ),
                 ),
@@ -133,8 +134,8 @@ class CircleMonthWidget extends StatelessWidget {
                   ),
                   child: RichText(
                     text: TextSpan(
-                      style: const TextStyle(
-                        fontSize: 14.0,
+                      style:  TextStyle(
+                        fontSize: (Responsive.isMobile(context)) ? 12 : 14,
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                         height: 1.3,
@@ -142,10 +143,10 @@ class CircleMonthWidget extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: data.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontWeight: FontWeight.w700,
-                            color: Color(0xff4ac1c2),
-                            fontSize: 16,
+                            color: const Color(0xff4ac1c2),
+                            fontSize: (Responsive.isMobile(context)) ? 13 : 16,
                           ),
                         ),
                         TextSpan(text: '\n\n${data.description}'),

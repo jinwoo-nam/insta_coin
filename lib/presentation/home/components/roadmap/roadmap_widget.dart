@@ -13,9 +13,9 @@ class RoadmapWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       //height: 3800,
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         vertical: 100,
-        horizontal: 50,
+        horizontal: Responsive.isMobile(context) ? 10 : 60,
       ),
       decoration: const BoxDecoration(
         color: Color(0xff2d3943),
@@ -29,13 +29,14 @@ class RoadmapWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 20.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'ROADMAP',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 50,
+                    fontSize: Responsive.isMobile(context) ? 40 : 50,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -45,7 +46,7 @@ class RoadmapWidget extends StatelessWidget {
               ),
               if (Responsive.isDesktop(context))
                 SizedBox(
-                  height: 3400,
+                  height: 4000,
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: [
@@ -214,17 +215,35 @@ class RoadmapWidget extends StatelessWidget {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 2600.0),
+                        padding: EdgeInsets.only(top: 2700.0),
+                        child: CircleYearWidget(
+                          year: '2019',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2800.0),
+                        child: CircleMonthWidget(
+                          MonthData(
+                            month: 'Apr',
+                            direction: MonthMessageDirection.right,
+                            title: 'Showcase InstaCoin payment with Vitalik Buterin and Changpeng Zhao at Korea-Malta forum',
+                            description: '',
+                          ),
+                          downPadding: 45,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3050.0),
                         child: CircleYearWidget(
                           year: '2021',
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2700.0),
+                        padding: const EdgeInsets.only(top: 3190.0),
                         child: CircleMonthWidget(
                           MonthData(
                             month: 'Jan',
-                            direction: MonthMessageDirection.right,
+                            direction: MonthMessageDirection.left,
                             title:
                             'ACT ON REPORTING AND USING SPECIFIED FINANCIAL TRANSACTION INFORMATION',
                             description: '',
@@ -233,37 +252,45 @@ class RoadmapWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2880.0),
+                        padding: const EdgeInsets.only(top: 3400.0),
                         child: CircleMonthWidget(
                           MonthData(
-                            month: 'Jun',
-                            direction: MonthMessageDirection.left,
-                            title: 'Instacoin Main Net Open',
-                            description:
-                            '* the date is subject to change according to recruiting schedule',
-                          ),
-                          downPadding: 45,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 3050.0),
-                        child: CircleMonthWidget(
-                          MonthData(
-                            month: 'Aug',
+                            month: 'Sep',
                             direction: MonthMessageDirection.right,
-                            title: 'Operating System Complete',
+                            title:
+                            'InstaPay ZeroPay service launching',
                             description: '',
                           ),
                           downPadding: 45,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 3200.0),
+                        //padding: const EdgeInsets.only(top: 3050.0),
+                        padding: const EdgeInsets.only(top: 3500.0),
                         child: CircleMonthWidget(
                           MonthData(
                             month: 'Aug',
                             direction: MonthMessageDirection.left,
-                            title: 'Listing On Exchanges',
+                            title: 'Operating System Complete',
+                            description: '',
+                          ),
+                          downPadding: 45,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3700.0),
+                        child: CircleYearWidget(
+                          year: '2022',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3800.0),
+                        child: CircleMonthWidget(
+                          MonthData(
+                            month: 'May',
+                            direction: MonthMessageDirection.right,
+                            title:
+                            'Hosted 1st World Blockchain Convergence Forum',
                             description: '',
                           ),
                           downPadding: 45,
@@ -275,7 +302,7 @@ class RoadmapWidget extends StatelessWidget {
               if (!Responsive.isDesktop(context))
                 SizedBox(
                   width: double.infinity,
-                  height: 3300,
+                  height: 3400,
                   child: Stack(
                     alignment: Alignment.topLeft,
                     children: [
@@ -457,13 +484,32 @@ class RoadmapWidget extends StatelessWidget {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 2380.0, left: 80),
+                        padding: EdgeInsets.only(top: 2350.0, left: 80),
+                        child: RectYearWidget(
+                          year: '2019',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2430.0),
+                        child: CircleMonthWidget(
+                          MonthData(
+                            month: 'Apr',
+                            direction: MonthMessageDirection.right,
+                            title: 'Showcase InstaCoin payment with Vitalik Buterin and Changpeng Zhao at Korea-Malta forum',
+                            description: '',
+                          ),
+                          isDesktop: false,
+                          downPadding: 40,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 2600.0, left: 80),
                         child: RectYearWidget(
                           year: '2021',
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2470.0),
+                        padding: const EdgeInsets.only(top: 2680.0),
                         child: CircleMonthWidget(
                           MonthData(
                             month: 'Jan',
@@ -477,21 +523,21 @@ class RoadmapWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2670.0),
+                        padding: const EdgeInsets.only(top: 2820.0),
                         child: CircleMonthWidget(
                           MonthData(
-                            month: 'Jun',
+                            month: 'Sep',
                             direction: MonthMessageDirection.right,
-                            title: 'Instacoin Main Net Open',
-                            description:
-                            '* the date is subject to change according to recruiting schedule',
+                            title:
+                            'InstaPay ZeroPay service launching',
+                            description: '',
                           ),
                           isDesktop: false,
                           downPadding: 40,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 2840.0),
+                        padding: const EdgeInsets.only(top: 2940.0),
                         child: CircleMonthWidget(
                           MonthData(
                             month: 'Aug',
@@ -503,13 +549,20 @@ class RoadmapWidget extends StatelessWidget {
                           downPadding: 40,
                         ),
                       ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3100.0, left: 80),
+                        child: RectYearWidget(
+                          year: '2022',
+                        ),
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 3030.0),
+                        padding: const EdgeInsets.only(top: 3180.0),
                         child: CircleMonthWidget(
                           MonthData(
-                            month: 'Aug',
+                            month: 'May',
                             direction: MonthMessageDirection.right,
-                            title: 'Listing On Exchanges',
+                            title:
+                            'Hosted 1st World Blockchain Convergence Forum',
                             description: '',
                           ),
                           isDesktop: false,
