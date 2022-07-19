@@ -46,7 +46,7 @@ class WhyInsta extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: state.whyInsta.map((e) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 60.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 60.0),
                       child: Container(
                         decoration: const BoxDecoration(
                           color: Colors.white,

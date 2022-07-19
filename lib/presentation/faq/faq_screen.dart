@@ -13,7 +13,6 @@ class FaqScreen extends StatefulWidget {
 class _FaqScreenState extends State<FaqScreen> {
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<FaqViewModel>();
     int index = -1;
     return SafeArea(
       child: SingleChildScrollView(

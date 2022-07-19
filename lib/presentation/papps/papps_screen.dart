@@ -84,4 +84,3 @@ class _PappsScreenState extends State<PappsScreen> {
     );
   }
 }
-

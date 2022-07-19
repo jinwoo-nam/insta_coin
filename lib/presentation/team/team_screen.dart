@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/model/team/team_data.dart';
-import 'package:insta_coin/presentation/team/components/advisor_grid_widget.dart';
-import 'package:insta_coin/presentation/team/components/team_grid_widget.dart';
+import 'package:insta_coin/presentation/team/components/advisor_card_widget.dart';
+import 'package:insta_coin/presentation/team/components/team_card_widget.dart';
 import 'package:insta_coin/presentation/team/team_state.dart';
 import 'package:insta_coin/presentation/team/team_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
@@ -17,8 +16,6 @@ class TeamScreen extends StatefulWidget {
 class _TeamScreenState extends State<TeamScreen> {
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
-    print((1920/MediaQuery.of(context).size.width) * 1.35);
     final viewModel = context.watch<TeamViewModel>();
     final state = viewModel.state;
 
@@ -29,19 +26,16 @@ class _TeamScreenState extends State<TeamScreen> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [
-                Color(0xff253444),
-                Color.fromRGBO(24, 61, 96, 0.65),
-              ],
+              colors: [Color(0xff253444), Color.fromRGBO(24, 61, 96, 0.65)],
             ),
           ),
           alignment: Alignment.center,
           child: SizedBox(
             width: 1550,
             child: Padding(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 vertical: 80.0,
-                horizontal: 40,
+                horizontal: Responsive.isMobile(context) ? 20 : 40,
               ),
               child: Center(
                 child: Column(
@@ -57,13 +51,15 @@ class _TeamScreenState extends State<TeamScreen> {
                         ),
                       ),
                     ),
-                    buildTeamWidget(context, state),
+                    buildTeam(context, state),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 80.0),
                       child: RichText(
-                        text: const TextSpan(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
                           style: TextStyle(
-                            fontSize: 45.0,
+                            fontSize:
+                                (Responsive.isMobile(context)) ? 35 : 45.0,
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
                             height: 1.4,
@@ -91,7 +87,7 @@ class _TeamScreenState extends State<TeamScreen> {
                     const SizedBox(
                       height: 40,
                     ),
-                    buildAdvisorWidget(context, state.games),
+                    buildGame(context, state),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 40.0),
                       child: Text(
@@ -102,7 +98,7 @@ class _TeamScreenState extends State<TeamScreen> {
                         ),
                       ),
                     ),
-                    buildAdvisorWidget(context, state.o2os),
+                    buildO2o(context, state),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 40.0),
                       child: Text(
@@ -113,13 +109,15 @@ class _TeamScreenState extends State<TeamScreen> {
                         ),
                       ),
                     ),
-                    buildAdvisorWidget(context, state.ips),
+                    buildIp(context, state),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 80.0),
                       child: RichText(
-                        text: const TextSpan(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
                           style: TextStyle(
-                            fontSize: 45.0,
+                            fontSize:
+                                (Responsive.isMobile(context)) ? 35 : 45.0,
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
                             height: 1.4,
@@ -137,7 +135,7 @@ class _TeamScreenState extends State<TeamScreen> {
                         ),
                       ),
                     ),
-                    buildAdvisorWidget(context, state.techs),
+                    buildTech(context, state),
                   ],
                 ),
               ),
@@ -148,57 +146,344 @@ class _TeamScreenState extends State<TeamScreen> {
     );
   }
 
-  Column buildAdvisorWidget(BuildContext context, List<TeamData> advisorList) {
+  Widget buildTeam(BuildContext context, TeamState state) {
     return Column(
       children: [
         if (Responsive.isDesktop(context))
-          AdvisorGridWidget(
-            teamDataList: advisorList,
-            crossAxisCount: 4,
-            childAspectRatio: 1 / 2,
-            sizedWidth: null,
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams.where((element) => element.index < 4).map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams.where((element) => element.index > 3).map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
           ),
         if (Responsive.isTablet(context))
-          AdvisorGridWidget(
-            teamDataList: advisorList,
-            crossAxisCount: 2,
-            childAspectRatio: 1 / 1.1,
-            sizedWidth: null,
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams.where((element) => element.index < 2).map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams
+                      .where(
+                          (element) => element.index > 1 && element.index < 4)
+                      .map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams
+                      .where(
+                          (element) => element.index > 3 && element.index < 6)
+                      .map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.teams.where((element) => element.index > 5).map((e) {
+                    return Expanded(
+                      child: TeamCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
           ),
         if (Responsive.isMobile(context))
-          AdvisorGridWidget(
-            teamDataList: advisorList,
-            crossAxisCount: 1,
-            childAspectRatio: 1 / 1.3,
-            sizedWidth: 400,
+          SizedBox(
+            width: 400,
+            child: Column(
+              children: [
+                ...state.teams.map((e) {
+                  return TeamCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
           ),
       ],
     );
   }
 
-  Column buildTeamWidget(BuildContext context, TeamState state) {
+  Widget buildGame(BuildContext context, TeamState state) {
     return Column(
       children: [
         if (Responsive.isDesktop(context))
-          TeamGridWidget(
-            teamDataList: state.teams,
-            crossAxisCount: 4,
-           childAspectRatio: 1 / (((1920/MediaQuery.of(context).size.width) * 1.35) + 0.2),
-            sizedWidth: null,
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.games.map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                ],
+              ),
+            ],
           ),
         if (Responsive.isTablet(context))
-          TeamGridWidget(
-            teamDataList: state.teams,
-            crossAxisCount: 2,
-            childAspectRatio: 1 / 1.1,
-            sizedWidth: null,
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.games.map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
           ),
         if (Responsive.isMobile(context))
-          TeamGridWidget(
-            teamDataList: state.teams,
-            crossAxisCount: 1,
-            childAspectRatio: 1 / 1.3,
-            sizedWidth: 400,
+          SizedBox(
+            width: 400,
+            child: Column(
+              children: [
+                ...state.games.map((e) {
+                  return AdvisorCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget buildO2o(BuildContext context, TeamState state) {
+    return Column(
+      children: [
+        if (Responsive.isDesktop(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.o2os.map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isTablet(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.o2os.where((element) => element.index < 2).map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.o2os
+                      .where(
+                          (element) => element.index > 1 && element.index < 4)
+                      .map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isMobile(context))
+          SizedBox(
+            width: 400,
+            child: Column(
+              children: [
+                ...state.o2os.map((e) {
+                  return AdvisorCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget buildIp(BuildContext context, TeamState state) {
+    return Column(
+      children: [
+        if (Responsive.isDesktop(context))
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...state.ips.map((e) {
+                return Expanded(
+                  child: AdvisorCardWidget(
+                    data: e,
+                  ),
+                );
+              }).toList(),
+              Expanded(child: Container()),
+              Expanded(child: Container()),
+              Expanded(child: Container()),
+            ],
+          ),
+        if (Responsive.isTablet(context))
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...state.ips.map((e) {
+                return Expanded(
+                  child: AdvisorCardWidget(
+                    data: e,
+                  ),
+                );
+              }).toList(),
+              Expanded(child: Container()),
+            ],
+          ),
+        if (Responsive.isMobile(context))
+          SizedBox(
+            width: 400,
+            child: Column(
+              children: [
+                ...state.ips.map((e) {
+                  return AdvisorCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget buildTech(BuildContext context, TeamState state) {
+    return Column(
+      children: [
+        if (Responsive.isDesktop(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.techs.map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                  Expanded(child: Container()),
+                  Expanded(child: Container()),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isTablet(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...state.techs.map((e) {
+                    return Expanded(
+                      child: AdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isMobile(context))
+          SizedBox(
+            width: 400,
+            child: Column(
+              children: [
+                ...state.techs.map((e) {
+                  return AdvisorCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
           ),
       ],
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/di/provider_setup.dart';
 import 'package:insta_coin/presentation/home/components/gallery/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/root/root_screen.dart';
+import 'package:insta_coin/presentation/team/components/team_overlay_widget.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         children: const [
           RootScreen(),
           GalleryOverlayWidget(),
+          TeamOverlayWidget(),
         ],
       ),
     );

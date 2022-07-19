@@ -13,6 +13,7 @@ class TeamData with _$TeamData {
     @Default('') String facebookUrl,
     @Default('') String linkedInUrl,
     @Default([]) List<String> desc,
+    @Default(0) int index,
   }) = _TeamData;
   factory TeamData.fromJson(Map<String, dynamic> json) => _$TeamDataFromJson(json);
 }

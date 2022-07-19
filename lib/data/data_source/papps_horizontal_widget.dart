@@ -12,7 +12,9 @@ class PappsHorizontalWidgetRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 30.0,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -33,6 +35,9 @@ class PappsHorizontalWidgetRight extends StatelessWidget {
                   ),
                   child: Image.asset(data.imageUrl)),
             ),
+          ),
+          SizedBox(
+            width: 30,
           ),
           Expanded(
             child: Padding(
@@ -91,7 +96,9 @@ class PappsHorizontalWidgetLeft extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 30.0,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -117,8 +124,7 @@ class PappsHorizontalWidgetLeft extends StatelessWidget {
                       data.subTitle,
                       textAlign: TextAlign.end,
                       style: const TextStyle(
-                          fontSize: 20,
-                          color: Color.fromRGBO(0, 39, 91, 0.89)),
+                          fontSize: 20, color: Color.fromRGBO(0, 39, 91, 0.89)),
                     ),
                   ),
                   Text(
@@ -133,6 +139,9 @@ class PappsHorizontalWidgetLeft extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            width: 30,
           ),
           Expanded(
             child: Padding(
