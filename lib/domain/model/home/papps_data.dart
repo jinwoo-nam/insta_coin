@@ -7,7 +7,9 @@ part 'papps_data.g.dart';
 class PappsData with _$PappsData {
   factory PappsData({
     @Default('') String imageUrl,
+    @Default('') String logoUrl,
     @Default('') String title,
+    @Default('') String subTitle,
     @Default('') String content,
     @Default(0) int index,
   }) = _PappsData;
