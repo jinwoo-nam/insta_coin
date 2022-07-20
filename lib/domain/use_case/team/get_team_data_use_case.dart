@@ -25,4 +25,8 @@ class GetTeamDataUseCase {
   List<TeamData> getTechData() {
     return repository.getTechData();
   }
+
+  List<TeamData> getNewAdvisor() {
+    return repository.getNewAdvisorData();
+  }
 }

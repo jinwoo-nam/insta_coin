@@ -18,10 +18,7 @@ class TeamViewModel with ChangeNotifier {
   void getTeamData() {
     _state = state.copyWith(
       teams: getTeam.getTeamData(),
-      games: getTeam.getGameData(),
-      o2os: getTeam.getO2oData(),
-      ips: getTeam.getIpData(),
-      techs: getTeam.getTechData(),
+      newAdvisor: getTeam.getNewAdvisor(),
     );
     notifyListeners();
   }

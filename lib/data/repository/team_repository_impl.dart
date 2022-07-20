@@ -29,4 +29,9 @@ class TeamRepositoryImpl implements TeamRepository {
   List<TeamData> getTechData() {
     return dataSource.getTechData();
   }
+
+  @override
+  List<TeamData> getNewAdvisorData() {
+    return dataSource.getNewAdvisor();
+  }
 }

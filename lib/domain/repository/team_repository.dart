@@ -10,4 +10,6 @@ abstract class TeamRepository {
   List<TeamData> getIpData();
 
   List<TeamData> getTechData();
+
+  List<TeamData> getNewAdvisorData();
 }

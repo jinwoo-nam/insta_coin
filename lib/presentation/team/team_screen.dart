@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/team/components/advisor_card_widget.dart';
+import 'package:insta_coin/presentation/team/components/new_advisor_card_widget.dart';
 import 'package:insta_coin/presentation/team/components/team_card_widget.dart';
 import 'package:insta_coin/presentation/team/team_state.dart';
 import 'package:insta_coin/presentation/team/team_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
+import 'package:insta_coin/ui/on_hover_detect.dart';
 import 'package:provider/provider.dart';
 
 class TeamScreen extends StatefulWidget {
@@ -54,88 +56,16 @@ class _TeamScreenState extends State<TeamScreen> {
                     buildTeam(context, state),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 80.0),
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize:
-                                (Responsive.isMobile(context)) ? 35 : 45.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            height: 1.4,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'PLATFORM',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromRGBO(153, 238, 239, 0.94),
-                              ),
-                            ),
-                            TextSpan(text: ' ADVISORS'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      'Game',
-                      style: TextStyle(
-                        color: Color.fromRGBO(162, 238, 239, 0.94),
-                        fontSize: 25,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    buildGame(context, state),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 40.0),
                       child: Text(
-                        'O2O Commerce & Donation',
+                        'ADVISOR',
                         style: TextStyle(
-                          color: Color.fromRGBO(162, 238, 239, 0.94),
-                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 45,
                         ),
                       ),
                     ),
-                    buildO2o(context, state),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 40.0),
-                      child: Text(
-                        'IP & Creative',
-                        style: TextStyle(
-                          color: Color.fromRGBO(162, 238, 239, 0.94),
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                    buildIp(context, state),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 80.0),
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize:
-                                (Responsive.isMobile(context)) ? 35 : 45.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            height: 1.4,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'TECHNICAL & STRATEGIC',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromRGBO(153, 238, 239, 0.94),
-                              ),
-                            ),
-                            TextSpan(text: ' ADVISORS'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    buildTech(context, state),
+                    buildNewAdvisor(context, state),
                   ],
                 ),
               ),
@@ -479,6 +409,126 @@ class _TeamScreenState extends State<TeamScreen> {
               children: [
                 ...state.techs.map((e) {
                   return AdvisorCardWidget(
+                    data: e,
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget buildNewAdvisor(BuildContext context, TeamState state) {
+    return Column(
+      children: [
+        if (Responsive.isDesktop(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ...state.newAdvisor
+                      .where((element) => element.index < 4)
+                      .map((e) {
+                    return Expanded(
+                      child: NewAdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ...state.newAdvisor
+                      .where((element) => element.index > 3)
+                      .map((e) {
+                    return Expanded(
+                      child: NewAdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                  Expanded(child: Container()),
+                  Expanded(child: Container()),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isTablet(context))
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ...state.newAdvisor
+                      .where((element) => element.index < 2)
+                      .map((e) {
+                    return Expanded(
+                      child: NewAdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ...state.newAdvisor
+                      .where(
+                          (element) => element.index > 1 && element.index < 4)
+                      .map((e) {
+                    return Expanded(
+                      child: NewAdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ...state.newAdvisor
+                      .where(
+                          (element) => element.index > 3 && element.index < 6)
+                      .map((e) {
+                    return Expanded(
+                      child: NewAdvisorCardWidget(
+                        data: e,
+                      ),
+                    );
+                  }).toList(),
+                ],
+              ),
+            ],
+          ),
+        if (Responsive.isMobile(context))
+          SizedBox(
+            width: 400,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ...state.newAdvisor.map((e) {
+                  return NewAdvisorCardWidget(
                     data: e,
                   );
                 }).toList(),

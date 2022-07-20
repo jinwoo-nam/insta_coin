@@ -12,6 +12,7 @@ class TeamState with _$TeamState {
     @Default([]) List<TeamData> o2os,
     @Default([]) List<TeamData> ips,
     @Default([]) List<TeamData> techs,
+    @Default([]) List<TeamData> newAdvisor,
   }) = _TeamState;
   factory TeamState.fromJson(Map<String, dynamic> json) => _$TeamStateFromJson(json);
 }

@@ -20,6 +20,10 @@ class TeamDataSource {
   List<TeamData> getTechData() {
     return techData;
   }
+
+  List<TeamData> getNewAdvisor() {
+    return newAdvisor;
+  }
 }
 
 List<TeamData> teamData = [
@@ -94,8 +98,60 @@ List<TeamData> teamData = [
     position: 'Business Development Director',
     content:
         'Tommy Ryoo is a Chief Business Development Officer and a steering member of Blockchain Governance and Consensus Committee. He was a Global Business Director of FXGear, a leading AR/VR technology company and software engineer in Hyundai Electronics SW lab.',
-    linkedInUrl: 'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQFdXihKcIYpdQAAAYIaXRSgBb_bCa3f_UF3678EEB4Iy7OvJvRgF2V7dZrRVIVdQ6t9b4hc9UC_ClzbyDlJY3mITcuhYc5sectcU6Sia9Gl0SdQVHCn_0PFaHG2JScePMg4x-0=&original_referer=https://www.instacoins.io/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ftommyryoo%2F',
+    linkedInUrl:
+        'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQFdXihKcIYpdQAAAYIaXRSgBb_bCa3f_UF3678EEB4Iy7OvJvRgF2V7dZrRVIVdQ6t9b4hc9UC_ClzbyDlJY3mITcuhYc5sectcU6Sia9Gl0SdQVHCn_0PFaHG2JScePMg4x-0=&original_referer=https://www.instacoins.io/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ftommyryoo%2F',
     index: 7,
+  ),
+];
+
+List<TeamData> newAdvisor = [
+  TeamData(
+    name: 'Pankyu Bae',
+    desc: [
+      'CEO, NH Capital',
+      'Nonghyup',
+    ],
+    index: 0,
+  ),
+  TeamData(
+    name: 'Kyunghye Jeon',
+    desc: [
+      'Managin Director, KT',
+      'Managing Director, BC Card',
+    ],
+    index: 1,
+  ),
+  TeamData(
+    name: 'Kyusik Kim',
+    desc: [
+      'Chairman, Korea Corporate Governance Forum',
+      'Director, Surim Asset Management',
+    ],
+    index: 2,
+  ),
+  TeamData(
+    name: 'Hyungjeong Kim',
+    desc: [
+      'Representative of Shining Empire',
+      'Producer, Shim Entertainment',
+    ],
+    index: 3,
+  ),
+  TeamData(
+    name: 'Jake Jung',
+    desc: [
+      'Developer, World Quant',
+      'Korea Investment & Securities Co, Ltd.',
+    ],
+    index: 4,
+  ),
+  TeamData(
+    name: 'Jiho Kim',
+    desc: [
+      'A top-class, first-generation game developer in Korea',
+      'KAIST',
+    ],
+    index: 5,
   ),
 ];
 
