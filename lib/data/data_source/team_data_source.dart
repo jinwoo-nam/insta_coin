@@ -89,9 +89,12 @@ List<TeamData> teamData = [
     index: 6,
   ),
   TeamData(
-    name: 'You?',
+    name: 'Tommy Ryoo',
+    imageUrl: 'img/team/team08.png',
+    position: 'Business Development Director',
     content:
-        'We are looking for talented, driven people to join our journey of bringing the crypto-payment innovation to reality. If you’re interested or have any inquiry, please contact us at business@instapay.kr',
+        'Tommy Ryoo is a Chief Business Development Officer and a steering member of Blockchain Governance and Consensus Committee. He was a Global Business Director of FXGear, a leading AR/VR technology company and software engineer in Hyundai Electronics SW lab.',
+    linkedInUrl: 'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQFdXihKcIYpdQAAAYIaXRSgBb_bCa3f_UF3678EEB4Iy7OvJvRgF2V7dZrRVIVdQ6t9b4hc9UC_ClzbyDlJY3mITcuhYc5sectcU6Sia9Gl0SdQVHCn_0PFaHG2JScePMg4x-0=&original_referer=https://www.instacoins.io/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ftommyryoo%2F',
     index: 7,
   ),
 ];
