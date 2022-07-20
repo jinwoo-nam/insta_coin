@@ -30,9 +30,9 @@ class _MediaScreenState extends State<MediaScreen> {
 
   @override
   void initState() {
+    print('init');
     for (int i = 0; i < channels.length; i++) {
       String? id = YoutubePlayerController.convertUrlToId(channels[i]);
-
       _youtubeControllers.add(YoutubePlayerController(
         initialVideoId: id ?? '',
         params: const YoutubePlayerParams(
@@ -44,24 +44,26 @@ class _MediaScreenState extends State<MediaScreen> {
         ),
       ));
     }
+    print('init end');
 
     super.initState();
   }
 
   @override
   void dispose() {
-    for (int i = 0; i < channels.length; i++) {
-      _youtubeControllers[i].close();
-    }
+    // print('dispose');
+    // for (int i = 0; i < channels.length; i++) {
+    //   _youtubeControllers[i].close();
+    // }
+    // print('dispose end');
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-
     final viewModel = context.watch<MediaViewModel>();
     final state = viewModel.state;
-    const player = YoutubePlayerIFrame();
+    //final player = YoutubePlayerIFrame();
 
     return SafeArea(
         child: SingleChildScrollView(
@@ -945,11 +947,6 @@ class _MediaScreenState extends State<MediaScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: IconButton(
                           onPressed: () {
-                            // for (int i = 0; i < chControllerList.length; i++) {
-                            //   if (chControllerList[i].isVideoPlaying) {
-                            //     chControllerList[i].pause();
-                            //   }
-                            // }
                             _carouselController.previousPage(
                                 duration: const Duration(milliseconds: 300));
                           },
@@ -977,7 +974,7 @@ class _MediaScreenState extends State<MediaScreen> {
                               child: Scaffold(
                                 body: LayoutBuilder(
                                   builder: (context, constraints) {
-                                    return player;
+                                    return YoutubePlayerIFrame();
                                   },
                                 ),
                               ),
