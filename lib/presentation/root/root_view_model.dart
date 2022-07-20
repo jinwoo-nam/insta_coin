@@ -17,6 +17,7 @@ class RootViewModel with ChangeNotifier {
     _state = state.copyWith(
       curPage: page,
     );
+    _eventController.add(RootUiEvent.selectScreen(page));
     notifyListeners();
   }
 

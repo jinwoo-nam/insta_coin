@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/root/root_state.dart';
 import 'package:insta_coin/presentation/root/root_view_model.dart';
+import 'package:insta_coin/ui/on_hover_detect.dart';
 import 'package:provider/provider.dart';
 
 class OverlayMenu {
@@ -88,16 +89,27 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                             viewModel.selectPage(PageSelectType.home);
                             viewModel.removeMenu();
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              'HOME',
-                              style: TextStyle(
-                                fontSize: 15,
-                                height: 1.8,
-                              ),
-                            ),
+                          child: OnHoverDetect(
+                            builder: (isHover) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width - 200,
+                                padding: const EdgeInsets.all(8),
+                                color: isHover
+                                    ? Colors.grey.withOpacity(0.2)
+                                    : null,
+                                child: Text(
+                                  'HOME',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    color: isHover
+                                        ? Colors.black87.withOpacity(0.5)
+                                        : Colors.black87,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const Divider(
@@ -109,16 +121,27 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                             viewModel.selectPage(PageSelectType.papps);
                             viewModel.removeMenu();
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              'PAPPS',
-                              style: TextStyle(
-                                fontSize: 15,
-                                height: 1.8,
-                              ),
-                            ),
+                          child: OnHoverDetect(
+                            builder: (isHover) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width - 200,
+                                padding: const EdgeInsets.all(8),
+                                color: isHover
+                                    ? Colors.grey.withOpacity(0.2)
+                                    : null,
+                                child: Text(
+                                  'PAPPS',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    color: isHover
+                                        ? Colors.black87.withOpacity(0.5)
+                                        : Colors.black87,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const Divider(
@@ -130,16 +153,27 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                             viewModel.selectPage(PageSelectType.team);
                             viewModel.removeMenu();
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              'TEAM',
-                              style: TextStyle(
-                                fontSize: 15,
-                                height: 1.8,
-                              ),
-                            ),
+                          child: OnHoverDetect(
+                            builder: (isHover) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width - 200,
+                                padding: const EdgeInsets.all(8),
+                                color: isHover
+                                    ? Colors.grey.withOpacity(0.2)
+                                    : null,
+                                child: Text(
+                                  'TEAM',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    color: isHover
+                                        ? Colors.black87.withOpacity(0.5)
+                                        : Colors.black87,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const Divider(
@@ -151,16 +185,27 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                             viewModel.selectPage(PageSelectType.media);
                             viewModel.removeMenu();
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              'MEDIA',
-                              style: TextStyle(
-                                fontSize: 15,
-                                height: 1.8,
-                              ),
-                            ),
+                          child: OnHoverDetect(
+                            builder: (isHover) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width - 200,
+                                padding: const EdgeInsets.all(8),
+                                color: isHover
+                                    ? Colors.grey.withOpacity(0.2)
+                                    : null,
+                                child: Text(
+                                  'MEDIA',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    color: isHover
+                                        ? Colors.black87.withOpacity(0.5)
+                                        : Colors.black87,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const Divider(
@@ -172,16 +217,27 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                             viewModel.selectPage(PageSelectType.faq);
                             viewModel.removeMenu();
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            padding: const EdgeInsets.all(8),
-                            child: const Text(
-                              'FAQ',
-                              style: TextStyle(
-                                fontSize: 15,
-                                height: 1.8,
-                              ),
-                            ),
+                          child: OnHoverDetect(
+                            builder: (isHover) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width - 200,
+                                padding: const EdgeInsets.all(8),
+                                color: isHover
+                                    ? Colors.grey.withOpacity(0.2)
+                                    : null,
+                                child: Text(
+                                  'FAQ',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    color: isHover
+                                        ? Colors.black87.withOpacity(0.5)
+                                        : Colors.black87,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const Divider(

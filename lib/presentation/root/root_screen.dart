@@ -37,6 +37,9 @@ class _RootScreenState extends State<RootScreen> {
             menu.removeMenu();
           }
         },
+        selectScreen: (PageSelectType type) {
+          selectScreen(type);
+        },
       );
     });
     super.initState();
@@ -79,7 +82,7 @@ class _RootScreenState extends State<RootScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      selectScreen(viewModel, PageSelectType.home);
+                      viewModel.selectPage(PageSelectType.home);
                     },
                     child: Image.asset(
                       'img/main/logo_cs-1.png',
@@ -91,61 +94,76 @@ class _RootScreenState extends State<RootScreen> {
                       children: [
                         TextButton(
                             onPressed: () {
-                              selectScreen(viewModel, PageSelectType.home);
+                              viewModel.selectPage(PageSelectType.home);
                             },
-                            child: const Text(
+                            child: Text(
                               'HOME',
                               style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 17,
-                              ),
+                                  color: viewModel.state.curPage ==
+                                          PageSelectType.home
+                                      ? Colors.black
+                                      : Colors.black45,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600),
                             )),
                         TextButton(
                           onPressed: () {
-                            selectScreen(viewModel, PageSelectType.papps);
+                            viewModel.selectPage(PageSelectType.papps);
                           },
-                          child: const Text(
+                          child: Text(
                             'PAPPS',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                            ),
+                                color: viewModel.state.curPage ==
+                                        PageSelectType.papps
+                                    ? Colors.black
+                                    : Colors.black45,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                         TextButton(
                           onPressed: () {
-                            selectScreen(viewModel, PageSelectType.team);
+                            viewModel.selectPage(PageSelectType.team);
                           },
-                          child: const Text(
+                          child: Text(
                             'TEAM',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                            ),
+                                color: viewModel.state.curPage ==
+                                        PageSelectType.team
+                                    ? Colors.black
+                                    : Colors.black45,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                         TextButton(
                           onPressed: () {
-                            selectScreen(viewModel, PageSelectType.media);
+                            viewModel.selectPage(PageSelectType.media);
                           },
-                          child: const Text(
+                          child: Text(
                             'MEDIA',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                            ),
+                                color: viewModel.state.curPage ==
+                                        PageSelectType.media
+                                    ? Colors.black
+                                    : Colors.black45,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                         TextButton(
                           onPressed: () {
-                            selectScreen(viewModel, PageSelectType.faq);
+                            viewModel.selectPage(PageSelectType.faq);
                           },
-                          child: const Text(
+                          child: Text(
                             'FAQ',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                            ),
+                                color: viewModel.state.curPage ==
+                                        PageSelectType.faq
+                                    ? Colors.black
+                                    : Colors.black45,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                       ],
@@ -212,7 +230,7 @@ class _RootScreenState extends State<RootScreen> {
           controller: scrollController,
           child: Column(
             children: [
-              getSelectWidget(viewModel),
+              getSelectWidget(viewModel.state.curPage),
               //HomeScreen(),
               const FooterWidget(),
             ],
@@ -222,15 +240,14 @@ class _RootScreenState extends State<RootScreen> {
     );
   }
 
-  void selectScreen(RootViewModel viewModel, PageSelectType type) {
+  void selectScreen(PageSelectType type) {
     if (scrollController.hasClients) {
       scrollController.jumpTo(0);
     }
-    viewModel.selectPage(type);
   }
 
-  Widget getSelectWidget(RootViewModel viewModel) {
-    switch (viewModel.state.curPage) {
+  Widget getSelectWidget(PageSelectType type) {
+    switch (type) {
       case PageSelectType.home:
         return const HomeScreen();
       case PageSelectType.papps:

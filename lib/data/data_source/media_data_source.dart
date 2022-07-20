@@ -17,11 +17,19 @@ class MediaDataSource {
 
 List<ArticleData> articleData = [
   ArticleData(
-    title:
-        'Binance CEO Zhang Pengchao participated in the demonstration of InstaPay, a Korean fintech blockchain company, and gave a keynote speech about his experience in Malta.',
+    title: '인스타코인, ‘판타스틱NFT로 영화제 기억하기’ 행사',
+    imageUrl: 'img/media/media42.jpg',
+    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2020759',
+  ),
+  ArticleData(
+    title: '인스타페이 “부천판타스틱국제영화제 후원”',
+    imageUrl: 'img/media/media43.jpg',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2020347',
+  ),
+  ArticleData(
+    title: '“급등종목 알려줄게” 9년만에 유죄…美 ‘루나’ 수사 문건 단독 입수',
     imageUrl: 'img/media/media01.jpg',
-    articleUrl:
-        'https://www.newsworks.co.kr/news/articleView.html?idxno=349686',
+    articleUrl: 'https://www.ytn.co.kr/_ln/0103_202206130841436556',
   ),
   ArticleData(
     title: '인스타코인, 여의도아카데미와 전략적 제휴-투자 유치',
@@ -33,6 +41,124 @@ List<ArticleData> articleData = [
     imageUrl: 'img/media/media03.jpg',
     articleUrl: 'https://platum.kr/archives/186246',
   ),
+  ArticleData(
+    title: '“블록체인 생태계 미성숙…규제 설계는 이후의 문제”',
+    imageUrl: 'img/media/media44.jpg',
+    articleUrl: 'http://www.m-i.kr/news/articleView.html?idxno=919639',
+  ),
+  ArticleData(
+    title: '월드블록체인컨버전스 2022 포럼 성료… “생태계 변화 대응·기회 모색”',
+    imageUrl: 'img/media/media45.jpg',
+    articleUrl:
+    'http://www.blockchaintoday.co.kr/news/articleView.html?idxno=22577',
+  ),
+  ArticleData(
+    title: 'BGCC, 블록체인컨버전스 2022 포럼 앞두고 ‘워킹그룹’ 출범',
+    imageUrl: 'img/media/media46.jpg',
+    articleUrl:
+    'http://www.blockchaintoday.co.kr/news/articleView.html?idxno=22478',
+  ),
+  ArticleData(
+    title: '인스타코인, 르하임그룹으로부터 투자유치',
+    imageUrl: 'img/media/media08.jpg',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2017763',
+  ),
+  ArticleData(
+    title: '결제의 실질적 가능성을 모색하는 ‘인스타코인’',
+    imageUrl: 'img/media/media01.jpg',
+    articleUrl:
+    'https://www.blockchaintoday.co.kr/news/articleView.html?idxno=22408',
+  ),
+  ArticleData(
+    title: '‘월드블록체인컨버전스 포럼 2022’ 5월17일 개최',
+    imageUrl: 'img/media/media22.jpg',
+    articleUrl: 'https://www.m-i.kr/news/articleView.html?idxno=914712',
+  ),
+  ArticleData(
+    title: '낙후된 출판물류 시스템 개선 가능한가? 인스타페이 물류시스템 개선 밝혀',
+    imageUrl: 'img/media/media47.jpg',
+    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=76815',
+  ),
+  ArticleData(
+    title: '대학생이 선택한 필수앱 TOP5 ‘인스타페이, 에브리타임, 줌, 배달의민족, 알바몬’',
+    imageUrl: 'img/media/media23.jpg',
+    articleUrl: 'https://platum.kr/archives/181262',
+  ),
+  ArticleData(
+    title: '블록체인영화제, 인스타코인 ‘블록체인 영화제 3주년 기념 컨퍼런스’ 개최',
+    imageUrl: 'img/media/media24.jpg',
+    articleUrl: 'http://gamefocus.co.kr/detail.php?number=125667',
+  ),
+  ArticleData(
+    title: '인스타페이, 블록체인 영화에 NFT를 구현한다',
+    imageUrl: 'img/media/media09.jpg',
+    articleUrl: 'https://www.blockmedia.co.kr/archives/205199',
+  ),
+  ArticleData(
+    title: '[가상자산거래소와 입법과제]③ 가상자산거래소와 상장코인 사례 분석',
+    imageUrl: 'img/media/media28.jpg',
+    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2005730',
+  ),
+  ArticleData(
+    title: '[가상자산 거래소와 입법과제]② 가상자산 입법쟁점- 가상자산 개념규정과 소비자보호',
+    imageUrl: 'img/media/media28.jpg',
+    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2005235',
+  ),
+  ArticleData(
+    title: '[가상자산 거래소와 입법과제] ① 가상자산 거래소없는 생태계를 모색할 때다',
+    imageUrl: 'img/media/media36.jpg',
+    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2004982',
+  ),
+  ArticleData(
+    title: '인스타페이, 전국 100여 대학에 온라인 구내서점 운영',
+    imageUrl: 'img/media/media48.jpg',
+    articleUrl: 'http://www.epnc.co.kr/news/articleView.html?idxno=213479',
+  ),
+  ArticleData(
+    title: '인스타페이 ’10-10′ 이벤트…도서 20% 할인',
+    imageUrl: 'img/media/media37.jpg',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2001147',
+  ),
+  ArticleData(
+    title: '2030세대, 비트코인 등 가상자산인가 아파트인가',
+    imageUrl: 'img/media/media38.jpg',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2000328',
+  ),
+  ArticleData(
+    title: '<씨네21>·인스타페이, 콘텐츠 협력 제휴 체결',
+    imageUrl: 'img/media/media49.jpg',
+    articleUrl: 'http://m.cine21.com/news/view/?mag_id=97169',
+  ),
+  ArticleData(
+    title: '“도서 기본 20% 할인” 신개념 책 플랫폼 인스타페이 신학기 맞아 공격적 마케팅',
+    imageUrl: 'img/media/media50.jpg',
+    articleUrl:
+    'http://it.chosun.com/site/data/html_dir/2020/09/02/2020090201545.html',
+  ),
+  ArticleData(
+    title: '[도서정가제기획] 왜 다시 도서정가제 폐지인가? -배재광(완반모)',
+    imageUrl: 'img/media/media51.jpg',
+    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=72899',
+  ),
+  ArticleData(
+    title: '[배재광 칼럼] 도서정가제 16년, 소비자 선택권의 자유를 허하라',
+    imageUrl: 'img/media/media52.jpg',
+    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=59440',
+  ),
+  ArticleData(
+    title:
+        'Binance CEO Zhang Pengchao participated in the demonstration of InstaPay, a Korean fintech blockchain company, and gave a keynote speech about his experience in Malta.',
+    imageUrl: 'img/media/media01.jpg',
+    articleUrl:
+        'https://www.newsworks.co.kr/news/articleView.html?idxno=349686',
+  ),
+  ArticleData(
+    title: '[인터뷰] 윤송아 NFT ‘낙타와 달’ 1억 낙찰… “그림은 내 일부”',
+    imageUrl: 'img/media/media27.jpg',
+    articleUrl:
+    'https://www.blockchaintoday.co.kr/news/articleView.html?idxno=20165',
+  ),
+
   ArticleData(
     title: '“STO Manual and the Legal Nature of Crypto Currency” is Published',
     imageUrl: 'img/media/media04.jpg',
@@ -58,11 +184,6 @@ List<ArticleData> articleData = [
         'https://www.newsworks.co.kr/news/articleView.html?idxno=318803',
   ),
   ArticleData(
-    title: '인스타코인, 르하임그룹으로부터 투자유치',
-    imageUrl: 'img/media/media08.jpg',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2017763',
-  ),
-  ArticleData(
     title: 'Film Invested with Cryptocurrency Goes Public',
     imageUrl: 'img/media/media09.jpg',
     articleUrl:
@@ -80,12 +201,6 @@ List<ArticleData> articleData = [
         'Blockchain Film Festival Holds the Press Preview of “Link”, the First Film Invested with Cryptocurrency',
     imageUrl: 'img/media/media11.jpg',
     articleUrl: 'http://www.nspna.com/news/?mode=view&newsid=323134',
-  ),
-  ArticleData(
-    title: '결제의 실질적 가능성을 모색하는 ‘인스타코인’',
-    imageUrl: 'img/media/media01.jpg',
-    articleUrl:
-        'https://www.blockchaintoday.co.kr/news/articleView.html?idxno=22408',
   ),
   ArticleData(
     title: 'Civilian Organization is Composing the ICO•STO Checklist',
@@ -132,26 +247,6 @@ List<ArticleData> articleData = [
     articleUrl: 'https://www.segye.com/newsView/20181108003292',
   ),
   ArticleData(
-    title: '‘월드블록체인컨버전스 포럼 2022’ 5월17일 개최',
-    imageUrl: 'img/media/media22.jpg',
-    articleUrl: 'https://www.m-i.kr/news/articleView.html?idxno=914712',
-  ),
-  ArticleData(
-    title: '대학생이 선택한 필수앱 TOP5 ‘인스타페이, 에브리타임, 줌, 배달의민족, 알바몬’',
-    imageUrl: 'img/media/media23.jpg',
-    articleUrl: 'https://platum.kr/archives/181262',
-  ),
-  ArticleData(
-    title: '블록체인영화제, 인스타코인 ‘블록체인 영화제 3주년 기념 컨퍼런스’ 개최',
-    imageUrl: 'img/media/media24.jpg',
-    articleUrl: 'http://gamefocus.co.kr/detail.php?number=125667',
-  ),
-  ArticleData(
-    title: '인스타페이, 블록체인 영화에 NFT를 구현한다',
-    imageUrl: 'img/media/media09.jpg',
-    articleUrl: 'https://www.blockmedia.co.kr/archives/205199',
-  ),
-  ArticleData(
     title:
         'InstaCoin, building a practical payment method, invites Malta to discuss Virtual Asset Act',
     imageUrl: 'img/media/media25.jpg',
@@ -165,17 +260,6 @@ List<ArticleData> articleData = [
         'https://www.edaily.co.kr/news/read?newsId=01187366619338480&mediaCodeNo=257&OutLnkChk=Y',
   ),
   ArticleData(
-    title: '[인터뷰] 윤송아 NFT ‘낙타와 달’ 1억 낙찰… “그림은 내 일부”',
-    imageUrl: 'img/media/media27.jpg',
-    articleUrl:
-        'https://www.blockchaintoday.co.kr/news/articleView.html?idxno=20165',
-  ),
-  ArticleData(
-    title: '[가상자산거래소와 입법과제]③ 가상자산거래소와 상장코인 사례 분석',
-    imageUrl: 'img/media/media28.jpg',
-    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2005730',
-  ),
-  ArticleData(
     title: 'InstaPay joins ‘Seoul Pay’',
     imageUrl: 'img/media/media29.jpg',
     articleUrl: 'http://www.newsprime.co.kr/news/article/?no=426302',
@@ -186,11 +270,7 @@ List<ArticleData> articleData = [
     imageUrl: 'img/media/media30.jpg',
     articleUrl: 'http://www.paxetv.com/news/articleView.html?idxno=57380',
   ),
-  ArticleData(
-    title: '[가상자산 거래소와 입법과제]② 가상자산 입법쟁점- 가상자산 개념규정과 소비자보호',
-    imageUrl: 'img/media/media28.jpg',
-    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2005235',
-  ),
+
   ArticleData(
     title:
         'Jaekwang Bae discusses ‘Virtual currency and ICO Manual’ from legal standpoint: “ICO’s held abroad may still be applied Korean Capital Market Act”',
@@ -220,22 +300,7 @@ List<ArticleData> articleData = [
     imageUrl: 'img/media/media35.jpg',
     articleUrl: 'http://gametoc.hankyung.com/news/articleView.html?idxno=48307',
   ),
-  ArticleData(
-    title: '[가상자산 거래소와 입법과제] ① 가상자산 거래소없는 생태계를 모색할 때다',
-    imageUrl: 'img/media/media36.jpg',
-    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2004982',
-  ),
-  ArticleData(
-    title: '인스타페이 ’10-10′ 이벤트…도서 20% 할인',
-    imageUrl: 'img/media/media37.jpg',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2001147',
-  ),
-  ArticleData(
-    title: '2030세대, 비트코인 등 가상자산인가 아파트인가',
-    imageUrl: 'img/media/media38.jpg',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2000328',
-  ),
-  ArticleData(
+ ArticleData(
     title: '국내 최초 ‘블록체인 영화제’ 개최한 배재광 인스타페이 대표',
     imageUrl: 'img/media/media39.jpg',
     articleUrl:
@@ -256,69 +321,6 @@ List<ArticleData> articleData = [
     imageUrl: 'img/media/media41.jpg',
     articleUrl:
         'https://gametoc.hankyung.com/news/articleView.html?idxno=48190',
-  ),
-  ArticleData(
-    title: '인스타코인, ‘판타스틱NFT로 영화제 기억하기’ 행사',
-    imageUrl: 'img/media/media42.jpg',
-    articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2020759',
-  ),
-  ArticleData(
-    title: '인스타페이 “부천판타스틱국제영화제 후원”',
-    imageUrl: 'img/media/media43.jpg',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2020347',
-  ),
-  ArticleData(
-    title: '“급등종목 알려줄게” 9년만에 유죄…美 ‘루나’ 수사 문건 단독 입수',
-    imageUrl: 'img/media/media01.jpg',
-    articleUrl: 'https://www.ytn.co.kr/_ln/0103_202206130841436556',
-  ),
-  ArticleData(
-    title: '“블록체인 생태계 미성숙…규제 설계는 이후의 문제”',
-    imageUrl: 'img/media/media44.jpg',
-    articleUrl: 'http://www.m-i.kr/news/articleView.html?idxno=919639',
-  ),
-  ArticleData(
-    title: '월드블록체인컨버전스 2022 포럼 성료… “생태계 변화 대응·기회 모색”',
-    imageUrl: 'img/media/media45.jpg',
-    articleUrl:
-        'http://www.blockchaintoday.co.kr/news/articleView.html?idxno=22577',
-  ),
-  ArticleData(
-    title: 'BGCC, 블록체인컨버전스 2022 포럼 앞두고 ‘워킹그룹’ 출범',
-    imageUrl: 'img/media/media46.jpg',
-    articleUrl:
-        'http://www.blockchaintoday.co.kr/news/articleView.html?idxno=22478',
-  ),
-  ArticleData(
-    title: '낙후된 출판물류 시스템 개선 가능한가? 인스타페이 물류시스템 개선 밝혀',
-    imageUrl: 'img/media/media47.jpg',
-    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=76815',
-  ),
-  ArticleData(
-    title: '인스타페이, 전국 100여 대학에 온라인 구내서점 운영',
-    imageUrl: 'img/media/media48.jpg',
-    articleUrl: 'http://www.epnc.co.kr/news/articleView.html?idxno=213479',
-  ),
-  ArticleData(
-    title: '<씨네21>·인스타페이, 콘텐츠 협력 제휴 체결',
-    imageUrl: 'img/media/media49.jpg',
-    articleUrl: 'http://m.cine21.com/news/view/?mag_id=97169',
-  ),
-  ArticleData(
-    title: '“도서 기본 20% 할인” 신개념 책 플랫폼 인스타페이 신학기 맞아 공격적 마케팅',
-    imageUrl: 'img/media/media50.jpg',
-    articleUrl:
-        'http://it.chosun.com/site/data/html_dir/2020/09/02/2020090201545.html',
-  ),
-  ArticleData(
-    title: '[도서정가제기획] 왜 다시 도서정가제 폐지인가? -배재광(완반모)',
-    imageUrl: 'img/media/media51.jpg',
-    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=72899',
-  ),
-  ArticleData(
-    title: '[배재광 칼럼] 도서정가제 16년, 소비자 선택권의 자유를 허하라',
-    imageUrl: 'img/media/media52.jpg',
-    articleUrl: 'http://www.news-paper.co.kr/news/articleView.html?idxno=59440',
   ),
 ];
 

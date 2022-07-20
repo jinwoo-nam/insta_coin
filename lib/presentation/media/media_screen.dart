@@ -2,25 +2,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
-import 'package:pod_player/pod_player.dart';
 import 'package:provider/provider.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../../util/util.dart';
 
 List<String> channels = [
-  'https://www.youtube.com/watch?time_continue=9&v=L6JuZHluSRc&feature=emb_logo',
-  'https://www.youtube.com/watch?v=xSyhU4HTG40&feature=emb_logo',
-  'https://www.youtube.com/watch?v=7qnnLJkwWFk&feature=emb_logo',
-  'https://www.youtube.com/watch?v=nqsrnlUH1YQ&feature=emb_logo',
-  'https://www.youtube.com/watch?v=u5u9XmBwvJo&feature=emb_logo',
-  'https://www.youtube.com/watch?v=62KtTxoJAQo&feature=emb_logo',
-  'https://www.youtube.com/watch?v=e3_mid9dD1g&feature=emb_logo',
-];
-
-List<String> basic = [
-  'https://www.youtube.com/watch?time_continue=2&v=0bwjoYQCFmo&feature=emb_logo',
-  'https://www.youtube.com/watch?time_continue=1&v=KdeZ1aUMrAQ&feature=emb_logo',
-  'https://www.youtube.com/watch?v=OiscvdFKIig&feature=emb_logo',
-  'https://www.youtube.com/watch?v=4eoNcXv7HQY&feature=emb_logo',
+  'https://www.youtube.com/watch?v=L6JuZHluSRc&t=9s',
+  'https://www.youtube.com/watch?v=xSyhU4HTG40',
+  'https://www.youtube.com/watch?v=7qnnLJkwWFk',
+  'https://www.youtube.com/watch?v=nqsrnlUH1YQ',
+  'https://www.youtube.com/watch?v=u5u9XmBwvJo',
+  'https://www.youtube.com/watch?v=62KtTxoJAQo',
+  'https://www.youtube.com/watch?v=e3_mid9dD1g',
 ];
 
 class MediaScreen extends StatefulWidget {
@@ -31,36 +24,25 @@ class MediaScreen extends StatefulWidget {
 }
 
 class _MediaScreenState extends State<MediaScreen> {
-  final CarouselController _controller = CarouselController();
-
-  final List<PodPlayerController> controllerList = [];
-  final List<PodPlayerController> chControllerList = [];
-
+  final CarouselController _carouselController = CarouselController();
+  List<YoutubePlayerController> _youtubeControllers = [];
   int curIndex = 0;
 
   @override
   void initState() {
-    for (int i = 0; i < 4; i++) {
-      PodPlayerController controller = PodPlayerController(
-        playVideoFrom: PlayVideoFrom.youtube(basic[i]),
-        podPlayerConfig: const PodPlayerConfig(
-          initialVideoQuality: 360,
-          autoPlay: false,
-        ),
-      )..initialise();
+    for (int i = 0; i < channels.length; i++) {
+      String? id = YoutubePlayerController.convertUrlToId(channels[i]);
 
-      controllerList.add(controller);
-    }
-    for (int i = 0; i < 7; i++) {
-      PodPlayerController controller = PodPlayerController(
-        playVideoFrom: PlayVideoFrom.youtube(channels[i]),
-        podPlayerConfig: const PodPlayerConfig(
-          initialVideoQuality: 360,
-          autoPlay: false,
+      _youtubeControllers.add(YoutubePlayerController(
+        initialVideoId: id ?? '',
+        params: const YoutubePlayerParams(
+          showControls: true,
+          showFullscreenButton: true,
+          desktopMode: true,
+          privacyEnhanced: true,
+          useHybridComposition: true,
         ),
-      )..initialise();
-
-      chControllerList.add(controller);
+      ));
     }
 
     super.initState();
@@ -68,31 +50,19 @@ class _MediaScreenState extends State<MediaScreen> {
 
   @override
   void dispose() {
-    for (int i = 0; i < 4; i++) {
-      controllerList[i].dispose();
+    for (int i = 0; i < channels.length; i++) {
+      _youtubeControllers[i].close();
     }
-
-    for (int i = 0; i < 7; i++) {
-      chControllerList[i].dispose();
-    }
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    double chHeight = Responsive.isDesktop(context)
-        ? 750
-        : Responsive.isTablet(context)
-        ? 600
-        : 450;
+
     final viewModel = context.watch<MediaViewModel>();
     final state = viewModel.state;
-    final double fontSize = Responsive.isMobile(context)
-        ? 15
-        : Responsive.isTablet(context)
-            ? 18
-            : 22;
+    const player = YoutubePlayerIFrame();
+
     return SafeArea(
         child: SingleChildScrollView(
       child: Column(
@@ -119,272 +89,6 @@ class _MediaScreenState extends State<MediaScreen> {
                       ),
                       const SizedBox(
                         height: 50,
-                      ),
-                      if (Responsive.isDesktop(context))
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    PodVideoPlayer(
-                                      controller: controllerList[0],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        launchURL(basic[0]);
-                                      },
-                                      child: Text(
-                                        '[BLOCKCHAIN FOCUS] TVCC\n2018.11.08',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: fontSize,
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    PodVideoPlayer(
-                                      controller: controllerList[1],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        launchURL(basic[1]);
-                                      },
-                                      child: Text(
-                                        'MTN(MONEY TODAY) TV\n2018.07.20',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: fontSize,
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    PodVideoPlayer(
-                                      controller: controllerList[2],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        launchURL(basic[2]);
-                                      },
-                                      child: Text(
-                                        'NATIONAL ASSEMBLY TV\n2016.09',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: fontSize,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    PodVideoPlayer(
-                                      controller: controllerList[3],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        launchURL(basic[3]);
-                                      },
-                                      child: Text(
-                                        'MBC TV\n2016.09',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: fontSize,
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      if (!Responsive.isDesktop(context))
-                        Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        PodVideoPlayer(
-                                          controller: controllerList[0],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            launchURL(basic[0]);
-                                          },
-                                          child: Text(
-                                            '[BLOCKCHAIN FOCUS] TVCC\n2018.11.08',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: fontSize,
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        PodVideoPlayer(
-                                          controller: controllerList[1],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            launchURL(basic[1]);
-                                          },
-                                          child: Text(
-                                            'MTN(MONEY TODAY) TV\n2018.07.20',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: fontSize,
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        PodVideoPlayer(
-                                          controller: controllerList[2],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            launchURL(basic[2]);
-                                          },
-                                          child: Text(
-                                            'NATIONAL ASSEMBLY TV\n2016.09',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontSize: fontSize,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        PodVideoPlayer(
-                                          controller: controllerList[3],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            launchURL(basic[3]);
-                                          },
-                                          child: Text(
-                                            'MBC TV\n2016.09',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: fontSize,
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      const SizedBox(
-                        height: 100,
                       ),
                       if (MediaQuery.of(context).size.width > 1300)
                         GridView.builder(
@@ -448,7 +152,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                                     border: Border.all(),
                                                   ),
                                                   child: const Text(
-                                                    '',
+                                                    'Read More',
                                                   ),
                                                 ),
                                               ),
@@ -1241,12 +945,12 @@ class _MediaScreenState extends State<MediaScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: IconButton(
                           onPressed: () {
-                            for (int i = 0; i < chControllerList.length; i++) {
-                              if (chControllerList[i].isVideoPlaying) {
-                                chControllerList[i].pause();
-                              }
-                            }
-                            _controller.previousPage(
+                            // for (int i = 0; i < chControllerList.length; i++) {
+                            //   if (chControllerList[i].isVideoPlaying) {
+                            //     chControllerList[i].pause();
+                            //   }
+                            // }
+                            _carouselController.previousPage(
                                 duration: const Duration(milliseconds: 300));
                           },
                           icon: const Icon(
@@ -1258,62 +962,41 @@ class _MediaScreenState extends State<MediaScreen> {
                       ),
                       Expanded(
                         child: CarouselSlider(
-                          carouselController: _controller,
+                          carouselController: _carouselController,
                           options: CarouselOptions(
-                            height: chHeight,
+                            //height: 450,
                             viewportFraction: 1.0,
                             enlargeCenterPage: false,
                             onPageChanged: (index, reason) {
                               setState(() {});
                             },
                           ),
-                          items: chControllerList.map((e) {
-                            return Stack(
-                              children: [
-                                PodVideoPlayer(
-                                  controller: e,
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    launchURL(e.playVideoFrom.dataSource!);
+                          items: _youtubeControllers.map((e) {
+                            return YoutubePlayerControllerProvider(
+                              controller: e,
+                              child: Scaffold(
+                                body: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    return player;
                                   },
-                                  child: Align(
-                                    alignment: Alignment.topRight,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 15,
-                                        vertical: 10,
-                                      ),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          border: Border.all()),
-                                      child: const Text(
-                                        '유튜브 ⇨',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
                                 ),
-                              ],
+                              ),
                             );
                           }).toList(),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          for (int i = 0; i < chControllerList.length; i++) {
-                            if (chControllerList[i].isVideoPlaying) {
-                              chControllerList[i].pause();
-                            }
-                          }
-                          _controller.nextPage(
-                              duration: const Duration(milliseconds: 300));
-                        },
-                        icon: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: 40,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: IconButton(
+                          onPressed: () {
+                            _carouselController.nextPage(
+                                duration: const Duration(milliseconds: 300));
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                         ),
                       ),
                     ],

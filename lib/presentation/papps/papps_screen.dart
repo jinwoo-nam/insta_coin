@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/data/data_source/papps_horizontal_widget.dart';
-import 'package:insta_coin/data/data_source/papps_vertical_widget.dart';
+import 'package:insta_coin/presentation/home/components/papps/papps_horizontal_widget.dart';
 import 'package:insta_coin/presentation/papps/papps_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 import 'package:provider/provider.dart';
+
+import '../home/components/papps/papps_vertical_widget.dart';
 
 class PappsScreen extends StatefulWidget {
   const PappsScreen({Key? key}) : super(key: key);

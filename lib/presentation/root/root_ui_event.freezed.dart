@@ -19,32 +19,38 @@ mixin _$RootUiEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() menuTab,
+    required TResult Function(PageSelectType type) selectScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(menuTab value) menuTab,
+    required TResult Function(MenuTab value) menuTab,
+    required TResult Function(SelectScreen value) selectScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(menuTab value)? menuTab,
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(menuTab value)? menuTab,
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,25 +73,25 @@ class _$RootUiEventCopyWithImpl<$Res> implements $RootUiEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$menuTabCopyWith<$Res> {
-  factory _$$menuTabCopyWith(_$menuTab value, $Res Function(_$menuTab) then) =
-      __$$menuTabCopyWithImpl<$Res>;
+abstract class _$$MenuTabCopyWith<$Res> {
+  factory _$$MenuTabCopyWith(_$MenuTab value, $Res Function(_$MenuTab) then) =
+      __$$MenuTabCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$menuTabCopyWithImpl<$Res> extends _$RootUiEventCopyWithImpl<$Res>
-    implements _$$menuTabCopyWith<$Res> {
-  __$$menuTabCopyWithImpl(_$menuTab _value, $Res Function(_$menuTab) _then)
-      : super(_value, (v) => _then(v as _$menuTab));
+class __$$MenuTabCopyWithImpl<$Res> extends _$RootUiEventCopyWithImpl<$Res>
+    implements _$$MenuTabCopyWith<$Res> {
+  __$$MenuTabCopyWithImpl(_$MenuTab _value, $Res Function(_$MenuTab) _then)
+      : super(_value, (v) => _then(v as _$MenuTab));
 
   @override
-  _$menuTab get _value => super._value as _$menuTab;
+  _$MenuTab get _value => super._value as _$MenuTab;
 }
 
 /// @nodoc
 
-class _$menuTab implements menuTab {
-  const _$menuTab();
+class _$MenuTab implements MenuTab {
+  const _$MenuTab();
 
   @override
   String toString() {
@@ -95,7 +101,7 @@ class _$menuTab implements menuTab {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$menuTab);
+        (other.runtimeType == runtimeType && other is _$MenuTab);
   }
 
   @override
@@ -105,6 +111,7 @@ class _$menuTab implements menuTab {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() menuTab,
+    required TResult Function(PageSelectType type) selectScreen,
   }) {
     return menuTab();
   }
@@ -113,6 +120,7 @@ class _$menuTab implements menuTab {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
   }) {
     return menuTab?.call();
   }
@@ -121,6 +129,7 @@ class _$menuTab implements menuTab {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
     required TResult orElse(),
   }) {
     if (menuTab != null) {
@@ -132,7 +141,8 @@ class _$menuTab implements menuTab {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(menuTab value) menuTab,
+    required TResult Function(MenuTab value) menuTab,
+    required TResult Function(SelectScreen value) selectScreen,
   }) {
     return menuTab(this);
   }
@@ -140,7 +150,8 @@ class _$menuTab implements menuTab {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(menuTab value)? menuTab,
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
   }) {
     return menuTab?.call(this);
   }
@@ -148,7 +159,8 @@ class _$menuTab implements menuTab {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(menuTab value)? menuTab,
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
     required TResult orElse(),
   }) {
     if (menuTab != null) {
@@ -158,6 +170,139 @@ class _$menuTab implements menuTab {
   }
 }
 
-abstract class menuTab implements RootUiEvent {
-  const factory menuTab() = _$menuTab;
+abstract class MenuTab implements RootUiEvent {
+  const factory MenuTab() = _$MenuTab;
+}
+
+/// @nodoc
+abstract class _$$SelectScreenCopyWith<$Res> {
+  factory _$$SelectScreenCopyWith(
+          _$SelectScreen value, $Res Function(_$SelectScreen) then) =
+      __$$SelectScreenCopyWithImpl<$Res>;
+  $Res call({PageSelectType type});
+}
+
+/// @nodoc
+class __$$SelectScreenCopyWithImpl<$Res> extends _$RootUiEventCopyWithImpl<$Res>
+    implements _$$SelectScreenCopyWith<$Res> {
+  __$$SelectScreenCopyWithImpl(
+      _$SelectScreen _value, $Res Function(_$SelectScreen) _then)
+      : super(_value, (v) => _then(v as _$SelectScreen));
+
+  @override
+  _$SelectScreen get _value => super._value as _$SelectScreen;
+
+  @override
+  $Res call({
+    Object? type = freezed,
+  }) {
+    return _then(_$SelectScreen(
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PageSelectType,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectScreen implements SelectScreen {
+  const _$SelectScreen(this.type);
+
+  @override
+  final PageSelectType type;
+
+  @override
+  String toString() {
+    return 'RootUiEvent.selectScreen(type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectScreen &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SelectScreenCopyWith<_$SelectScreen> get copyWith =>
+      __$$SelectScreenCopyWithImpl<_$SelectScreen>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() menuTab,
+    required TResult Function(PageSelectType type) selectScreen,
+  }) {
+    return selectScreen(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
+  }) {
+    return selectScreen?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? menuTab,
+    TResult Function(PageSelectType type)? selectScreen,
+    required TResult orElse(),
+  }) {
+    if (selectScreen != null) {
+      return selectScreen(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MenuTab value) menuTab,
+    required TResult Function(SelectScreen value) selectScreen,
+  }) {
+    return selectScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
+  }) {
+    return selectScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MenuTab value)? menuTab,
+    TResult Function(SelectScreen value)? selectScreen,
+    required TResult orElse(),
+  }) {
+    if (selectScreen != null) {
+      return selectScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectScreen implements RootUiEvent {
+  const factory SelectScreen(final PageSelectType type) = _$SelectScreen;
+
+  PageSelectType get type;
+  @JsonKey(ignore: true)
+  _$$SelectScreenCopyWith<_$SelectScreen> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -118,7 +118,7 @@ class CompanyWidget extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 30.0),
               child: Text(
-                'Private',
+                'Private Entities',
                 style: TextStyle(
                   fontSize: 27,
                   fontWeight: FontWeight.w700,

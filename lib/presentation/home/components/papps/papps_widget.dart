@@ -65,7 +65,7 @@ class PappsWidget extends StatelessWidget {
                             return Expanded(
                               child: PappsCardWidget(
                                 data: e,
-                                horizontalPadding: 50,
+                                horizontalPadding: 20,
                                 verticalPadding: 0,
                               ),
                             );
@@ -85,7 +85,7 @@ class PappsWidget extends StatelessWidget {
                             return Expanded(
                               child: PappsCardWidget(
                                 data: e,
-                                horizontalPadding: 50,
+                                horizontalPadding: 20,
                                 verticalPadding: 0,
                               ),
                             );
