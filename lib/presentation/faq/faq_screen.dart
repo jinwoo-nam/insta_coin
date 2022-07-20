@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/faq/components/faq_widget.dart';
 import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 import 'package:provider/provider.dart';
 
 class FaqScreen extends StatefulWidget {
@@ -22,25 +23,25 @@ class _FaqScreenState extends State<FaqScreen> {
           child: SizedBox(
             width: 1000,
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 80.0,
-                horizontal: 70,
+              padding: EdgeInsets.symmetric(
+                vertical: (Responsive.isMobile(context)) ? 40 : 80.0,
+                horizontal: (Responsive.isMobile(context)) ? 10 : 70,
               ),
               child: Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Center(
+                    Center(
                       child: Text(
                         'FAQ',
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: (Responsive.isMobile(context)) ? 35 : 50,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 50,
+                    SizedBox(
+                      height: (Responsive.isMobile(context)) ? 30 : 50,
                     ),
                     ...faqData.map(
                       (e) {
@@ -61,8 +62,6 @@ class _FaqScreenState extends State<FaqScreen> {
     );
   }
 }
-
-
 
 List<FaqData> faqData = [
   FaqData(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:insta_coin/responsive/responsive.dart';
 import 'package:provider/provider.dart';
 
 class FaqWidget extends StatefulWidget {
@@ -33,18 +34,20 @@ class _FaqWidgetState extends State<FaqWidget> {
           padding: const EdgeInsets.all(10.0),
           child: InkWell(
             onTap: () {
-                viewModel.selectedFaq(widget.index);
+              viewModel.selectedFaq(widget.index);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  widget.faqData.title,
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
-                    color: Color(0xff515151),
+                Expanded(
+                  child: Text(
+                    widget.faqData.title,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: (Responsive.isMobile(context)) ? 18 : 22,
+                      color: Color(0xff515151),
+                    ),
                   ),
                 ),
                 Visibility(
@@ -69,9 +72,9 @@ class _FaqWidgetState extends State<FaqWidget> {
               child: Text(
                 widget.faqData.content,
                 textAlign: TextAlign.start,
-                style: const TextStyle(
+                style: TextStyle(
                   height: 1.5,
-                  fontSize: 18,
+                  fontSize: (Responsive.isMobile(context)) ? 16 : 18,
                   color: Color(0xff515151),
                   fontWeight: FontWeight.w300,
                 ),
