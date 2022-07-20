@@ -448,7 +448,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                                     border: Border.all(),
                                                   ),
                                                   child: const Text(
-                                                    'Read More',
+                                                    '',
                                                   ),
                                                 ),
                                               ),
