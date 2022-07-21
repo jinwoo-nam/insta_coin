@@ -315,7 +315,7 @@ class _MediaScreenState extends State<MediaScreen> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 1/1.3,
+                            childAspectRatio: 1 / 1.3,
                             mainAxisSpacing: 30,
                             crossAxisSpacing: 10,
                           ),
@@ -384,7 +384,7 @@ class _MediaScreenState extends State<MediaScreen> {
                           shrinkWrap: true,
                           itemCount: state.articles.length,
                           gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 1,
                             childAspectRatio: 1,
                           ),
@@ -426,13 +426,13 @@ class _MediaScreenState extends State<MediaScreen> {
                                               alignment: Alignment.bottomRight,
                                               child: Container(
                                                 padding:
-                                                const EdgeInsets.symmetric(
+                                                    const EdgeInsets.symmetric(
                                                   horizontal: 10,
                                                   vertical: 5,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(15),
+                                                      BorderRadius.circular(15),
                                                   border: Border.all(),
                                                 ),
                                                 child: const Text(
@@ -1004,62 +1004,75 @@ class _MediaScreenState extends State<MediaScreen> {
                     ),
                   ),
                 ),
-                Row(
+                Stack(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: (Responsive.isMobile(context)) ? 5 : 10.0,
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          _carouselController.previousPage(
-                              duration: const Duration(milliseconds: 300));
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.white,
-                          size: (Responsive.isMobile(context)) ? 20 : 40,
-                        ),
-                      ),
-                    ),
                     Expanded(
-                      child: CarouselSlider(
-                        carouselController: _carouselController,
-                        options: CarouselOptions(
-                          //height: 450,
-                          viewportFraction: 1.0,
-                          enlargeCenterPage: false,
-                          onPageChanged: (index, reason) {
-                            setState(() {});
-                          },
-                        ),
-                        items: _youtubeControllers.map((e) {
-                          return YoutubePlayerControllerProvider(
-                            controller: e,
-                            child: Scaffold(
-                              body: LayoutBuilder(
-                                builder: (context, constraints) {
-                                  return YoutubePlayerIFrame();
-                                },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                        child: CarouselSlider(
+                          carouselController: _carouselController,
+                          options: CarouselOptions(
+                            //height: 450,
+                            viewportFraction: 1.0,
+                            enlargeCenterPage: false,
+                            onPageChanged: (index, reason) {
+                              setState(() {});
+                            },
+                          ),
+                          items: _youtubeControllers.map((e) {
+                            return YoutubePlayerControllerProvider(
+                              controller: e,
+                              child: Scaffold(
+                                body: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    return YoutubePlayerIFrame();
+                                  },
+                                ),
                               ),
-                            ),
-                          );
-                        }).toList(),
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: (Responsive.isMobile(context)) ? 5 : 8.0,
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: (Responsive.isMobile(context)) ? 5 : 10.0,
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              _carouselController.previousPage(
+                                  duration: const Duration(milliseconds: 300));
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Colors.white,
+                              size: (Responsive.isMobile(context)) ? 20 : 40,
+                            ),
+                          ),
+                        ),
                       ),
-                      child: IconButton(
-                        onPressed: () {
-                          _carouselController.nextPage(
-                              duration: const Duration(milliseconds: 300));
-                        },
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: (Responsive.isMobile(context)) ? 20 : 40,
+                    ),
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: (Responsive.isMobile(context)) ? 5 : 8.0,
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              _carouselController.nextPage(
+                                  duration: const Duration(milliseconds: 300));
+                            },
+                            icon: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                              size: (Responsive.isMobile(context)) ? 20 : 40,
+                            ),
+                          ),
                         ),
                       ),
                     ),

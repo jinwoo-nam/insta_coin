@@ -223,7 +223,9 @@ class MainImageWidget extends StatelessWidget {
                         height: 60,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          launchURL('http://get.instacoins.io/basicInfo');
+                        },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 70),
@@ -244,7 +246,10 @@ class MainImageWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              launchURL(
+                                  'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 8, horizontal: 15),
@@ -263,7 +268,10 @@ class MainImageWidget extends StatelessWidget {
                             width: 20,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              launchURL(
+                                  'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 8, horizontal: 15),
