@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/presentation/root/root_state.dart';
-import 'package:insta_coin/presentation/root/root_view_model.dart';
+import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/ui/on_hover_detect.dart';
-import 'package:provider/provider.dart';
 
 class OverlayMenu {
   late BuildContext context;
+  final PageSelectType type;
 
-  OverlayEntry overlay =
-      OverlayEntry(builder: (_) => const OverlayMenuWidget());
+  OverlayMenu({
+    this.type = PageSelectType.home,
+  });
+
+  late OverlayEntry overlay = OverlayEntry(
+      builder: (_) => OverlayMenuWidget(
+            onTap: removeMenu,
+            type: type,
+          ));
 
   bool isActive = false;
 
@@ -26,8 +32,13 @@ class OverlayMenu {
 }
 
 class OverlayMenuWidget extends StatefulWidget {
+  final Function onTap;
+  final PageSelectType type;
+
   const OverlayMenuWidget({
     Key? key,
+    required this.onTap,
+    required this.type,
   }) : super(key: key);
 
   @override
@@ -60,8 +71,6 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<RootViewModel>();
-
     return SafeArea(
       child: Align(
         alignment: Alignment.topCenter,
@@ -86,8 +95,11 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                       children: [
                         InkWell(
                           onTap: () {
-                            viewModel.selectPage(PageSelectType.home);
-                            viewModel.removeMenu();
+                            if (widget.type != PageSelectType.home) {
+                              Navigator.pushNamed(context, '/');
+                            }
+
+                            widget.onTap();
                           },
                           child: OnHoverDetect(
                             builder: (isHover) {
@@ -118,8 +130,10 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                         ),
                         InkWell(
                           onTap: () {
-                            viewModel.selectPage(PageSelectType.papps);
-                            viewModel.removeMenu();
+                            if (widget.type != PageSelectType.papps) {
+                              Navigator.pushNamed(context, '/papps');
+                            }
+                            widget.onTap();
                           },
                           child: OnHoverDetect(
                             builder: (isHover) {
@@ -150,8 +164,10 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                         ),
                         InkWell(
                           onTap: () {
-                            viewModel.selectPage(PageSelectType.team);
-                            viewModel.removeMenu();
+                            if (widget.type != PageSelectType.team) {
+                              Navigator.pushNamed(context, '/team');
+                            }
+                            widget.onTap();
                           },
                           child: OnHoverDetect(
                             builder: (isHover) {
@@ -182,8 +198,10 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                         ),
                         InkWell(
                           onTap: () {
-                            viewModel.selectPage(PageSelectType.media);
-                            viewModel.removeMenu();
+                            if (widget.type != PageSelectType.media) {
+                              Navigator.pushNamed(context, '/media');
+                            }
+                            widget.onTap();
                           },
                           child: OnHoverDetect(
                             builder: (isHover) {
@@ -214,8 +232,10 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                         ),
                         InkWell(
                           onTap: () {
-                            viewModel.selectPage(PageSelectType.faq);
-                            viewModel.removeMenu();
+                            if (widget.type != PageSelectType.faq) {
+                              Navigator.pushNamed(context, '/faq');
+                            }
+                            widget.onTap();
                           },
                           child: OnHoverDetect(
                             builder: (isHover) {

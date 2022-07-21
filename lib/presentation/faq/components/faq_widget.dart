@@ -46,7 +46,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: (Responsive.isMobile(context)) ? 18 : 22,
-                      color: Color(0xff515151),
+                      color: Color(0xff222222),
                     ),
                   ),
                 ),
@@ -75,7 +75,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                 style: TextStyle(
                   height: 1.5,
                   fontSize: (Responsive.isMobile(context)) ? 16 : 18,
-                  color: Color(0xff515151),
+                  color: Color(0xff222222),
                   fontWeight: FontWeight.w300,
                 ),
               ),

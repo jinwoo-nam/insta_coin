@@ -13,7 +13,6 @@ import 'package:insta_coin/presentation/faq/faq_view_model.dart';
 import 'package:insta_coin/presentation/home/home_view_model.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/presentation/papps/papps_view_model.dart';
-import 'package:insta_coin/presentation/root/root_view_model.dart';
 import 'package:insta_coin/presentation/team/team_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -23,9 +22,6 @@ List<SingleChildWidget> getProviders() {
   final homeRepository = HomeRepositoryImpl();
 
   List<SingleChildWidget> viewModels = [
-    ChangeNotifierProvider<RootViewModel>(
-      create: (context) => RootViewModel(),
-    ),
     ChangeNotifierProvider<HomeViewModel>(
       create: (context) => HomeViewModel(
         getWhyInstaData: GetWhyInstaDataUseCase(homeRepository),

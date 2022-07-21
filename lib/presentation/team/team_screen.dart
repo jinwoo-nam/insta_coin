@@ -1,72 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
+import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/team/components/advisor_card_widget.dart';
 import 'package:insta_coin/presentation/team/components/new_advisor_card_widget.dart';
 import 'package:insta_coin/presentation/team/components/team_card_widget.dart';
 import 'package:insta_coin/presentation/team/team_state.dart';
 import 'package:insta_coin/presentation/team/team_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
-import 'package:insta_coin/ui/on_hover_detect.dart';
 import 'package:provider/provider.dart';
 
 class TeamScreen extends StatefulWidget {
-  const TeamScreen({Key? key}) : super(key: key);
+  const TeamScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<TeamScreen> createState() => _TeamScreenState();
 }
 
 class _TeamScreenState extends State<TeamScreen> {
+  final OverlayMenu menu = OverlayMenu(
+    type: PageSelectType.team,
+  );
+
+  @override
+  void initState() {
+    menu.context = context;
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<TeamViewModel>();
     final state = viewModel.state;
 
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xff253444), Color.fromRGBO(24, 61, 96, 0.65)],
-            ),
+    return GestureDetector(
+      onTap: () {
+        if (menu.isActive) {
+          menu.removeMenu();
+        }
+      },
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(75),
+          child: AppbarWidget(
+            type: PageSelectType.team,
+            menu: menu,
           ),
-          alignment: Alignment.center,
-          child: SizedBox(
-            width: 1550,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 80.0,
-                horizontal: Responsive.isMobile(context) ? 20 : 40,
+        ),
+        floatingActionButton: FloatingActionButtonWidget(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xff253444), Color.fromRGBO(24, 61, 96, 0.65)],
+                ),
               ),
-              child: Center(
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 70.0),
-                      child: Text(
-                        'TEAM',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 45,
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: 1550,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 80.0,
+                    horizontal: Responsive.isMobile(context) ? 20 : 40,
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 70.0),
+                          child: Text(
+                            'TEAM',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 45,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    buildTeam(context, state),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 80.0),
-                      child: Text(
-                        'ADVISOR',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 45,
+                        buildTeam(context, state),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 80.0),
+                          child: Text(
+                            'ADVISOR',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 45,
+                            ),
+                          ),
                         ),
-                      ),
+                        buildNewAdvisor(context, state),
+                      ],
                     ),
-                    buildNewAdvisor(context, state),
-                  ],
+                  ),
                 ),
               ),
             ),

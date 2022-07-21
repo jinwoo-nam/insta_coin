@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/presentation/root/root_state.dart';
-import 'package:insta_coin/presentation/root/root_view_model.dart';
 import 'package:insta_coin/ui/on_hover_detect.dart';
-import 'package:provider/provider.dart';
 
 class SeePappsButtonWidget extends StatelessWidget {
   const SeePappsButtonWidget({
@@ -11,12 +8,10 @@ class SeePappsButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<RootViewModel>();
-
     return Center(
       child: InkWell(
         onTap: () {
-          viewModel.selectPage(PageSelectType.papps);
+          Navigator.pushNamed(context, '/papps');
         },
         child: OnHoverDetect(
           builder: (isHover) {

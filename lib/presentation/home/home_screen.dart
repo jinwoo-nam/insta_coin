@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
+import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/home/components/coin_economic/coin_economic_widget.dart';
 import 'package:insta_coin/presentation/home/components/company/company_widget.dart';
 import 'package:insta_coin/presentation/home/components/eco_system/eco_system_widget.dart';
@@ -17,22 +20,49 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final OverlayMenu menu = OverlayMenu(
+    type: PageSelectType.home,
+  );
+
+  @override
+  void initState() {
+    menu.context = context;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: const [
-            MainImageWidget(),
-            GalleryWidget(),
-            OurVisionWidget(),
-            WhyInsta(),
-            CompanyWidget(),
-            PappsWidget(),
-            CoinEconomicWidget(),
-            RoadmapWidget(),
-            EcoSystemWidget(),
-          ],
+    return GestureDetector(
+      onTap: () {
+        if (menu.isActive) {
+          menu.removeMenu();
+        }
+      },
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(75),
+          child: AppbarWidget(
+            type: PageSelectType.home,
+            menu: menu,
+          ),
+        ),
+        floatingActionButton: FloatingActionButtonWidget(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: const [
+                MainImageWidget(),
+                GalleryWidget(),
+                OurVisionWidget(),
+                WhyInsta(),
+                CompanyWidget(),
+                PappsWidget(),
+                CoinEconomicWidget(),
+                RoadmapWidget(),
+                EcoSystemWidget(),
+              ],
+            ),
+          ),
         ),
       ),
     );

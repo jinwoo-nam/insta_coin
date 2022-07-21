@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
+import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/faq/components/faq_widget.dart';
-import 'package:insta_coin/presentation/faq/faq_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
-import 'package:provider/provider.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({Key? key}) : super(key: key);
@@ -12,47 +13,74 @@ class FaqScreen extends StatefulWidget {
 }
 
 class _FaqScreenState extends State<FaqScreen> {
+  final OverlayMenu menu = OverlayMenu(
+    type: PageSelectType.faq,
+  );
+
+  @override
+  void initState() {
+    menu.context = this.context;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     int index = -1;
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Container(
-          color: Colors.white,
-          alignment: Alignment.center,
-          child: SizedBox(
-            width: 1000,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: (Responsive.isMobile(context)) ? 40 : 80.0,
-                horizontal: (Responsive.isMobile(context)) ? 10 : 70,
-              ),
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        'FAQ',
-                        style: TextStyle(
-                          fontSize: (Responsive.isMobile(context)) ? 35 : 50,
-                          fontWeight: FontWeight.w700,
+    return GestureDetector(
+      onTap: () {
+        if (menu.isActive) {
+          menu.removeMenu();
+        }
+      },
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(75),
+          child: AppbarWidget(
+            type: PageSelectType.faq,
+            menu: menu,
+          ),
+        ),
+        floatingActionButton: FloatingActionButtonWidget(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              color: Colors.white,
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: 1000,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: (Responsive.isMobile(context)) ? 40 : 80.0,
+                    horizontal: (Responsive.isMobile(context)) ? 10 : 70,
+                  ),
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text(
+                            'FAQ',
+                            style: TextStyle(
+                              fontSize: (Responsive.isMobile(context)) ? 35 : 50,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                          height: (Responsive.isMobile(context)) ? 30 : 50,
+                        ),
+                        ...faqData.map(
+                          (e) {
+                            index += 1;
+                            return FaqWidget(
+                              faqData: e,
+                              index: index,
+                            );
+                          },
+                        ).toList(),
+                      ],
                     ),
-                    SizedBox(
-                      height: (Responsive.isMobile(context)) ? 30 : 50,
-                    ),
-                    ...faqData.map(
-                      (e) {
-                        index += 1;
-                        return FaqWidget(
-                          faqData: e,
-                          index: index,
-                        );
-                      },
-                    ).toList(),
-                  ],
+                  ),
                 ),
               ),
             ),

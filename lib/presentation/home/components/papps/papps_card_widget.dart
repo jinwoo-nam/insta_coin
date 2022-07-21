@@ -70,7 +70,7 @@ class PappsCardWidget extends StatelessWidget {
                   data.content,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w300,
                     height: 1.6,
                     wordSpacing: 1.5,
