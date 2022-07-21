@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/footer_widget.dart';
 import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/faq/components/faq_widget.dart';
 import 'package:insta_coin/responsive/responsive.dart';
@@ -44,44 +45,53 @@ class _FaqScreenState extends State<FaqScreen> {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
+              height: 1000,
               color: Colors.white,
               alignment: Alignment.center,
-              child: SizedBox(
-                width: 1000,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: (Responsive.isMobile(context)) ? 40 : 80.0,
-                    horizontal: (Responsive.isMobile(context)) ? 10 : 70,
-                  ),
-                  child: Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Text(
-                            'FAQ',
-                            style: TextStyle(
-                              fontSize: (Responsive.isMobile(context)) ? 35 : 50,
-                              fontWeight: FontWeight.w700,
-                            ),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      width: 1000,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: (Responsive.isMobile(context)) ? 40 : 80.0,
+                          horizontal: (Responsive.isMobile(context)) ? 10 : 70,
+                        ),
+                        child: Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Text(
+                                  'FAQ',
+                                  style: TextStyle(
+                                    fontSize:
+                                        (Responsive.isMobile(context)) ? 35 : 50,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: (Responsive.isMobile(context)) ? 30 : 50,
+                              ),
+                              ...faqData.map(
+                                (e) {
+                                  index += 1;
+                                  return FaqWidget(
+                                    faqData: e,
+                                    index: index,
+                                  );
+                                },
+                              ).toList(),
+                            ],
                           ),
                         ),
-                        SizedBox(
-                          height: (Responsive.isMobile(context)) ? 30 : 50,
-                        ),
-                        ...faqData.map(
-                          (e) {
-                            index += 1;
-                            return FaqWidget(
-                              faqData: e,
-                              index: index,
-                            );
-                          },
-                        ).toList(),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                  FooterWidget(),
+                ],
               ),
             ),
           ),

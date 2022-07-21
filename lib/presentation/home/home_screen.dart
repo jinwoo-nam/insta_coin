@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/footer_widget.dart';
 import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/home/components/coin_economic/coin_economic_widget.dart';
 import 'package:insta_coin/presentation/home/components/company/company_widget.dart';
@@ -60,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 CoinEconomicWidget(),
                 RoadmapWidget(),
                 EcoSystemWidget(),
+                FooterWidget(),
               ],
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/footer_widget.dart';
 import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/team/components/advisor_card_widget.dart';
 import 'package:insta_coin/presentation/team/components/new_advisor_card_widget.dart';
@@ -53,54 +54,63 @@ class _TeamScreenState extends State<TeamScreen> {
         floatingActionButton: FloatingActionButtonWidget(),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xff253444), Color.fromRGBO(24, 61, 96, 0.65)],
-                ),
-              ),
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 1550,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 80.0,
-                    horizontal: Responsive.isMobile(context) ? 20 : 40,
-                  ),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 70.0),
-                          child: Text(
-                            'TEAM',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 45,
-                            ),
-                          ),
-                        ),
-                        buildTeam(context, state),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 80.0),
-                          child: Text(
-                            'ADVISOR',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 45,
-                            ),
-                          ),
-                        ),
-                        buildNewAdvisor(context, state),
+            child: Column(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xff253444),
+                        Color.fromRGBO(24, 61, 96, 0.65)
                       ],
                     ),
                   ),
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    width: 1550,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 80.0,
+                        horizontal: Responsive.isMobile(context) ? 20 : 40,
+                      ),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 70.0),
+                              child: Text(
+                                'TEAM',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 45,
+                                ),
+                              ),
+                            ),
+                            buildTeam(context, state),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 80.0),
+                              child: Text(
+                                'ADVISOR',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 45,
+                                ),
+                              ),
+                            ),
+                            buildNewAdvisor(context, state),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                FooterWidget(),
+              ],
             ),
           ),
         ),

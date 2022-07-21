@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
+import 'package:insta_coin/presentation/common_widget/footer_widget.dart';
 import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
@@ -1164,6 +1165,7 @@ class _MediaScreenState extends State<MediaScreen> {
                   ),
                 ),
               ),
+              FooterWidget(),
             ],
           ),
         )),
