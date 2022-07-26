@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "488601969370",
+    "project_id": "insta-coin-83959",
+    "storage_bucket": "insta-coin-83959.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488601969370:android:cba2b78ef852934087fbe3",
+        "android_client_info": {
+          "package_name": "kr.instapay.insta_coin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488601969370-65afjlkpeo6ecudv9qkbh72mlculdse0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB41MRsV4iYt9XGayA7Av7VflEn4UxdLLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488601969370-65afjlkpeo6ecudv9qkbh72mlculdse0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

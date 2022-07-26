@@ -422,10 +422,23 @@ class CoinEconomicWidget extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Image.asset(
-                                'img/main/coininfotable.jpg',
-                                fit: BoxFit.cover,
-                                width: 400,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Coin Distribution',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      height: 2.2,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Image.asset(
+                                    'img/main/coininfotable.jpg',
+                                    fit: BoxFit.cover,
+                                    width: 400,
+                                  ),
+                                ],
                               ),
                             ],
                           ),

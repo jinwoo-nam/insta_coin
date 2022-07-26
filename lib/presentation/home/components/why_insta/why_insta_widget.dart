@@ -98,7 +98,7 @@ class WhyInsta extends StatelessWidget {
                                           e.content,
                                           style: const TextStyle(
                                               color: Color(0xff222222),
-                                              fontWeight: FontWeight.w200,
+                                              fontWeight: FontWeight.w300,
                                               fontSize: 19,
                                               height: 1.5),
                                         ),
@@ -164,7 +164,7 @@ class WhyInsta extends StatelessWidget {
                                     e.content,
                                     style: const TextStyle(
                                         color: Color(0xff222222),
-                                        fontWeight: FontWeight.w200,
+                                        fontWeight: FontWeight.w300,
                                         fontSize: 17,
                                         height: 1.5),
                                   ),

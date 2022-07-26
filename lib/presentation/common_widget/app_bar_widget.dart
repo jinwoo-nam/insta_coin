@@ -40,6 +40,7 @@ class _AppbarWidgetState extends State<AppbarWidget> {
         }
       },
       child: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 75,
         flexibleSpace: Padding(
           padding: EdgeInsets.symmetric(

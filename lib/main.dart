@@ -1,15 +1,26 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/di/provider_setup.dart';
 import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/faq/faq_screen.dart';
 import 'package:insta_coin/presentation/home/components/gallery/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
+import 'package:insta_coin/presentation/media/components/insta_coin_article_widget.dart';
+import 'package:insta_coin/presentation/media/components/insta_coin_columns_widget.dart';
 import 'package:insta_coin/presentation/media/media_screen.dart';
 import 'package:insta_coin/presentation/team/components/team_overlay_widget.dart';
 import 'package:insta_coin/presentation/team/team_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     MultiProvider(
       providers: getProviders(),
@@ -26,11 +37,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'InstaCoin',
       initialRoute: '/',
+      theme:
+          ThemeData(primarySwatch: Colors.blue, fontFamily: 'source_sans_pro'),
+      navigatorObservers: <NavigatorObserver>[observer],
       onGenerateRoute: (settings) {
         if (settings.name == '/') {
           return _createRoute(
@@ -56,12 +74,14 @@ class _MyAppState extends State<MyApp> {
           return _createRoute(settings, MediaScreen());
         } else if (settings.name == '/faq') {
           return _createRoute(settings, FaqScreen());
+        } else if (settings.name == '/media/articles') {
+          return _createRoute(settings, InstaCoinArticleWidget());
+        } else if (settings.name == '/media/columns') {
+          return _createRoute(settings, InstaCoinColumnsWidget());
         } else {
           return MaterialPageRoute(builder: (_) => Container());
         }
       },
-      theme:
-          ThemeData(primarySwatch: Colors.blue, fontFamily: 'source_sans_pro'),
     );
   }
 

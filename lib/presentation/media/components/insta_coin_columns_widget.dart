@@ -9,16 +9,16 @@ import 'package:insta_coin/responsive/responsive.dart';
 import 'package:insta_coin/util/util.dart';
 import 'package:provider/provider.dart';
 
-class InstaCoinArticleWidget extends StatefulWidget {
-  const InstaCoinArticleWidget({
+class InstaCoinColumnsWidget extends StatefulWidget {
+  const InstaCoinColumnsWidget({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<InstaCoinArticleWidget> createState() => _InstaCoinArticleWidgetState();
+  State<InstaCoinColumnsWidget> createState() => _InstaCoinColumnsWidgetState();
 }
 
-class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
+class _InstaCoinColumnsWidgetState extends State<InstaCoinColumnsWidget> {
   final OverlayMenu menu = OverlayMenu(
     type: PageSelectType.media,
   );
@@ -70,7 +70,7 @@ class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
                               : CrossAxisAlignment.center,
                           children: [
                             Text(
-                              '인스타코인 기사',
+                              '배재광대표 칼럼',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize:
@@ -82,7 +82,7 @@ class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
                               height: 150,
                             ),
                             if (!Responsive.isMobile(context))
-                              ...state.coinArticles.map((e) {
+                              ...state.coinColumns.map((e) {
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 10.0),
@@ -122,7 +122,7 @@ class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
                                 );
                               }).toList(),
                             if (Responsive.isMobile(context))
-                              ...state.coinArticles.map((e) {
+                              ...state.coinColumns.map((e) {
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 20.0),
@@ -177,8 +177,8 @@ class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
     await FirebaseAnalytics.instance.logEvent(
       name: 'screen_view',
       parameters: {
-        'firebase_screen': '/media/articles',
-        'firebase_screen_class': 'InstaCoinArticle',
+        'firebase_screen': '/media/columns',
+        'firebase_screen_class': 'InstaCoinColumns',
       },
     );
   }

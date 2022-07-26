@@ -5,6 +5,7 @@ import 'package:insta_coin/data/repository/team_repository_impl.dart';
 import 'package:insta_coin/domain/use_case/home/get_papps_main_use_case.dart';
 import 'package:insta_coin/domain/use_case/home/get_why_insta_data_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_article_use_case.dart';
+import 'package:insta_coin/domain/use_case/media/get_coin_article_column_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_column_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_events_use_case.dart';
 import 'package:insta_coin/domain/use_case/papps/get_papps_use_case.dart';
@@ -43,6 +44,7 @@ List<SingleChildWidget> getProviders() {
         getArticle: GetArticleUseCase(mediaRepository),
         getColumn: GetColumnUseCase(mediaRepository),
         getEvents: GetEventsUseCase(mediaRepository),
+        getArticleColumn: GetCoinArticleColumnUseCase(mediaRepository),
       ),
     ),
     ChangeNotifierProvider<FaqViewModel>(

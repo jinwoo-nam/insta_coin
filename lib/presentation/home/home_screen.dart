@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
@@ -14,7 +15,9 @@ import 'package:insta_coin/presentation/home/components/roadmap/roadmap_widget.d
 import 'package:insta_coin/presentation/home/components/why_insta/why_insta_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -27,7 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    _setCurScreenToAnalytics();
     menu.context = context;
+
     super.initState();
   }
 
@@ -67,6 +72,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void _setCurScreenToAnalytics() async {
+    await FirebaseAnalytics.instance.logEvent(
+      name: 'screen_view',
+      parameters: {
+        'firebase_screen': '/',
+        'firebase_screen_class': 'HomeScreen',
+      },
     );
   }
 }

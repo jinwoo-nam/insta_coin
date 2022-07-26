@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 import 'package:insta_coin/util/util.dart';
@@ -103,7 +104,10 @@ class MainImageWidget extends StatelessWidget {
                             height: 60,
                           ),
                           InkWell(
-                            onTap: () {
+                            onTap: () async {
+                              await FirebaseAnalytics.instance.logEvent(
+                                name: 'Click_BUYINC',
+                              );
                               launchURL('http://get.instacoins.io/basicInfo');
                             },
                             child: Container(
@@ -127,7 +131,11 @@ class MainImageWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               InkWell(
-                                onTap: () {
+                                onTap: () async {
+                                  await FirebaseAnalytics.instance.logEvent(
+                                    name: 'Click_WhitePaper(KOR)',
+                                  );
+
                                   launchURL(
                                       'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
                                 },
@@ -149,7 +157,11 @@ class MainImageWidget extends StatelessWidget {
                                 width: 20,
                               ),
                               InkWell(
-                                onTap: () {
+                                onTap: () async {
+                                  await FirebaseAnalytics.instance.logEvent(
+                                    name: 'Click_WhitePaper(ENG)',
+                                  );
+
                                   launchURL(
                                       'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                                 },
@@ -223,7 +235,10 @@ class MainImageWidget extends StatelessWidget {
                         height: 60,
                       ),
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          await FirebaseAnalytics.instance.logEvent(
+                            name: 'Click_BUYINC',
+                          );
                           launchURL('http://get.instacoins.io/basicInfo');
                         },
                         child: Container(
@@ -246,7 +261,11 @@ class MainImageWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                            onTap: () {
+                            onTap: () async{
+                              await FirebaseAnalytics.instance.logEvent(
+                                name: 'Click_WhitePaper(KOR)',
+                              );
+
                               launchURL(
                                   'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
                             },
@@ -268,7 +287,11 @@ class MainImageWidget extends StatelessWidget {
                             width: 20,
                           ),
                           InkWell(
-                            onTap: () {
+                            onTap: () async {
+                              await FirebaseAnalytics.instance.logEvent(
+                                name: 'Click_WhitePaper(ENG)',
+                              );
+
                               launchURL(
                                   'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                             },

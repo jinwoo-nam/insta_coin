@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/util/util.dart';
 
@@ -13,7 +14,11 @@ class FloatingActionButtonWidget extends StatelessWidget {
       children: [
         FloatingActionButton(
           heroTag: null,
-          onPressed: () {
+          onPressed: () async {
+            await FirebaseAnalytics.instance.logEvent(
+              name: 'Click_Telegram',
+            );
+
             launchURL('https://t.me/instapaycoin1');
           },
           child: Image.asset(
@@ -25,7 +30,11 @@ class FloatingActionButtonWidget extends StatelessWidget {
         ),
         FloatingActionButton(
           heroTag: null,
-          onPressed: () {
+          onPressed: () async {
+            await FirebaseAnalytics.instance.logEvent(
+              name: 'Click_Blog',
+            );
+
             launchURL('https://blog.naver.com/instacoin');
           },
           child: Image.asset(
@@ -37,7 +46,11 @@ class FloatingActionButtonWidget extends StatelessWidget {
         ),
         FloatingActionButton(
             heroTag: null,
-            onPressed: () {
+            onPressed: () async {
+              await FirebaseAnalytics.instance.logEvent(
+                name: 'Click_Facebook',
+              );
+
               launchURL('https://www.facebook.com/groups/174734989840209/');
             },
             child: Container(

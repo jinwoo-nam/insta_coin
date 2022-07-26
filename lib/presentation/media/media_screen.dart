@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
@@ -21,7 +22,9 @@ List<String> channels = [
 ];
 
 class MediaScreen extends StatefulWidget {
-  const MediaScreen({Key? key}) : super(key: key);
+  const MediaScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MediaScreen> createState() => _MediaScreenState();
@@ -37,6 +40,7 @@ class _MediaScreenState extends State<MediaScreen> {
 
   @override
   void initState() {
+    _setCurScreenToAnalytics();
     menu.context = context;
 
     for (int i = 0; i < channels.length; i++) {
@@ -155,12 +159,14 @@ class _MediaScreenState extends State<MediaScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  launchURL(state.articles[index]
+                                                  launchURL(state
+                                                      .articles[index]
                                                       .articleUrl);
                                                 },
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 15.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
                                                   child: Align(
                                                     alignment:
                                                         Alignment.bottomRight,
@@ -233,12 +239,14 @@ class _MediaScreenState extends State<MediaScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  launchURL(state.articles[index]
+                                                  launchURL(state
+                                                      .articles[index]
                                                       .articleUrl);
                                                 },
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 15.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
                                                   child: Align(
                                                     alignment:
                                                         Alignment.bottomRight,
@@ -311,12 +319,14 @@ class _MediaScreenState extends State<MediaScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  launchURL(state.articles[index]
+                                                  launchURL(state
+                                                      .articles[index]
                                                       .articleUrl);
                                                 },
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 15.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
                                                   child: Align(
                                                     alignment:
                                                         Alignment.bottomRight,
@@ -389,12 +399,14 @@ class _MediaScreenState extends State<MediaScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  launchURL(state.articles[index]
+                                                  launchURL(state
+                                                      .articles[index]
                                                       .articleUrl);
                                                 },
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 15.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
                                                   child: Align(
                                                     alignment:
                                                         Alignment.bottomRight,
@@ -464,12 +476,14 @@ class _MediaScreenState extends State<MediaScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  launchURL(state.articles[index]
+                                                  launchURL(state
+                                                      .articles[index]
                                                       .articleUrl);
                                                 },
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 15.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
                                                   child: Align(
                                                     alignment:
                                                         Alignment.bottomRight,
@@ -502,20 +516,25 @@ class _MediaScreenState extends State<MediaScreen> {
                                 }),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 100.0),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                                horizontal: 25,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color.fromRGBO(45, 57, 67, 0.82),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: const Text(
-                                'View all',
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  color: Colors.white,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/media/articles');
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 15,
+                                  horizontal: 25,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromRGBO(45, 57, 67, 0.82),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Text(
+                                  'View all',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -574,7 +593,8 @@ class _MediaScreenState extends State<MediaScreen> {
                               return Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 20.0),
+                                    padding:
+                                        const EdgeInsets.only(bottom: 20.0),
                                     child: Image.asset(
                                       state.columns[index].imageUrl,
                                       width: 200,
@@ -605,10 +625,11 @@ class _MediaScreenState extends State<MediaScreen> {
                                               padding: const EdgeInsets.only(
                                                   top: 15.0),
                                               child: Align(
-                                                alignment: Alignment.bottomRight,
+                                                alignment:
+                                                    Alignment.bottomRight,
                                                 child: Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                     horizontal: 10,
                                                     vertical: 5,
                                                   ),
@@ -648,7 +669,8 @@ class _MediaScreenState extends State<MediaScreen> {
                               return Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 20.0),
+                                    padding:
+                                        const EdgeInsets.only(bottom: 20.0),
                                     child: Image.asset(
                                       state.columns[index].imageUrl,
                                       width: 200,
@@ -679,10 +701,11 @@ class _MediaScreenState extends State<MediaScreen> {
                                               padding: const EdgeInsets.only(
                                                   top: 15.0),
                                               child: Align(
-                                                alignment: Alignment.bottomRight,
+                                                alignment:
+                                                    Alignment.bottomRight,
                                                 child: Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                     horizontal: 10,
                                                     vertical: 5,
                                                   ),
@@ -722,7 +745,8 @@ class _MediaScreenState extends State<MediaScreen> {
                               return Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 20.0),
+                                    padding:
+                                        const EdgeInsets.only(bottom: 20.0),
                                     child: Image.asset(
                                       state.columns[index].imageUrl,
                                       width: 200,
@@ -753,10 +777,11 @@ class _MediaScreenState extends State<MediaScreen> {
                                               padding: const EdgeInsets.only(
                                                   top: 15.0),
                                               child: Align(
-                                                alignment: Alignment.bottomRight,
+                                                alignment:
+                                                    Alignment.bottomRight,
                                                 child: Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                     horizontal: 10,
                                                     vertical: 5,
                                                   ),
@@ -782,20 +807,25 @@ class _MediaScreenState extends State<MediaScreen> {
                             }),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 100.0),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 25,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(45, 57, 67, 0.82),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: const Text(
-                            'View all',
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/media/columns');
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 25,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(45, 57, 67, 0.82),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: const Text(
+                              'View all',
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -870,7 +900,8 @@ class _MediaScreenState extends State<MediaScreen> {
                                                   textAlign: TextAlign.start,
                                                   style: const TextStyle(
                                                       fontSize: 18,
-                                                      fontWeight: FontWeight.w300,
+                                                      fontWeight:
+                                                          FontWeight.w300,
                                                       height: 1.6),
                                                 ),
                                               ],
@@ -903,8 +934,8 @@ class _MediaScreenState extends State<MediaScreen> {
                                                     child: const Text(
                                                       'See More',
                                                       style: TextStyle(
-                                                          color:
-                                                              Color(0xff7e7e94)),
+                                                          color: Color(
+                                                              0xff7e7e94)),
                                                     ),
                                                   ),
                                                 ),
@@ -1068,13 +1099,15 @@ class _MediaScreenState extends State<MediaScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            vertical: (Responsive.isMobile(context)) ? 15 : 50.0,
+                            vertical:
+                                (Responsive.isMobile(context)) ? 15 : 50.0,
                           ),
                           child: Text(
                             'CHANNEL',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: (Responsive.isMobile(context)) ? 35 : 50,
+                              fontSize:
+                                  (Responsive.isMobile(context)) ? 35 : 50,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -1113,14 +1146,15 @@ class _MediaScreenState extends State<MediaScreen> {
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        (Responsive.isMobile(context)) ? 5 : 10.0,
+                                    horizontal: (Responsive.isMobile(context))
+                                        ? 5
+                                        : 10.0,
                                   ),
                                   child: IconButton(
                                     onPressed: () {
                                       _carouselController.previousPage(
-                                          duration:
-                                              const Duration(milliseconds: 300));
+                                          duration: const Duration(
+                                              milliseconds: 300));
                                     },
                                     icon: Icon(
                                       Icons.arrow_back_ios_new,
@@ -1138,14 +1172,15 @@ class _MediaScreenState extends State<MediaScreen> {
                                 alignment: Alignment.centerRight,
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        (Responsive.isMobile(context)) ? 5 : 8.0,
+                                    horizontal: (Responsive.isMobile(context))
+                                        ? 5
+                                        : 8.0,
                                   ),
                                   child: IconButton(
                                     onPressed: () {
                                       _carouselController.nextPage(
-                                          duration:
-                                              const Duration(milliseconds: 300));
+                                          duration: const Duration(
+                                              milliseconds: 300));
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward_ios,
@@ -1170,6 +1205,16 @@ class _MediaScreenState extends State<MediaScreen> {
           ),
         )),
       ),
+    );
+  }
+
+  void _setCurScreenToAnalytics() async {
+    await FirebaseAnalytics.instance.logEvent(
+      name: 'screen_view',
+      parameters: {
+        'firebase_screen': '/media',
+        'firebase_screen_class': 'MediaScreen',
+      },
     );
   }
 }

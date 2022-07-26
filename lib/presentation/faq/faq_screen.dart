@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
@@ -7,7 +8,9 @@ import 'package:insta_coin/presentation/faq/components/faq_widget.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 
 class FaqScreen extends StatefulWidget {
-  const FaqScreen({Key? key}) : super(key: key);
+  const FaqScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<FaqScreen> createState() => _FaqScreenState();
@@ -20,6 +23,8 @@ class _FaqScreenState extends State<FaqScreen> {
 
   @override
   void initState() {
+    _setCurScreenToAnalytics();
+
     menu.context = this.context;
     super.initState();
   }
@@ -66,14 +71,16 @@ class _FaqScreenState extends State<FaqScreen> {
                                 child: Text(
                                   'FAQ',
                                   style: TextStyle(
-                                    fontSize:
-                                        (Responsive.isMobile(context)) ? 35 : 50,
+                                    fontSize: (Responsive.isMobile(context))
+                                        ? 35
+                                        : 50,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: (Responsive.isMobile(context)) ? 30 : 50,
+                                height:
+                                    (Responsive.isMobile(context)) ? 30 : 50,
                               ),
                               ...faqData.map(
                                 (e) {
@@ -97,6 +104,16 @@ class _FaqScreenState extends State<FaqScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void _setCurScreenToAnalytics() async {
+    await FirebaseAnalytics.instance.logEvent(
+      name: 'screen_view',
+      parameters: {
+        'firebase_screen': '/faq',
+        'firebase_screen_class': 'FaqScreen',
+      },
     );
   }
 }
