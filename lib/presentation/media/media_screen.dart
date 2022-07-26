@@ -158,7 +158,16 @@ class _MediaScreenState extends State<MediaScreen> {
                                                 ),
                                               ),
                                               InkWell(
-                                                onTap: () {
+                                                onTap: () async {
+                                                  await FirebaseAnalytics
+                                                      .instance
+                                                      .logEvent(
+                                                          name: 'Click_Press',
+                                                          parameters: {
+                                                        'article_name': state
+                                                            .articles[index]
+                                                            .title,
+                                                      });
                                                   launchURL(state
                                                       .articles[index]
                                                       .articleUrl);
@@ -238,7 +247,17 @@ class _MediaScreenState extends State<MediaScreen> {
                                                 ),
                                               ),
                                               InkWell(
-                                                onTap: () {
+                                                onTap: () async {
+                                                  await FirebaseAnalytics
+                                                      .instance
+                                                      .logEvent(
+                                                          name: 'Click_Press',
+                                                          parameters: {
+                                                        'article_name': state
+                                                            .articles[index]
+                                                            .title,
+                                                      });
+
                                                   launchURL(state
                                                       .articles[index]
                                                       .articleUrl);
@@ -318,7 +337,17 @@ class _MediaScreenState extends State<MediaScreen> {
                                                 ),
                                               ),
                                               InkWell(
-                                                onTap: () {
+                                                onTap: () async {
+                                                  await FirebaseAnalytics
+                                                      .instance
+                                                      .logEvent(
+                                                          name: 'Click_Press',
+                                                          parameters: {
+                                                        'article_name': state
+                                                            .articles[index]
+                                                            .title,
+                                                      });
+
                                                   launchURL(state
                                                       .articles[index]
                                                       .articleUrl);
@@ -398,7 +427,17 @@ class _MediaScreenState extends State<MediaScreen> {
                                                 ),
                                               ),
                                               InkWell(
-                                                onTap: () {
+                                                onTap: () async {
+                                                  await FirebaseAnalytics
+                                                      .instance
+                                                      .logEvent(
+                                                          name: 'Click_Press',
+                                                          parameters: {
+                                                        'article_name': state
+                                                            .articles[index]
+                                                            .title,
+                                                      });
+
                                                   launchURL(state
                                                       .articles[index]
                                                       .articleUrl);
@@ -475,7 +514,17 @@ class _MediaScreenState extends State<MediaScreen> {
                                                 ),
                                               ),
                                               InkWell(
-                                                onTap: () {
+                                                onTap: () async {
+                                                  await FirebaseAnalytics
+                                                      .instance
+                                                      .logEvent(
+                                                          name: 'Click_Press',
+                                                          parameters: {
+                                                        'article_name': state
+                                                            .articles[index]
+                                                            .title,
+                                                      });
+
                                                   launchURL(state
                                                       .articles[index]
                                                       .articleUrl);
