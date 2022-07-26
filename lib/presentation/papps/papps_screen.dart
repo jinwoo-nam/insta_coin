@@ -130,11 +130,7 @@ class _PappsScreenState extends State<PappsScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/papps',
-        'firebase_screen_class': 'PappsScreen',
-      },
+      name: 'Papps_Screen_view',
     );
   }
 }

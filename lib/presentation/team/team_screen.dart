@@ -585,11 +585,7 @@ class _TeamScreenState extends State<TeamScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/team',
-        'firebase_screen_class': 'TeamScreen',
-      },
+      name: 'Team_Screen_view',
     );
   }
 }

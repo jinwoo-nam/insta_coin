@@ -109,11 +109,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/faq',
-        'firebase_screen_class': 'FaqScreen',
-      },
+      name: 'Faq_Screen_view',
     );
   }
 }

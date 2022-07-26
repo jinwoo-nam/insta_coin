@@ -1210,11 +1210,7 @@ class _MediaScreenState extends State<MediaScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/media',
-        'firebase_screen_class': 'MediaScreen',
-      },
+      name: 'Media_Screen_view',
     );
   }
 }

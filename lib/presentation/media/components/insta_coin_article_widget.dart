@@ -175,11 +175,7 @@ class _InstaCoinArticleWidgetState extends State<InstaCoinArticleWidget> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/media/articles',
-        'firebase_screen_class': 'InstaCoinArticle',
-      },
+      name: 'CoinArticle_Screen_view',
     );
   }
 }

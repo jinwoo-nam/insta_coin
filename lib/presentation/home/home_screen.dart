@@ -77,11 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'screen_view',
-      parameters: {
-        'firebase_screen': '/',
-        'firebase_screen_class': 'HomeScreen',
-      },
+      name: 'Home_Screen_view',
     );
   }
 }
