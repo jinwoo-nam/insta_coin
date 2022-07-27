@@ -34,7 +34,7 @@ class CircleYearWidget extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
-                fontSize: 28,
+                fontSize: 26,
               ),
             ),
           ),

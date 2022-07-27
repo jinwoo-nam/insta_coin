@@ -67,7 +67,7 @@ class CircleMonthWidget extends StatelessWidget {
                   ),
             child: Container(
               width: 400,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
@@ -75,7 +75,7 @@ class CircleMonthWidget extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.black,
                     fontWeight: FontWeight.w300,
                     height: 1.4,
@@ -86,7 +86,7 @@ class CircleMonthWidget extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w700,
                         color: Color(0xff4ac1c2),
-                        fontSize: 19,
+                        fontSize: 15,
                       ),
                     ),
                     TextSpan(text: '\n\n${data.description}'),
@@ -127,7 +127,7 @@ class CircleMonthWidget extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
