@@ -136,7 +136,6 @@ class CoinEconomicWidget extends StatelessWidget {
                                 fontSize: 20.0,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w300,
-                                height: 2.2,
                               ),
                               children: [
                                 TextSpan(
@@ -145,7 +144,7 @@ class CoinEconomicWidget extends StatelessWidget {
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                TextSpan(text: 'Insta Coin'),
+                                TextSpan(text: 'InstaCoin'),
                               ],
                             ),
                           ),
@@ -155,7 +154,6 @@ class CoinEconomicWidget extends StatelessWidget {
                                 fontSize: 20.0,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w300,
-                                height: 2.2,
                               ),
                               children: [
                                 TextSpan(
@@ -169,7 +167,7 @@ class CoinEconomicWidget extends StatelessWidget {
                             ),
                           ),
                           Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 'Coin Distribution',
@@ -390,7 +388,6 @@ class CoinEconomicWidget extends StatelessWidget {
                                     fontSize: 20.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w300,
-                                    height: 2.2,
                                   ),
                                   children: [
                                     TextSpan(
@@ -399,7 +396,7 @@ class CoinEconomicWidget extends StatelessWidget {
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
-                                    TextSpan(text: 'Insta Coin'),
+                                    TextSpan(text: 'InstaCoin'),
                                   ],
                                 ),
                               ),
@@ -409,7 +406,6 @@ class CoinEconomicWidget extends StatelessWidget {
                                     fontSize: 20.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w300,
-                                    height: 2.2,
                                   ),
                                   children: [
                                     TextSpan(
@@ -423,7 +419,7 @@ class CoinEconomicWidget extends StatelessWidget {
                                 ),
                               ),
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
                                     'Coin Distribution',

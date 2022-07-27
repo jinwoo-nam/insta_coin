@@ -162,8 +162,20 @@ class MainImageWidget extends StatelessWidget {
                                     name: 'Click_WhitePaper(ENG)',
                                   );
 
-                                  launchURL(
-                                      'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text('Coming soon'),
+                                        content: Text('준비 중입니다.'),
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () =>
+                                                  Navigator.of(context).pop(),
+                                              child: Text('OK'))
+                                        ],
+                                      ));
+                                  // launchURL(
+                                  //     'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
@@ -261,7 +273,7 @@ class MainImageWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                            onTap: () async{
+                            onTap: () async {
                               await FirebaseAnalytics.instance.logEvent(
                                 name: 'Click_WhitePaper(KOR)',
                               );
@@ -292,8 +304,20 @@ class MainImageWidget extends StatelessWidget {
                                 name: 'Click_WhitePaper(ENG)',
                               );
 
-                              launchURL(
-                                  'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        title: Text('Coming soon'),
+                                        content: Text('준비 중입니다.'),
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () =>
+                                                  Navigator.of(context).pop(),
+                                              child: Text('OK'))
+                                        ],
+                                      ));
+                              // launchURL(
+                              //     'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
