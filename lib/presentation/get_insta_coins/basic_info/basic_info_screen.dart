@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_coin/presentation/get_insta_coins/get_coin_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 import 'package:insta_coin/util/util.dart';
+import 'package:provider/provider.dart';
 
 class BasicInfoScreen extends StatefulWidget {
   const BasicInfoScreen({Key? key}) : super(key: key);
@@ -37,9 +39,11 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = 1000;
+    final viewModel = context.watch<GetCoinViewModel>();
+    final double screenWidth = 1300;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         flexibleSpace: Padding(
           padding: EdgeInsets.symmetric(
@@ -330,7 +334,9 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                     Center(
                       child: InkWell(
                         onTap: () {
-
+                          viewModel.saveUserInfo(
+                              emailController.text, ethereumController.text);
+                          Navigator.pushNamed(context, '/getInstaCoin/appKyc');
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(

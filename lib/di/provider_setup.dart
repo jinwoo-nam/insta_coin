@@ -11,6 +11,7 @@ import 'package:insta_coin/domain/use_case/media/get_events_use_case.dart';
 import 'package:insta_coin/domain/use_case/papps/get_papps_use_case.dart';
 import 'package:insta_coin/domain/use_case/team/get_team_data_use_case.dart';
 import 'package:insta_coin/presentation/faq/faq_view_model.dart';
+import 'package:insta_coin/presentation/get_insta_coins/get_coin_view_model.dart';
 import 'package:insta_coin/presentation/home/home_view_model.dart';
 import 'package:insta_coin/presentation/media/media_view_model.dart';
 import 'package:insta_coin/presentation/papps/papps_view_model.dart';
@@ -38,6 +39,9 @@ List<SingleChildWidget> getProviders() {
       create: (context) => TeamViewModel(
         getTeam: GetTeamDataUseCase(TeamRepositoryImpl()),
       ),
+    ),
+    ChangeNotifierProvider<GetCoinViewModel>(
+      create: (context) => GetCoinViewModel(),
     ),
     ChangeNotifierProvider<MediaViewModel>(
       create: (context) => MediaViewModel(

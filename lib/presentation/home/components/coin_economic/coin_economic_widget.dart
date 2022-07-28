@@ -84,46 +84,6 @@ class CoinEconomicWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // RichText(
-                    //   text: const TextSpan(
-                    //     style: TextStyle(
-                    //       fontSize: 18.0,
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.w300,
-                    //       height: 1.6,
-                    //     ),
-                    //     children: [
-                    //       TextSpan(text: '1. '),
-                    //       TextSpan(
-                    //         text: 'Reserve Fund & Conversion Compensation: ',
-                    //         style: TextStyle(
-                    //           fontWeight: FontWeight.w700,
-                    //         ),
-                    //       ),
-                    //       TextSpan(text: '1,000,000,000 INC'),
-                    //     ],
-                    //   ),
-                    // ),
-                    // RichText(
-                    //   text: const TextSpan(
-                    //     style: TextStyle(
-                    //       fontSize: 18.0,
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.w300,
-                    //       height: 1.6,
-                    //     ),
-                    //     children: [
-                    //       TextSpan(text: '2. '),
-                    //       TextSpan(
-                    //         text: 'Distribution: ',
-                    //         style: TextStyle(
-                    //           fontWeight: FontWeight.w700,
-                    //         ),
-                    //       ),
-                    //       TextSpan(text: '1,000,000,000 INC'),
-                    //     ],
-                    //   ),
-                    // ),
                     const SizedBox(
                       height: 100,
                     ),

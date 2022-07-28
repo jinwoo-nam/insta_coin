@@ -108,7 +108,8 @@ class MainImageWidget extends StatelessWidget {
                               await FirebaseAnalytics.instance.logEvent(
                                 name: 'Click_BUYINC',
                               );
-                              launchURL('http://get.instacoins.io/basicInfo');
+                              //launchURL('http://get.instacoins.io/basicInfo');
+                              launchURL('insta_coin/#/getInstaCoin/basicInfo');
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
@@ -165,15 +166,16 @@ class MainImageWidget extends StatelessWidget {
                                   showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
-                                        title: Text('Coming soon'),
-                                        content: Text('준비 중입니다.'),
-                                        actions: [
-                                          TextButton(
-                                              onPressed: () =>
-                                                  Navigator.of(context).pop(),
-                                              child: Text('OK'))
-                                        ],
-                                      ));
+                                            title: Text('Coming soon'),
+                                            content: Text('준비 중입니다.'),
+                                            actions: [
+                                              TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.of(context)
+                                                          .pop(),
+                                                  child: Text('OK'))
+                                            ],
+                                          ));
                                   // launchURL(
                                   //     'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
                                 },
@@ -251,7 +253,8 @@ class MainImageWidget extends StatelessWidget {
                           await FirebaseAnalytics.instance.logEvent(
                             name: 'Click_BUYINC',
                           );
-                          launchURL('http://get.instacoins.io/basicInfo');
+                          //launchURL('http://get.instacoins.io/basicInfo');
+                          launchURL('insta_coin/#/getInstaCoin/basicInfo');
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(

@@ -4,8 +4,9 @@ import 'package:insta_coin/di/provider_setup.dart';
 import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/faq/faq_screen.dart';
 import 'package:insta_coin/presentation/get_insta_coins/app_kyc/app_kyc_screen.dart';
-import 'package:insta_coin/presentation/get_insta_coins/basic_info/get_insta_coins_screen.dart';
+import 'package:insta_coin/presentation/get_insta_coins/basic_info/basic_info_screen.dart';
 import 'package:insta_coin/presentation/get_insta_coins/basic_info/terms/terms_screen.dart';
+import 'package:insta_coin/presentation/get_insta_coins/confirm/confirm_screen.dart';
 import 'package:insta_coin/presentation/home/components/gallery/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
 import 'package:insta_coin/presentation/media/components/insta_coin_article_widget.dart';
@@ -48,10 +49,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'InstaCoin',
-      //initialRoute: '/',
-      initialRoute: '/getInstaCoin/appKyc',
-      theme:
-          ThemeData(primarySwatch: Colors.blue, fontFamily: 'source_sans_pro'),
+      initialRoute: '/',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'source_sans_pro',
+        backgroundColor: Colors.white,
+      ),
       navigatorObservers: <NavigatorObserver>[observer],
       onGenerateRoute: (settings) {
         if (settings.name == '/') {
@@ -88,6 +91,8 @@ class _MyAppState extends State<MyApp> {
           return _createRoute(settings, TermsScreen());
         } else if (settings.name == '/getInstaCoin/appKyc') {
           return _createRoute(settings, AppKycScreen());
+        } else if (settings.name == '/getInstaCoin/confirm') {
+          return _createRoute(settings, ConfirmScreen());
         } else {
           return MaterialPageRoute(builder: (_) => Container());
         }
