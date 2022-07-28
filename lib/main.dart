@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/di/provider_setup.dart';
 import 'package:insta_coin/presentation/Papps/papps_screen.dart';
 import 'package:insta_coin/presentation/faq/faq_screen.dart';
+import 'package:insta_coin/presentation/get_insta_coins/app_kyc/app_kyc_screen.dart';
+import 'package:insta_coin/presentation/get_insta_coins/basic_info/get_insta_coins_screen.dart';
+import 'package:insta_coin/presentation/get_insta_coins/basic_info/terms/terms_screen.dart';
 import 'package:insta_coin/presentation/home/components/gallery/gallery_overlay_widget.dart';
 import 'package:insta_coin/presentation/home/home_screen.dart';
 import 'package:insta_coin/presentation/media/components/insta_coin_article_widget.dart';
@@ -45,7 +48,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'InstaCoin',
-      initialRoute: '/',
+      //initialRoute: '/',
+      initialRoute: '/getInstaCoin/appKyc',
       theme:
           ThemeData(primarySwatch: Colors.blue, fontFamily: 'source_sans_pro'),
       navigatorObservers: <NavigatorObserver>[observer],
@@ -78,6 +82,12 @@ class _MyAppState extends State<MyApp> {
           return _createRoute(settings, InstaCoinArticleWidget());
         } else if (settings.name == '/media/columns') {
           return _createRoute(settings, InstaCoinColumnsWidget());
+        } else if (settings.name == '/getInstaCoin/basicInfo') {
+          return _createRoute(settings, BasicInfoScreen());
+        } else if (settings.name == '/getInstaCoin/termsK') {
+          return _createRoute(settings, TermsScreen());
+        } else if (settings.name == '/getInstaCoin/appKyc') {
+          return _createRoute(settings, AppKycScreen());
         } else {
           return MaterialPageRoute(builder: (_) => Container());
         }
