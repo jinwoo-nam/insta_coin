@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:insta_coin/domain/model/media/article_data.dart';
 import 'package:insta_coin/domain/model/media/column_data.dart';
 import 'package:insta_coin/domain/model/media/events_data.dart';

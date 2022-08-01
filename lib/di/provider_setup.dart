@@ -1,7 +1,9 @@
 import 'package:insta_coin/data/repository/article_repository_impl.dart';
+import 'package:insta_coin/data/repository/get_coin_repository_impl.dart';
 import 'package:insta_coin/data/repository/hoem_repository_impl.dart';
 import 'package:insta_coin/data/repository/papps_repository_impl.dart';
 import 'package:insta_coin/data/repository/team_repository_impl.dart';
+import 'package:insta_coin/domain/use_case/get_coin/get_coin_use_case.dart';
 import 'package:insta_coin/domain/use_case/home/get_papps_main_use_case.dart';
 import 'package:insta_coin/domain/use_case/home/get_why_insta_data_use_case.dart';
 import 'package:insta_coin/domain/use_case/media/get_article_use_case.dart';
@@ -41,7 +43,11 @@ List<SingleChildWidget> getProviders() {
       ),
     ),
     ChangeNotifierProvider<GetCoinViewModel>(
-      create: (context) => GetCoinViewModel(),
+      create: (context) => GetCoinViewModel(
+        getCoin: GetCoinUseCase(
+          GetCoinRepositoryImpl(),
+        ),
+      ),
     ),
     ChangeNotifierProvider<MediaViewModel>(
       create: (context) => MediaViewModel(

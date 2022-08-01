@@ -227,7 +227,9 @@ class _$_EventsData implements _EventsData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EventsDataToJson(this);
+    return _$$_EventsDataToJson(
+      this,
+    );
   }
 }
 
