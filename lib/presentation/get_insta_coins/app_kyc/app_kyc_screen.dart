@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/get_insta_coins/get_coin_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
@@ -425,16 +426,62 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                 if (!isMobileScreen)
                                   Padding(
                                     padding: const EdgeInsets.only(left: 80.0),
-                                    child: Image.asset(
-                                      'img/get_insta_coin/method1.png',
-                                      width: 200,
+                                    child: Column(
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            if (!kIsWeb) {
+                                              launchURL('api.instapay.kr');
+                                            }
+                                          },
+                                          child: Image.asset(
+                                            'img/get_insta_coin/method1.png',
+                                            width: 200,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: Text(
+                                            '모바일에서는 QR코드 이미지를 터치해주세요.',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff4ac1c2),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 if (isMobileScreen)
                                   Center(
-                                    child: Image.asset(
-                                      'img/get_insta_coin/method1.png',
-                                      width: 200,
+                                    child: Column(
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            if (!kIsWeb) {
+                                              launchURL('api.instapay.kr');
+                                            }
+                                          },
+                                          child: Image.asset(
+                                            'img/get_insta_coin/method1.png',
+                                            width: 200,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: Text(
+                                            '모바일에서는 QR코드 이미지를 터치해주세요.',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff4ac1c2),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                               ],
@@ -492,16 +539,110 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                 if (!isMobileScreen)
                                   Padding(
                                     padding: const EdgeInsets.only(left: 80.0),
-                                    child: Image.asset(
-                                      'img/get_insta_coin/method2.png',
-                                      width: 200,
+                                    child: Column(
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            if (!kIsWeb) {
+                                              launchURL('api.instapay.kr');
+                                            }
+                                          },
+                                          child: Image.asset(
+                                            'img/get_insta_coin/method2.png',
+                                            width: 200,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: Text(
+                                            '모바일에서는 QR코드 이미지를 터치해주세요.',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff4ac1c2),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 70,
+                                            vertical: 10,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color:
+                                                  Colors.grey.withOpacity(0.7),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Text(
+                                            '우리은행 1005-002-956715\n예금주: 스타트업팩토리',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 21,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 if (isMobileScreen)
                                   Center(
-                                    child: Image.asset(
-                                      'img/get_insta_coin/method2.png',
-                                      width: 200,
+                                    child: Column(
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            if (!kIsWeb) {
+                                              launchURL('api.instapay.kr');
+                                            }
+                                          },
+                                          child: Image.asset(
+                                            'img/get_insta_coin/method2.png',
+                                            width: 200,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: Text(
+                                            '모바일에서는 QR코드 이미지를 터치해주세요.',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff4ac1c2),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 60,
+                                            vertical: 8,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color:
+                                                  Colors.grey.withOpacity(0.7),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Text(
+                                            '우리은행 1005-002-956715\n예금주: 스타트업팩토리',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                               ],
