@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="/insta_coin/">
+    <base href="/insta_coin/">
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Insta coin">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Insta coin">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="insta_coin">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="insta_coin">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <meta property="og:title" content="&quot;Pay Without Barriers&quot; - InstaCoin (INC)"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.instacoins.io/"/>
-  <meta property="og:image" content="./asset/instacoin_meta.jpg"/>
-  <meta property="og:image:width" content="960"/>
-  <meta property="og:image:height" content="960"/>
-  <meta property="og:description" content="InstaCoin (INC) is a blockchain based payment platform !"/>
+    <meta property="og:title" content="&quot;Pay Without Barriers&quot; - InstaCoin (INC)"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.instacoins.io/"/>
+    <meta property="og:image" content="./asset/instacoin_meta.jpg"/>
+    <meta property="og:image:width" content="960"/>
+    <meta property="og:image:height" content="960"/>
+    <meta property="og:description"
+          content="InstaCoin (INC) is a blockchain based payment platform !"/>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/ico" href="favicon.ico"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
 
-  <title>insta_coin</title>
-  <link rel="manifest" href="manifest.json">
+    <title>insta_coin</title>
+    <link rel="manifest" href="manifest.json">
 
   <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        line-height:100vh;
+        align-items: center;
+        text-align:center;
+        vertical-align: middle;
+        margin: 0 auto;
+        display:table-cell;
+      }
+      .indicator{
+        width: 200px;
+      }
+      .indicator2{
+        width: 80px;
+      }
+      .container img {
+        display:block;
+        margin:0 auto;
+      }
+    </style>
 </head>
-<body>
-  <script>
+<body style="overflow: hidden" bgcolor="#fff">
+<div id="loading_indicator" class="container">
+    <img class="indicator"  src="./asset/instaCoin_logo.png"/>
+    <img class="indicator2"  src="./asset/loading.gif"/>
+</div>
+
+<script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -48,6 +76,16 @@
         return appRunner.runApp();
       });
     });
-  </script>
+</script>
+<script>
+      window.onload = function () {
+      setTimeout(function () {
+          var loadingIndicator = document.getElementById("loading_indicator");
+          if (loadingIndicator) {
+              loadingIndicator.remove();
+          }
+        }, 10000);
+      };
+</script>
 </body>
 </html>

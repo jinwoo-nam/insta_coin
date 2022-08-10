@@ -238,23 +238,20 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                                   return 'Please enter a valid email address.';
                                                 }
                                               }
-
                                               return null;
                                             },
                                             cursorColor: Color(0xff6789ab),
                                             decoration: InputDecoration(
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    // color: emailError
-                                                    //     ? Color(0xffe73d4a)
-                                                    //     : Colors.black,
-                                                    ),
+                                                borderRadius: BorderRadius.zero,
+                                                borderSide: BorderSide(),
                                               ),
                                               isDense: true,
                                               contentPadding:
                                                   EdgeInsets.all(12),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(),
+                                                borderRadius: BorderRadius.zero,
                                               ),
                                             ),
                                             style: TextStyle(
@@ -320,12 +317,14 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                             cursorColor: Color(0xff6789ab),
                                             decoration: InputDecoration(
                                               enabledBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                               isDense: true,
                                               contentPadding:
                                                   EdgeInsets.all(12),
                                               focusedBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                             ),
@@ -392,12 +391,14 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                             cursorColor: Color(0xff6789ab),
                                             decoration: InputDecoration(
                                               enabledBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                               isDense: true,
                                               contentPadding:
                                                   EdgeInsets.all(12),
                                               focusedBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                             ),
@@ -508,12 +509,14 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                             cursorColor: Color(0xff6789ab),
                                             decoration: InputDecoration(
                                               enabledBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                               isDense: true,
                                               contentPadding:
                                                   EdgeInsets.all(12),
                                               focusedBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.zero,
                                                 borderSide: BorderSide(),
                                               ),
                                             ),
