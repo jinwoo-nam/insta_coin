@@ -278,9 +278,6 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                     Spacer(),
                                   ],
                                   if (isMobileScreen) ...[
-                                    SizedBox(
-                                      width: 30,
-                                    ),
                                     Expanded(
                                       flex: 3,
                                       child: Column(
@@ -350,7 +347,6 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                         ],
                                       ),
                                     ),
-                                    Spacer(),
                                   ],
                                 ],
                               ),
@@ -479,9 +475,6 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                     Spacer(),
                                   ],
                                   if (isMobileScreen) ...[
-                                    SizedBox(
-                                      width: 30,
-                                    ),
                                     Expanded(
                                       flex: 3,
                                       child: Column(
@@ -591,7 +584,6 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                         ],
                                       ),
                                     ),
-                                    Spacer(),
                                   ],
                                 ],
                               ),
