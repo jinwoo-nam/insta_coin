@@ -66,8 +66,7 @@ class _AppKycScreenState extends State<AppKycScreen> {
     final viewModel = context.watch<GetCoinViewModel>();
     final state = viewModel.state;
     final double screenWidth =
-        isMobileScreen ? MediaQuery.of(context).size.width - 50 : 1100;
-
+        isMobileScreen ? MediaQuery.of(context).size.width - 20 : 1100;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -106,19 +105,19 @@ class _AppKycScreenState extends State<AppKycScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: SafeArea(
                 child: Padding(
                   padding: isMobileScreen
-                      ? EdgeInsets.all(3)
+                      ? const EdgeInsets.all(10.0)
                       : const EdgeInsets.all(20.0),
                   child: Center(
                     child: Container(
-                      padding: isMobileScreen
-                          ? EdgeInsets.all(3)
-                          : EdgeInsets.all(25),
+                      padding: EdgeInsets.all(25),
                       decoration: BoxDecoration(
-                        border: Border.all(),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.5),
+                        ),
                       ),
                       width: screenWidth,
                       child: Column(
@@ -444,9 +443,8 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                       children: [
                                         InkWell(
                                           onTap: () {
-                                            if (!kIsWeb) {
-                                              launchURL('api.instapay.kr');
-                                            }
+                                            launchURL(
+                                                'https://api.instapay.kr/v3/qrn?q=eyJnIjoiajIwbnctc2cyMmotMDZiMTctMThvMTMtbTUyZWUiLCJtIjpudWxsfQ==');
                                           },
                                           child: Image.asset(
                                             'img/get_insta_coin/method1.png',
@@ -474,9 +472,8 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                       children: [
                                         InkWell(
                                           onTap: () {
-                                            if (!kIsWeb) {
-                                              launchURL('api.instapay.kr');
-                                            }
+                                            launchURL(
+                                                'https://api.instapay.kr/v3/qrn?q=eyJnIjoiajIwbnctc2cyMmotMDZiMTctMThvMTMtbTUyZWUiLCJtIjpudWxsfQ==');
                                           },
                                           child: Image.asset(
                                             'img/get_insta_coin/method1.png',
@@ -557,9 +554,8 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                       children: [
                                         InkWell(
                                           onTap: () {
-                                            if (!kIsWeb) {
-                                              launchURL('api.instapay.kr');
-                                            }
+                                            launchURL(
+                                                'https://api.instapay.kr/v3/qrn?q=eyJnIjoiaTIwbGEtYmIxOW4tMDR2MDgtMjJjMDgtcDUzbGYiLCJtIjpudWxsfQ==');
                                           },
                                           child: Image.asset(
                                             'img/get_insta_coin/method2.png',
@@ -611,9 +607,8 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                       children: [
                                         InkWell(
                                           onTap: () {
-                                            if (!kIsWeb) {
-                                              launchURL('api.instapay.kr');
-                                            }
+                                            launchURL(
+                                                'https://api.instapay.kr/v3/qrn?q=eyJnIjoiaTIwbGEtYmIxOW4tMDR2MDgtMjJjMDgtcDUzbGYiLCJtIjpudWxsfQ==');
                                           },
                                           child: Image.asset(
                                             'img/get_insta_coin/method2.png',

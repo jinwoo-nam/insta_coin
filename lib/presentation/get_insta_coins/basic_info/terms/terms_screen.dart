@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_coin/presentation/common_widget/number_widget.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 
-
 class TermsScreen extends StatefulWidget {
   const TermsScreen({Key? key}) : super(key: key);
 
@@ -74,9 +73,7 @@ class _TermsScreenState extends State<TermsScreen> {
           children: [
             Center(
               child: Container(
-                padding: EdgeInsets.all(
-                  20,
-                ),
+                padding: EdgeInsets.all(20),
                 width: 1400,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +116,8 @@ class _TermsScreenState extends State<TermsScreen> {
                                 child: Text(
                                   data['index'],
                                   style: TextStyle(
-                                      fontSize: 17, fontWeight: FontWeight.w600),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600),
                                 ),
                               ),
                               Container(
@@ -390,7 +388,10 @@ class _TermsScreenState extends State<TermsScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 80.0),
                       child: Center(
-                        child: Text('2021.04.23.',style: TextStyle(fontSize: 19),),
+                        child: Text(
+                          '2021.04.23.',
+                          style: TextStyle(fontSize: 19),
+                        ),
                       ),
                     ),
                   ],
