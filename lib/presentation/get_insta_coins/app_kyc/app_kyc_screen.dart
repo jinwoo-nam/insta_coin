@@ -34,7 +34,7 @@ class _AppKycScreenState extends State<AppKycScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/getInstaCoin/basicInfo');
-                } ,
+                },
                 child: const Text('OK'),
               ),
             ],
