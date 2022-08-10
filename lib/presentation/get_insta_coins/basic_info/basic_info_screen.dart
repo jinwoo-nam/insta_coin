@@ -442,7 +442,7 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                                     InkWell(
                                                       onTap: () {
                                                         launchURL(
-                                                            'insta_coin/#/getInstaCoin/termsK');
+                                                            '#/getInstaCoin/termsK');
                                                       },
                                                       child: Text(
                                                         '코인판매 약관',
@@ -563,7 +563,7 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                                                               TapGestureRecognizer()
                                                                 ..onTap = () {
                                                                   launchURL(
-                                                                      'insta_coin/#/getInstaCoin/termsK');
+                                                                      '#/getInstaCoin/termsK');
                                                                   //Navigator.pushNamed(context, '/getInstaCoin/termsK');
                                                                 },
                                                           text: '코인판매 약관',
