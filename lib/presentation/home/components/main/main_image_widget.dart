@@ -253,7 +253,7 @@ class MainImageWidget extends StatelessWidget {
                             name: 'Click_BUYINC',
                           );
                           //launchURL('http://get.instacoins.io/basicInfo');
-                          launchURL('insta_coin/#/getInstaCoin/basicInfo');
+                          launchURL('#/getInstaCoin/basicInfo');
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
