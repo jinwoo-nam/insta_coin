@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_coin/domain/use_case/get_coin/get_coin_use_case.dart';
 import 'package:insta_coin/presentation/get_insta_coins/get_coin_state.dart';
@@ -19,7 +20,6 @@ class GetCoinViewModel with ChangeNotifier {
 
   Future<void> getUserInfo() async {
     final info = await getCoin.getUserInfo();
-    //print('get user info ${info.email} ${info.ethereumAddress}');
 
     _state = state.copyWith(
       userEmail: info.email,
@@ -30,5 +30,15 @@ class GetCoinViewModel with ChangeNotifier {
 
   Future<void> deleteUserInfo() async {
     await getCoin.deleteUserInfo();
+  }
+
+  Future<DocumentReference> saveUserInfoToFireStore() async {
+    return FirebaseFirestore.instance
+        .collection('get_coin_user_info')
+        .add(<String, dynamic>{
+      'email': state.userEmail,
+      'ethereumAddress': state.userEthereumAdress,
+      'timestamp': DateTime.now().millisecondsSinceEpoch,
+    });
   }
 }

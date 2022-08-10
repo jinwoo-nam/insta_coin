@@ -17,10 +17,28 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
 
   @override
   void initState() {
-    Future.microtask(() {
-      print('confirm init state');
+    Future.microtask(() async {
       final viewModel = context.read<GetCoinViewModel>();
-      viewModel.getUserInfo();
+      await viewModel.getUserInfo();
+
+      if (viewModel.state.userEmail.isEmpty ||
+          viewModel.state.userEthereumAdress.isEmpty) {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: const Text('사용자 정보가 없습니다.'),
+            content: const Text('Email, Ethereum 주소가 없습니다.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/getInstaCoin/basicInfo');
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback(

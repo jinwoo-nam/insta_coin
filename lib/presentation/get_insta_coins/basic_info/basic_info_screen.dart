@@ -31,6 +31,11 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
 
   @override
   void initState() {
+    Future.microtask(() async {
+      final viewModel = context.read<GetCoinViewModel>();
+      await viewModel.deleteUserInfo();
+    });
+
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         setState(() {

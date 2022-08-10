@@ -62,11 +62,6 @@ class _MediaScreenState extends State<MediaScreen> {
 
   @override
   void dispose() {
-    // print('dispose');
-    // for (int i = 0; i < channels.length; i++) {
-    //   _youtubeControllers[i].close();
-    // }
-    // print('dispose end');
     super.dispose();
   }
 

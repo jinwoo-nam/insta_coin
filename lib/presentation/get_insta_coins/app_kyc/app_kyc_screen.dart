@@ -19,18 +19,33 @@ class _AppKycScreenState extends State<AppKycScreen> {
 
   @override
   void initState() {
-    print('init');
     Future.microtask(() async {
-      print('app kyc init state');
       final viewModel = context.read<GetCoinViewModel>();
       await viewModel.getUserInfo();
+      if (viewModel.state.userEmail.isEmpty ||
+          viewModel.state.userEthereumAdress.isEmpty) {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: const Text('사용자 정보가 없습니다.'),
+            content: const Text('Email, Ethereum 주소가 없습니다.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/getInstaCoin/basicInfo');
+                } ,
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         setState(() {
           isScreenInit = true;
-          print('widget binding');
         });
       },
     );
@@ -46,7 +61,6 @@ class _AppKycScreenState extends State<AppKycScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     bool isMobileScreen = MediaQuery.of(context).size.width < 1100;
     final viewModel = context.watch<GetCoinViewModel>();
     final state = viewModel.state;
@@ -523,7 +537,9 @@ class _AppKycScreenState extends State<AppKycScreen> {
                                   builder: (isHover) {
                                     return Center(
                                       child: InkWell(
-                                        onTap: () {
+                                        onTap: () async {
+                                          await viewModel
+                                              .saveUserInfoToFireStore();
                                           Navigator.pushNamed(
                                               context, '/getInstaCoin/confirm');
                                         },
