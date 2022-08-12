@@ -69,8 +69,6 @@ class _MyAppState extends State<MyApp> {
               ));
         } else if (settings.name == '/papps') {
           return _createRoute(settings, PappsScreen());
-        } else if (settings.name == '/temp') {
-          return _createRoute(settings, TempScreen());
         } else if (settings.name == '/team') {
           return _createRoute(
               settings,
@@ -96,6 +94,8 @@ class _MyAppState extends State<MyApp> {
           return _createRoute(settings, AppKycScreen());
         } else if (settings.name == '/getInstaCoin/confirm') {
           return _createRoute(settings, ConfirmScreen());
+        } else if (settings.name == '/inc') {
+          return _createRoute(settings, TempScreen());
         } else {
           return MaterialPageRoute(builder: (_) => Container());
         }

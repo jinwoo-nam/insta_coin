@@ -66,13 +66,19 @@ class _TempScreenState extends State<TempScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
-                              'TEMP',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize:
-                                    (Responsive.isMobile(context)) ? 35 : 50,
-                                fontWeight: FontWeight.w700,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 50.0),
+                              child: Text(
+                                '인스타코인은 인스타페이 탈중앙화된 커머스의 결제수단입니다',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize:
+                                      (Responsive.isMobile(context)) ? 22 : 30,
+                                  fontWeight: FontWeight.w300,
+                                  height: 1.6,
+                                  color: Color.fromRGBO(0, 39, 91, 0.89),
+                                ),
                               ),
                             ),
                             if (!Responsive.isMobile(context))

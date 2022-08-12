@@ -164,40 +164,6 @@ class _OverlayMenuWidgetState extends State<OverlayMenuWidget>
                         ),
                         InkWell(
                           onTap: () {
-                            if (widget.type != PageSelectType.temp) {
-                              Navigator.pushNamed(context, '/temp');
-                            }
-                            widget.onTap();
-                          },
-                          child: OnHoverDetect(
-                            builder: (isHover) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width - 200,
-                                padding: const EdgeInsets.all(8),
-                                color: isHover
-                                    ? Colors.grey.withOpacity(0.2)
-                                    : null,
-                                child: Text(
-                                  'TEMP',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    height: 1.8,
-                                    color: isHover
-                                        ? Colors.black87.withOpacity(0.5)
-                                        : Colors.black87,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        const Divider(
-                          thickness: 1,
-                          height: 2,
-                        ),
-                        InkWell(
-                          onTap: () {
                             if (widget.type != PageSelectType.team) {
                               Navigator.pushNamed(context, '/team');
                             }
