@@ -19,7 +19,7 @@ class IncVerticalWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(
               top: 25.0,
-              bottom: 55,
+              bottom: 10,
             ),
             child: Text(
               data.content,

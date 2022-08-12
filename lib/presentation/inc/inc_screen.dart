@@ -58,24 +58,34 @@ class _IncScreenState extends State<IncScreen> {
                   SizedBox(
                     width: 1200,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 80.0,
-                        horizontal: (Responsive.isMobile(context)) ? 20 : 60,
-                      ),
+                      padding: (!Responsive.isMobile(context))
+                          ? EdgeInsets.symmetric(
+                              vertical: 80.0,
+                              horizontal:
+                                  (Responsive.isMobile(context)) ? 20 : 60,
+                            )
+                          : EdgeInsets.symmetric(
+                              vertical: 30.0,
+                              horizontal:
+                                  (Responsive.isMobile(context)) ? 20 : 60,
+                            ),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 50.0),
+                              padding: (!Responsive.isMobile(context))
+                                  ? const EdgeInsets.symmetric(vertical: 50.0)
+                                  : const EdgeInsets.only(
+                                      bottom: 20,
+                                    ),
                               child: Text(
                                 '인스타코인은 인스타페이 탈중앙화된 커머스의 결제수단입니다',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize:
                                       (Responsive.isMobile(context)) ? 22 : 30,
-                                  fontWeight: FontWeight.w300,
+                                  fontWeight: FontWeight.w700,
                                   height: 1.6,
                                   color: Color.fromRGBO(0, 39, 91, 0.89),
                                 ),

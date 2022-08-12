@@ -54,7 +54,10 @@ class IncHorizontalWidgetRight extends StatelessWidget {
                       data.content,
                       textAlign: TextAlign.start,
                       style: const TextStyle(
-                          fontSize: 20, color: Color.fromRGBO(0, 39, 91, 0.89)),
+                        fontSize: 20,
+                        color: Color.fromRGBO(0, 39, 91, 0.89),
+                        height: 1.7,
+                      ),
                     ),
                   ),
                 ],
@@ -98,7 +101,10 @@ class IncHorizontalWidgetLeft extends StatelessWidget {
                       data.content,
                       textAlign: TextAlign.end,
                       style: const TextStyle(
-                          fontSize: 20, color: Color.fromRGBO(0, 39, 91, 0.89)),
+                        fontSize: 20,
+                        color: Color.fromRGBO(0, 39, 91, 0.89),
+                        height: 1.7,
+                      ),
                     ),
                   ),
                 ],
