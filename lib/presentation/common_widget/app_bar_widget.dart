@@ -5,6 +5,7 @@ import 'package:insta_coin/responsive/responsive.dart';
 enum PageSelectType {
   home,
   papps,
+  temp,
   team,
   media,
   faq,
@@ -92,6 +93,22 @@ class _AppbarWidgetState extends State<AppbarWidget> {
                           'PAPPS',
                           style: TextStyle(
                               color: widget.type == PageSelectType.papps
+                                  ? Colors.black
+                                  : Colors.black45,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          if (widget.type != PageSelectType.temp) {
+                            Navigator.pushNamed(context, '/temp');
+                          }
+                        },
+                        child: Text(
+                          'TEMP',
+                          style: TextStyle(
+                              color: widget.type == PageSelectType.temp
                                   ? Colors.black
                                   : Colors.black45,
                               fontSize: 17,

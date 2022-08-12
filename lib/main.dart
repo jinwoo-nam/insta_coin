@@ -14,6 +14,7 @@ import 'package:insta_coin/presentation/media/components/insta_coin_columns_widg
 import 'package:insta_coin/presentation/media/media_screen.dart';
 import 'package:insta_coin/presentation/team/components/team_overlay_widget.dart';
 import 'package:insta_coin/presentation/team/team_screen.dart';
+import 'package:insta_coin/presentation/temp/temp_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -68,6 +69,8 @@ class _MyAppState extends State<MyApp> {
               ));
         } else if (settings.name == '/papps') {
           return _createRoute(settings, PappsScreen());
+        } else if (settings.name == '/temp') {
+          return _createRoute(settings, TempScreen());
         } else if (settings.name == '/team') {
           return _createRoute(
               settings,
