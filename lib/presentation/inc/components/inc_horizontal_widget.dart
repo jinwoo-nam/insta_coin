@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/model/temp/temp_data.dart';
+import 'package:insta_coin/domain/model/inc/inc_data.dart';
 
-class TempHorizontalWidgetRight extends StatelessWidget {
-  final TempData data;
+class IncHorizontalWidgetRight extends StatelessWidget {
+  final IncData data;
 
-  const TempHorizontalWidgetRight({
+  const IncHorizontalWidgetRight({
     required this.data,
     Key? key,
   }) : super(key: key);
@@ -67,10 +67,10 @@ class TempHorizontalWidgetRight extends StatelessWidget {
   }
 }
 
-class TempHorizontalWidgetLeft extends StatelessWidget {
-  final TempData data;
+class IncHorizontalWidgetLeft extends StatelessWidget {
+  final IncData data;
 
-  const TempHorizontalWidgetLeft({
+  const IncHorizontalWidgetLeft({
     Key? key,
     required this.data,
   }) : super(key: key);

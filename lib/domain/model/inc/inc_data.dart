@@ -1,14 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'temp_data.freezed.dart';
-part 'temp_data.g.dart';
+part 'inc_data.freezed.dart';
+part 'inc_data.g.dart';
 
 @freezed
-class TempData with _$TempData {
-  factory TempData({
+class IncData with _$IncData {
+  factory IncData({
     @Default('') String imageUrl,
     @Default('') String content,
     @Default(0) int index,
-  }) = _TempData;
-  factory TempData.fromJson(Map<String, dynamic> json) => _$TempDataFromJson(json);
+  }) = _IncData;
+  factory IncData.fromJson(Map<String, dynamic> json) => _$IncDataFromJson(json);
 }

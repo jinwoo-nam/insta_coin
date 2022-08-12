@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:insta_coin/domain/model/temp/temp_data.dart';
+import 'package:insta_coin/domain/model/inc/inc_data.dart';
 
-class TempVerticalWidget extends StatelessWidget {
-  final TempData data;
+class IncVerticalWidget extends StatelessWidget {
+  final IncData data;
 
-  const TempVerticalWidget({
+  const IncVerticalWidget({
     required this.data,
     Key? key,
   }) : super(key: key);

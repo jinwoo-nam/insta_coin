@@ -14,10 +14,10 @@ import 'package:insta_coin/presentation/media/components/insta_coin_columns_widg
 import 'package:insta_coin/presentation/media/media_screen.dart';
 import 'package:insta_coin/presentation/team/components/team_overlay_widget.dart';
 import 'package:insta_coin/presentation/team/team_screen.dart';
-import 'package:insta_coin/presentation/temp/temp_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'presentation/inc/inc_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
         } else if (settings.name == '/getInstaCoin/confirm') {
           return _createRoute(settings, ConfirmScreen());
         } else if (settings.name == '/inc') {
-          return _createRoute(settings, TempScreen());
+          return _createRoute(settings, IncScreen());
         } else {
           return MaterialPageRoute(builder: (_) => Container());
         }

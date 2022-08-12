@@ -5,10 +5,10 @@ import 'package:insta_coin/responsive/responsive.dart';
 enum PageSelectType {
   home,
   papps,
-  temp,
   team,
   media,
   faq,
+  etc,
 }
 
 class AppbarWidget extends StatefulWidget {

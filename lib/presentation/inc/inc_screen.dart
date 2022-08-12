@@ -4,22 +4,22 @@ import 'package:insta_coin/presentation/common_widget/app_bar_widget.dart';
 import 'package:insta_coin/presentation/common_widget/floating_action_button_widget.dart';
 import 'package:insta_coin/presentation/common_widget/footer_widget.dart';
 import 'package:insta_coin/presentation/common_widget/overlay_menu.dart';
-import 'package:insta_coin/presentation/temp/components/temp_horizontal_widget.dart';
-import 'package:insta_coin/presentation/temp/components/temp_vertical_widget.dart';
-import 'package:insta_coin/presentation/temp/temp_view_model.dart';
+import 'package:insta_coin/presentation/inc/components/inc_horizontal_widget.dart';
+import 'package:insta_coin/presentation/inc/components/inc_vertical_widget.dart';
+import 'package:insta_coin/presentation/inc/inc_view_model.dart';
 import 'package:insta_coin/responsive/responsive.dart';
 import 'package:provider/provider.dart';
 
-class TempScreen extends StatefulWidget {
-  const TempScreen({Key? key}) : super(key: key);
+class IncScreen extends StatefulWidget {
+  const IncScreen({Key? key}) : super(key: key);
 
   @override
-  State<TempScreen> createState() => _TempScreenState();
+  State<IncScreen> createState() => _IncScreenState();
 }
 
-class _TempScreenState extends State<TempScreen> {
+class _IncScreenState extends State<IncScreen> {
   final OverlayMenu menu = OverlayMenu(
-    type: PageSelectType.temp,
+    type: PageSelectType.etc,
   );
 
   @override
@@ -31,7 +31,7 @@ class _TempScreenState extends State<TempScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<TempViewModel>();
+    final viewModel = context.watch<IncViewModel>();
     final state = viewModel.state;
 
     return GestureDetector(
@@ -44,7 +44,7 @@ class _TempScreenState extends State<TempScreen> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(75),
           child: AppbarWidget(
-            type: PageSelectType.temp,
+            type: PageSelectType.etc,
             menu: menu,
           ),
         ),
@@ -82,20 +82,20 @@ class _TempScreenState extends State<TempScreen> {
                               ),
                             ),
                             if (!Responsive.isMobile(context))
-                              ...state.tempData.map((e) {
+                              ...state.incData.map((e) {
                                 if (e.index % 2 == 0) {
-                                  return TempHorizontalWidgetLeft(
+                                  return IncHorizontalWidgetLeft(
                                     data: e,
                                   );
                                 } else {
-                                  return TempHorizontalWidgetRight(
+                                  return IncHorizontalWidgetRight(
                                     data: e,
                                   );
                                 }
                               }).toList(),
                             if (Responsive.isMobile(context))
-                              ...state.tempData.map((e) {
-                                return TempVerticalWidget(
+                              ...state.incData.map((e) {
+                                return IncVerticalWidget(
                                   data: e,
                                 );
                               }).toList(),
@@ -116,7 +116,7 @@ class _TempScreenState extends State<TempScreen> {
 
   void _setCurScreenToAnalytics() async {
     await FirebaseAnalytics.instance.logEvent(
-      name: 'Temp_Screen_view',
+      name: 'Inc_Screen_view',
     );
   }
 }
