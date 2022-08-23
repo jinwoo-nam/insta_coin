@@ -26,6 +26,11 @@ class MediaDataSource {
 
 List<ArticleData> articleData = [
   ArticleData(
+    title: '“인스타코인, 프로비트에 상장... WBCF 11월 개최',
+    imageUrl: 'img/media/media_new01.png',
+    articleUrl: 'https://www.meconomynews.com/news/articleView.html?idxno=68875',
+  ),
+  ArticleData(
     title: '인스타코인, ‘판타스틱NFT로 영화제 기억하기’ 행사',
     imageUrl: 'img/media/media42.jpg',
     articleUrl: 'https://www.4th.kr/news/articleView.html?idxno=2020759',
@@ -34,11 +39,6 @@ List<ArticleData> articleData = [
     title: '인스타페이 “부천판타스틱국제영화제 후원”',
     imageUrl: 'img/media/media43.jpg',
     articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=2020347',
-  ),
-  ArticleData(
-    title: '“급등종목 알려줄게” 9년만에 유죄…美 ‘루나’ 수사 문건 단독 입수',
-    imageUrl: 'img/media/media01.jpg',
-    articleUrl: 'https://www.ytn.co.kr/_ln/0103_202206130841436556',
   ),
   ArticleData(
     title: '인스타코인, 여의도아카데미와 전략적 제휴-투자 유치',
@@ -173,7 +173,7 @@ List<ArticleData> articleData = [
     articleUrl: 'http://gametoc.hankyung.com/news/articleView.html?idxno=50286',
   ),
   ArticleData(
-    title: 'InstaPay CEO Jaekwang Bae holds the First Blockchain File Festival',
+    title: 'InstaPay CEO Jaekwang Bae holds the First Blockchain File Festival' ,
     imageUrl: 'img/media/media05.jpg',
     articleUrl:
         'https://www.edaily.co.kr/news/read?newsId=01462886619438192&mediaCodeNo=257&OutLnkChk=Y',
@@ -261,13 +261,6 @@ List<ArticleData> articleData = [
     articleUrl: 'https://www.etnews.com/20180910000095',
   ),
   ArticleData(
-    title:
-        'Jaekwang Bae discusses ‘Virtual currency and ICO Manual’ from legal standpoint: “ICO’s held abroad may still be applied Korean Capital Market Act”',
-    imageUrl: 'img/media/media26.jpg',
-    articleUrl:
-        'https://www.edaily.co.kr/news/read?newsId=01187366619338480&mediaCodeNo=257&OutLnkChk=Y',
-  ),
-  ArticleData(
     title: 'InstaPay joins ‘Seoul Pay’',
     imageUrl: 'img/media/media29.jpg',
     articleUrl: 'http://www.newsprime.co.kr/news/article/?no=426302',
@@ -282,7 +275,7 @@ List<ArticleData> articleData = [
     title:
         'Jaekwang Bae discusses ‘Virtual currency and ICO Manual’ from legal standpoint: “ICO’s held abroad may still be applied Korean Capital Market Act”',
     imageUrl: 'img/media/media31.jpg',
-    articleUrl: '',
+    articleUrl: 'http://gametoc.hankyung.com/news/articleView.html?idxno=48307',
   ),
   ArticleData(
     title:
@@ -305,7 +298,7 @@ List<ArticleData> articleData = [
     title:
         '[BizFocus] ‘Instacoin Blockchain Platform’ built, now aims at MasterCard and VISA',
     imageUrl: 'img/media/media35.jpg',
-    articleUrl: 'http://gametoc.hankyung.com/news/articleView.html?idxno=48307',
+    articleUrl: 'https://www.donga.com/news/Economy/article/all/20180618/90635271/1',
   ),
   ArticleData(
     title: '국내 최초 ‘블록체인 영화제’ 개최한 배재광 인스타페이 대표',

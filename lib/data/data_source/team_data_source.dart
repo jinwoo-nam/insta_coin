@@ -130,7 +130,7 @@ List<TeamData> newAdvisor = [
     index: 2,
   ),
   TeamData(
-    name: 'Hyungjeong Kim',
+    name: 'Hyunjeong Kim',
     desc: [
       'Representative of Shining Empire',
       'Producer, Shim Entertainment',

@@ -106,7 +106,7 @@ class RoadmapWidget extends StatelessWidget {
                             direction: MonthMessageDirection.right,
                             title: 'Initial Funding Raised',
                             description:
-                            'Korea Venture Investment Corp, Han Kook Capital Co., Ltd., founder of T-Mon, etc.',
+                            'Korea Venture Investment Corp, Han Kook Capital Co., Ltd., Founder of T-Mon, etc.',
                           ),
                           downPadding: 60,
                         ),
@@ -126,7 +126,7 @@ class RoadmapWidget extends StatelessWidget {
                             title:
                             'Registered As Electronic Financial Business Operator',
                             description:
-                            'registered at Korea’s Financial Services Commission',
+                            'Registered at Korea’s Financial Services Commission',
                           ),
                           downPadding: 60,
                         ),
@@ -154,7 +154,7 @@ class RoadmapWidget extends StatelessWidget {
                             title:
                             'Selected As A Top Innovator At Citi Mobile Challenge',
                             description:
-                            'one of the 15 winners among 1900 participants from 176 cities',
+                            'One of the 15 winners among 1900 participants from 176 cities',
                           ),
                           downPadding: 80,
                         ),
@@ -209,7 +209,7 @@ class RoadmapWidget extends StatelessWidget {
                             direction: MonthMessageDirection.left,
                             title:
                             'MBPP / O2O Commerce Platform Application Release',
-                            description: 'InstaCoin issued',
+                            description: 'InstaCoin has been issued',
                           ),
                           downPadding: 80,
                         ),
@@ -271,7 +271,7 @@ class RoadmapWidget extends StatelessWidget {
                           MonthData(
                             month: 'Aug',
                             direction: MonthMessageDirection.left,
-                            title: 'Operating System Complete',
+                            title: 'Development of Operating System is completed',
                             description: '',
                           ),
                           downPadding: 45,
@@ -367,7 +367,7 @@ class RoadmapWidget extends StatelessWidget {
                             direction: MonthMessageDirection.right,
                             title: 'Initial Funding Raised',
                             description:
-                            'Korea Venture Investment Corp, Han Kook Capital Co., Ltd., founder of T-Mon, etc.',
+                            'Korea Venture Investment Corp, Han Kook Capital Co., Ltd., Founder of T-Mon, etc.',
                           ),
                           isDesktop: false,
                           downPadding: 40,
@@ -388,7 +388,7 @@ class RoadmapWidget extends StatelessWidget {
                             title:
                             'Registered As Electronic Financial Business Operator',
                             description:
-                            'registered at Korea’s Financial Services Commission',
+                            'Registered at Korea’s Financial Services Commission',
                           ),
                           isDesktop: false,
                           downPadding: 40,
@@ -418,7 +418,7 @@ class RoadmapWidget extends StatelessWidget {
                             title:
                             'Selected As A Top Innovator At Citi Mobile Challenge',
                             description:
-                            'one of the 15 winners among 1900 participants from 176 cities',
+                            'One of the 15 winners among 1900 participants from 176 cities',
                           ),
                           isDesktop: false,
                           downPadding: 40,
@@ -477,7 +477,7 @@ class RoadmapWidget extends StatelessWidget {
                             direction: MonthMessageDirection.right,
                             title:
                             'MBPP / O2O Commerce Platform Application Release',
-                            description: 'InstaCoin issued',
+                            description: 'InstaCoin has been issued',
                           ),
                           isDesktop: false,
                           downPadding: 40,
@@ -542,7 +542,7 @@ class RoadmapWidget extends StatelessWidget {
                           MonthData(
                             month: 'Aug',
                             direction: MonthMessageDirection.right,
-                            title: 'Operating System Complete',
+                            title: 'Development of Operating System is completed',
                             description: '',
                           ),
                           isDesktop: false,

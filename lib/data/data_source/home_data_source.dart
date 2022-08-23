@@ -54,7 +54,7 @@ List<PappsData> pappsData = [
   PappsData(
     imageUrl: 'img/main/etrade.png',
     title: 'Worldwide e-Trade',
-    content: 'In long term, Instacoin envisions to build decentralized multilateral payment system and crypto-economy ecosystem, which will reduce intermediaries fees, prevent fraud, and enable transparent delivery.',
+    content: 'In long term, Instacoin envisions to build decentralized multilateral payment system and crypto-economy ecosystem, which will reduce intermediaries fees, prevent fraud, and enable transparent delivery.\n\n',
     index: 3,
   ),
   PappsData(
@@ -66,7 +66,7 @@ List<PappsData> pappsData = [
   PappsData(
     imageUrl: 'img/main/reward.png',
     title: 'Reward & Donation',
-    content: 'InstaCoin will foster a decentralized donation platform that enhances transparency of the exact usage of the donation. Beneficial behaviors to the public can be rewarded with InstaCoin in the same way.',
+    content: 'InstaCoin will foster a decentralized donation platform that enhances transparency of the exact usage of the donation. Beneficial behaviors to the public can be rewarded with InstaCoin in the same way.\n\n',
     index: 5,
   ),
 ];

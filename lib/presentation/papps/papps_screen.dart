@@ -90,7 +90,7 @@ class _PappsScreenState extends State<PappsScreen> {
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 50.0),
                               child: Text(
-                                'As payment coin, InstaCoin can be applied beyond its existing ecosystem with our liquidity provider system. InstaCoin’s PApps can be distinguished into two categories: 1) InstaPay’s payment partners and 2) projects that will issue tokens through InstaCoin’s Blockchain main net.',
+                                'As payment coin, InstaCoin can be applied beyond its existing ecosystem with our liquidity provider system. InstaCoin’s PApps can be distinguished into two categories: 1) InstaPay’s payment partners and 2) Projects that will issue tokens through InstaCoin’s Blockchain main net.',
                                 style: TextStyle(
                                     fontSize:
                                         (Responsive.isMobile(context)) ? 18 : 22,

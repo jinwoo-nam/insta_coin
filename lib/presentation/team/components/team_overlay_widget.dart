@@ -96,7 +96,7 @@ class _TeamOverlayWidgetState extends State<TeamOverlayWidget> {
                                   InkWell(
                                     onTap: () {
                                       launchURL(
-                                          'https://www.instacoins.io/wp-content/uploads/2018/08/Jaekwang-Bae-ProfileKOR.pdf');
+                                          'https://instacoin.s3.ap-northeast-2.amazonaws.com/Jaekwang-Bae-ProfileKOR.pdf');
                                     },
                                     child: Text(
                                       'here.',
