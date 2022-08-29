@@ -28,7 +28,8 @@ List<ArticleData> articleData = [
   ArticleData(
     title: '“인스타코인, 프로비트에 상장... WBCF 11월 개최',
     imageUrl: 'img/media/media_new01.png',
-    articleUrl: 'https://www.meconomynews.com/news/articleView.html?idxno=68875',
+    articleUrl:
+        'https://www.meconomynews.com/news/articleView.html?idxno=68875',
   ),
   ArticleData(
     title: '인스타코인, ‘판타스틱NFT로 영화제 기억하기’ 행사',
@@ -173,7 +174,7 @@ List<ArticleData> articleData = [
     articleUrl: 'http://gametoc.hankyung.com/news/articleView.html?idxno=50286',
   ),
   ArticleData(
-    title: 'InstaPay CEO Jaekwang Bae holds the First Blockchain File Festival' ,
+    title: 'InstaPay CEO Jaekwang Bae holds the First Blockchain File Festival',
     imageUrl: 'img/media/media05.jpg',
     articleUrl:
         'https://www.edaily.co.kr/news/read?newsId=01462886619438192&mediaCodeNo=257&OutLnkChk=Y',
@@ -298,7 +299,8 @@ List<ArticleData> articleData = [
     title:
         '[BizFocus] ‘Instacoin Blockchain Platform’ built, now aims at MasterCard and VISA',
     imageUrl: 'img/media/media35.jpg',
-    articleUrl: 'https://www.donga.com/news/Economy/article/all/20180618/90635271/1',
+    articleUrl:
+        'https://www.donga.com/news/Economy/article/all/20180618/90635271/1',
   ),
   ArticleData(
     title: '국내 최초 ‘블록체인 영화제’ 개최한 배재광 인스타페이 대표',
@@ -434,7 +436,8 @@ List<EventsData> eventsData = [
       'img/media/event_amble.jpg',
       'img/media/event_cypto.jpg',
     ],
-    articleUrl: 'https://onoffmix.com/event/145925',
+    //articleUrl: 'https://onoffmix.com/event/145925',
+    articleUrl: 'https://m.blog.naver.com/ttol312/221319923456',
   ),
   EventsData(
     title: 'World Blockchain Forum',
@@ -474,7 +477,8 @@ List<EventsData> eventsData = [
     logos: [
       'img/media/event_instacoin.jpg',
     ],
-    articleUrl: 'https://www.getnews.co.kr/news/articleView.html?idxno=77219',
+    //articleUrl: 'https://www.getnews.co.kr/news/articleView.html?idxno=77219',
+    articleUrl: 'https://www.digitaltoday.co.kr/news/articleView.html?idxno=300565',
   ),
   EventsData(
     title: 'Cryptocurrency and ICO Seminar',
@@ -906,12 +910,13 @@ List<ColumnData> instaCoinColumn = [
   ColumnData(
     title: '[혁신생태계 긴급분석(2)] 금감원 ICO실태조사 결과발표와 IEO유감',
     date: '02/11/2019',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=8687',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=281608',
   ),
   ColumnData(
     title: '[혁신생태계 긴급분석⑴] 블록체인④ “금감원 ICO 실태점검의 문제점과 ICO 실태점검 질문서 수정안 배포”',
     date: '09/27/2018',
-    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=6096',
+    //articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=6096',
+    articleUrl: 'http://www.4th.kr/news/articleView.html?idxno=285770',
   ),
   ColumnData(
     title: '[기고] 지역페이 성공, 법제도적 걸림돌부터 제거해야',
