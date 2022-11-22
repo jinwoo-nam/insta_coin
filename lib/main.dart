@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'InstaCoin',
+      title: 'Pay Without Barriers - InstaCoin (INC):인스타코인',
       initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.blue,

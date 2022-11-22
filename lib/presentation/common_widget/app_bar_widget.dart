@@ -69,20 +69,21 @@ class _AppbarWidgetState extends State<AppbarWidget> {
                   Row(
                     children: [
                       TextButton(
-                          onPressed: () {
-                            if (widget.type != PageSelectType.home) {
-                              Navigator.pushNamed(context, '/');
-                            }
-                          },
-                          child: Text(
-                            'HOME',
-                            style: TextStyle(
-                                color: widget.type == PageSelectType.home
-                                    ? Colors.black
-                                    : Colors.black45,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600),
-                          )),
+                        onPressed: () {
+                          if (widget.type != PageSelectType.home) {
+                            Navigator.pushNamed(context, '/');
+                          }
+                        },
+                        child: Text(
+                          'HOME',
+                          style: TextStyle(
+                              color: widget.type == PageSelectType.home
+                                  ? Colors.black
+                                  : Colors.black45,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
                       TextButton(
                         onPressed: () {
                           if (widget.type != PageSelectType.papps) {

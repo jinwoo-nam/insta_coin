@@ -5,7 +5,10 @@
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="Insta coin">
+    <meta name="description"
+          content="Insta coin (INC) is a blockchain based payment platform !">
+    <meta name="keywords" content="인스타 코인, 인스타코인, InstaCoin, Insta Coin,INC,Instapay"/>
+    <meta name="author" content="Instapay" />
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,15 +25,18 @@
     <meta property="og:description"
           content="InstaCoin (INC) is a blockchain based payment platform !"/>
 
+
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="favicon.ico"/>
 
-    <title>insta_coin</title>
+    <title>Pay Without Barriers - InstaCoin (INC):인스타코인</title>
     <link rel="manifest" href="manifest.json">
 
-  <script>
+
+    <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
+
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
@@ -59,9 +65,16 @@
 </head>
 <body style="overflow: hidden" bgcolor="#fff">
 <div id="loading_indicator" class="container">
-    <img class="indicator"  src="./asset/instaCoin_logo.png"/>
-    <img class="indicator2"  src="./asset/loading.gif"/>
+    <img class="indicator" src="./asset/instaCoin_logo.png"/>
+    <img class="indicator2" src="./asset/loading.gif"/>
 </div>
+
+<script>
+    const regExp = new RegExp("bot|google|baidu|bing|msn|teoma|slurp|yandex", "i");
+    if (regExp.test(navigator.userAgent)) {
+      window.flutterWebRenderer = "html";
+    }
+</script>
 
 <script>
     window.addEventListener('load', function(ev) {
