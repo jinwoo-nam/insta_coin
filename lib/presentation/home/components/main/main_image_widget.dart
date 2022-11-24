@@ -214,9 +214,17 @@ class MainImageWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'img/main/main_phone.png',
-                      scale: 1.4,
+                    (MediaQuery.of(context).size.width < 576)
+                        ? Image.asset(
+                            'img/main/main_phone.png',
+                            scale: 1.6,
+                          )
+                        : Image.asset(
+                            'img/main/main_phone.png',
+                            scale: 1.4,
+                          ),
+                    SizedBox(
+                      height: 30,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -226,7 +234,7 @@ class MainImageWidget extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 40,
+                            fontSize: 35,
                             fontWeight: FontWeight.w700,
                             height: 1.4,
                           ),
@@ -240,7 +248,7 @@ class MainImageWidget extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 35,
+                          height: 30,
                         ),
                         const Text(
                           'The easiest way to buy digital assets!',
@@ -248,7 +256,7 @@ class MainImageWidget extends StatelessWidget {
                           style: TextStyle(
                             color: Color(0xffa9f9e9),
                             fontWeight: FontWeight.w600,
-                            fontSize: 30,
+                            fontSize: 27,
                           ),
                         ),
                         const SizedBox(
@@ -261,7 +269,8 @@ class MainImageWidget extends StatelessWidget {
                             );
                             //launchURL('http://get.instacoins.io/basicInfo');
                             //launchURL('#/getInstaCoin/basicInfo');
-                            launchURL('https://ex.instacoins.io/exchange-react/');
+                            launchURL(
+                                'https://ex.instacoins.io/exchange-react/');
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -272,7 +281,8 @@ class MainImageWidget extends StatelessWidget {
                             ),
                             child: const Text(
                               'BUY COINS',
-                              style: TextStyle(color: Colors.white, fontSize: 25),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25),
                             ),
                           ),
                         ),
