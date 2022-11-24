@@ -12,7 +12,7 @@ class MainImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final length = max(
         MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
-    final double mainPageHeight = (Responsive.isMobile(context)) ? 1200 : 700;
+    final double mainPageHeight = (Responsive.isMobile(context)) ? 900 : 700;
 
     return Stack(
       children: [
@@ -92,7 +92,7 @@ class MainImageWidget extends StatelessWidget {
                             height: 60,
                           ),
                           const Text(
-                            'Application for Listing\nComing Soon!',
+                            'The easiest way to buy digital assets!',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xffa9f9e9),
@@ -108,7 +108,9 @@ class MainImageWidget extends StatelessWidget {
                               await FirebaseAnalytics.instance.logEvent(
                                 name: 'Click_BUYINC',
                               );
-                              launchURL('#/getInstaCoin/basicInfo');
+                              //launchURL('#/getInstaCoin/basicInfo');
+                              launchURL(
+                                  'https://ex.instacoins.io/exchange-react/');
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
@@ -118,7 +120,7 @@ class MainImageWidget extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               child: const Text(
-                                'BUY INC',
+                                'BUY COINS',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 25),
                               ),
@@ -206,140 +208,147 @@ class MainImageWidget extends StatelessWidget {
           Positioned.fill(
             child: Align(
               alignment: Alignment.center,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset('img/main/main_phone.png'),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Pay Without Barriers',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 48,
-                          fontWeight: FontWeight.w700,
-                          height: 1.4,
-                        ),
-                      ),
-                      const Text(
-                        'Simple and secure payment with cash and coin integration',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      const Text(
-                        'Application for Listing\nComing Soon!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xffa9f9e9),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 35,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          await FirebaseAnalytics.instance.logEvent(
-                            name: 'Click_BUYINC',
-                          );
-                          //launchURL('http://get.instacoins.io/basicInfo');
-                          launchURL('#/getInstaCoin/basicInfo');
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 70),
-                          decoration: BoxDecoration(
-                            color: const Color(0xff263b4f),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: const Text(
-                            'BUY INC',
-                            style: TextStyle(color: Colors.white, fontSize: 25),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'img/main/main_phone.png',
+                      scale: 1.4,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Pay Without Barriers',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w700,
+                            height: 1.4,
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            onTap: () async {
-                              await FirebaseAnalytics.instance.logEvent(
-                                name: 'Click_WhitePaper(KOR)',
-                              );
-
-                              launchURL(
-                                  'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 15),
-                              decoration: BoxDecoration(
-                                color: const Color(0xff4ac1c2),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: const Text(
-                                'White Paper(KOR)',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 17),
-                              ),
+                        const Text(
+                          'Simple and secure payment with cash and coin integration',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        const Text(
+                          'The easiest way to buy digital assets!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xffa9f9e9),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        InkWell(
+                          onTap: () async {
+                            await FirebaseAnalytics.instance.logEvent(
+                              name: 'Click_BUYINC',
+                            );
+                            //launchURL('http://get.instacoins.io/basicInfo');
+                            //launchURL('#/getInstaCoin/basicInfo');
+                            launchURL('https://ex.instacoins.io/exchange-react/');
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 70),
+                            decoration: BoxDecoration(
+                              color: const Color(0xff263b4f),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: const Text(
+                              'BUY COINS',
+                              style: TextStyle(color: Colors.white, fontSize: 25),
                             ),
                           ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              await FirebaseAnalytics.instance.logEvent(
-                                name: 'Click_WhitePaper(ENG)',
-                              );
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () async {
+                                await FirebaseAnalytics.instance.logEvent(
+                                  name: 'Click_WhitePaper(KOR)',
+                                );
 
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                        title: Text('Coming soon'),
-                                        content: Text('준비 중입니다.'),
-                                        actions: [
-                                          TextButton(
-                                              onPressed: () =>
-                                                  Navigator.of(context).pop(),
-                                              child: Text('OK'))
-                                        ],
-                                      ));
-                              // launchURL(
-                              //     'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 15),
-                              decoration: BoxDecoration(
-                                color: const Color(0xffedb057),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: const Text(
-                                'White Paper(ENG)',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 17),
+                                launchURL(
+                                    'https://instacoin.s3.ap-northeast-2.amazonaws.com/INSTACOIN_WhitePaper_v2.0_KR.pdf');
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8, horizontal: 15),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff4ac1c2),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Text(
+                                  'White Paper(KOR)',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 17),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                await FirebaseAnalytics.instance.logEvent(
+                                  name: 'Click_WhitePaper(ENG)',
+                                );
+
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                          title: Text('Coming soon'),
+                                          content: Text('준비 중입니다.'),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () =>
+                                                    Navigator.of(context).pop(),
+                                                child: Text('OK'))
+                                          ],
+                                        ));
+                                // launchURL(
+                                //     'https://s3.ap-northeast-2.amazonaws.com/instacoins.io/doc/White+Paper_INSTACOIN(en)_v1.pdf');
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8, horizontal: 15),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xffedb057),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Text(
+                                  'White Paper(ENG)',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 17),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
